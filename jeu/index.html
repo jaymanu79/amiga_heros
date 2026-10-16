@@ -334,7 +334,8 @@ function dessinerPage(nom, v, valides, panneau) {
   }
   if (lignes.length) {
     let a = 1e9, z = 0; for (const [col, , segs] of lignes) { const n = segs.reduce((q, t) => q + t[1].length, 0); if (!n) continue; a = Math.min(a, col); z = Math.max(z, col + n); }
-    vue = { x0: Math.max(0, a * 8 - 24), w: Math.max(300, Math.min(608, z * 8 + 24) - Math.max(0, a * 8 - 24)) };
+    const w = Math.min(608, Math.max(376, (z - a) * 8 + 32)), c = (a + z) * 4;   // largeur mini fixe : même taille de texte d'une page à l'autre, en FR comme en EN
+    vue = { x0: Math.max(0, Math.min(608 - w, c - w / 2)), w };
   } else vue = { x0: 0, w: 608 };
   if (mobile()) mettreEchelle();
   groupes = groupes.filter(x => valides.includes(x.k));
