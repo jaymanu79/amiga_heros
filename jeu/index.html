@@ -229,7 +229,8 @@ window.HerosMoteur = { SC, IDX, nouvelEtat, choisir, choixValides, LAB };
 const Son = {
   actif: store.get('heros_son', '1') === '1', liste: null, a: null, b: null,
   jouer(n) {
-    if (!this.actif) { this.demande = n; return; }
+    this.demande = n;
+    if (!this.actif) return;
     if (n === this.liste) return;
     this.arreter(); this.liste = n;
     const L = D.lists[n], a = new Audio(`snd/l${n}a.ogg`);
