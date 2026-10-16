@@ -431,7 +431,8 @@ function majHUD(st) {
 
 /* ------------------------------------------------------ sauvegardes, triche */
 const dlg = $('dlg');
-function fermerDlg() { if (dlg.open) dlg.close(); }
+dlg.addEventListener('close', () => { delete dlg.dataset.k; });
+function fermerDlg() { if (dlg.open) dlg.close(); delete dlg.dataset.k; }
 function resumeSlot(n) {
   try { const h = JSON.parse(store.get('heros_slot' + n, 'null')).historique; const e = h[h.length - 1]; return fmt(tr('sceneW'), LAB[e.sc], e.vie, e.or); } catch (e) { return tr('empty'); }
 }
@@ -478,7 +479,7 @@ function dlgTriche() {
 /* -------------------------------------------------------------- clavier */
 const CHIFFRES = { '&': 1, 'é': 2, '"': 3, "'": 4, '(': 5, 'É': 2 };
 document.addEventListener('keydown', ev => {
-  if (dlg.open) return;
+  if (dlg.open) { if (dlg.dataset.k === 'carte' && /^[mM]$/.test(ev.key)) { ev.preventDefault(); fermerDlg(); } return; }
   if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
   Son.jouer(Son.demande ?? Son.liste ?? D.intro);          // premier geste : débloque l'audio
   const k = ev.key;
@@ -520,7 +521,7 @@ function dlgCarte() {
     dlg.querySelector('#mcl').onclick = fermerDlg;
     dlg.querySelector('#mpg').onclick = () => { page = 3 - page; draw(); };
   };
-  draw(); dlg.showModal();
+  dlg.dataset.k = 'carte'; draw(); dlg.showModal();
 }
 function montrerTitreDepuisFin() { introN = 0; suiteIntro(); }
 function basculerSon() { message(Son.bascule() ? tr('soundon') : tr('soundoff')); }
