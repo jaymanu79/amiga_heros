@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HEROS - Amiga 1994 (version navigateur)</title>
+<style>
+:root{--bg:#120c08;--panel:#1a120c;--clair:#f0d9a8;--or:#ffd070;--bord:#5a4126;--btn:#3a2a1a;--btnh:#5a4126;--ui:1}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--clair);font-family:system-ui,Segoe UI,Roboto,sans-serif;overflow:hidden}
+#app{display:flex;height:100vh;height:100dvh;width:100%}
+#colText{flex:1 1 auto;min-width:0;overflow:auto;background:#000;position:relative;display:flex;flex-direction:column;align-items:flex-start}
+#colUi{flex:0 0 auto;width:360px;min-width:200px;background:var(--panel);overflow-y:auto;padding:calc(10px*var(--ui));font-size:calc(15px*var(--ui));border-left:2px solid var(--bord)}
+#split{flex:0 0 7px;cursor:col-resize;background:var(--bord);touch-action:none}
+#split:hover,#split.on{background:#9a7240}
+#stage{position:relative;overflow:hidden;background:#000;margin:0 auto;flex:0 0 auto}
+#decor{position:absolute;inset:0;background-size:100% auto;background-repeat:no-repeat;image-rendering:pixelated}
+#scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#9a7240 #2a1c10}
+#page{position:relative;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated}
+.ln{position:absolute;white-space:pre;letter-spacing:var(--ls,0);font-family:"DejaVu Sans Mono","Cascadia Mono",Consolas,Menlo,"Liberation Mono",monospace;line-height:1;height:var(--lh)}
+.ln b{font-weight:700}
+.ln.g{cursor:pointer}
+.ln.g.hot,.ln.g.hot b{color:#ffe27a!important}
+#panneau{position:absolute;border:3px solid}
+#titre{position:absolute;inset:0;background:#000;display:none;align-items:center;justify-content:center}
+#titre img{max-width:100%;max-height:100%;image-rendering:pixelated}
+#titre span{position:absolute;bottom:3%;left:0;right:0;text-align:center;color:#ffe9b0;font-weight:700;text-shadow:1px 1px #000;font-size:calc(var(--lh)*1.2)}
+#msg{min-height:1.6em;padding:4px 8px;color:var(--or);font-size:calc(14px*var(--ui));background:var(--panel);width:100%;position:sticky;bottom:0;border-top:1px solid var(--bord)}
+h2{margin:.2em 0 .4em;font-size:1em;color:var(--or);letter-spacing:.05em}
+.sec{margin-bottom:calc(12px*var(--ui))}
+#objs{display:grid;grid-template-columns:repeat(8,1fr);gap:3px}
+.ico{aspect-ratio:16/17;background:url(img/icons.png) no-repeat;image-rendering:pixelated;opacity:.28}
+.ico.on{opacity:1}
+#hearts{display:grid;grid-template-columns:repeat(16,1fr);gap:1px;font-size:calc(14px*var(--ui));line-height:1}
+#hearts i{font-style:normal;color:#3a2a2a;text-align:center}
+#hearts i.on{color:#e03030}
+#gold{display:flex;gap:6px;align-items:center}
+#gold i{width:1.1em;height:1.1em;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff0a0,#d09a10 60%,#6a4a00);display:inline-block}
+#hdr{display:flex;gap:6px;margin-bottom:8px}#hdr a{color:var(--or);text-decoration:none;border:1px solid var(--bord);padding:2px 8px;border-radius:4px;font-size:.9em}
+.map{display:grid;gap:3px;margin:.4em 0}.mz{background:#2a1c10;border:1px solid var(--bord);padding:.25em .4em;text-align:center;font-size:.85em;border-radius:3px}.mz.here{background:#b03030;color:#fff;border-color:#ffd070}
+.rose{margin:.3em 0;font-family:monospace;color:var(--or);line-height:1.1}
+button{font:inherit;color:var(--clair);background:var(--btn);border:1px solid var(--bord);border-radius:6px;padding:.35em .7em;cursor:pointer}
+button:hover:not(:disabled){background:var(--btnh)}
+button:disabled{opacity:.4;cursor:default}
+#choix button{display:block;width:100%;text-align:left;margin:0 0 5px;padding:.5em .7em;line-height:1.3}
+#choix button b{color:var(--or);margin-right:.4em}
+#cmds{display:flex;flex-wrap:wrap;gap:5px}
+#cmds button{flex:1 0 auto}
+.zm{display:flex;gap:5px;align-items:center;margin:4px 0}
+.zm span{flex:1}
+dialog{background:var(--panel);color:var(--clair);border:2px solid var(--bord);border-radius:10px;max-width:min(560px,94vw);font-size:calc(15px*var(--ui))}
+dialog::backdrop{background:#000a}
+dialog h3{margin:.1em 0 .6em;color:var(--or)}
+.sl{display:flex;gap:6px;margin:5px 0}.sl button{flex:1;text-align:left}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+select,input[type=number],input[type=text]{font:inherit;background:#2a1c10;color:var(--clair);border:1px solid var(--bord);border-radius:5px;padding:.25em .4em}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px}
+.fin{color:var(--or);font-weight:700;margin:.4em 0}
+@media (max-width:760px){#app{flex-direction:column}#colUi{width:100%!important;max-height:46vh;border-left:0;border-top:2px solid var(--bord)}#split{display:none}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="colText"><div id="stage"><div id="decor"></div><div id="scroll"><div id="page"></div></div><div id="titre"><img id="titreImg" src="img/titre.png" alt=""><span id="titreTxt"></span></div></div><div id="msg"></div></div>
+  <div id="split" title="drag"></div>
+  <div id="colUi">
+    <div id="hdr"><a href="../" id="home"></a></div>
+    <div class="sec"><h2 id="hObj"></h2><div id="objs"></div></div>
+    <div class="sec"><h2 id="hVie"></h2><div id="hearts"></div></div>
+    <div class="sec"><h2 id="hOr"></h2><div id="gold"></div></div>
+    <div class="sec"><h2 id="hChoix"></h2><div id="choix"></div></div>
+    <div class="sec"><h2 id="hCmd"></h2><div id="cmds"></div></div>
+    <div class="sec"><h2 id="hZoom"></h2>
+      <div class="zm"><span id="zT"></span><button id="tm">A-</button><button id="tp">A+</button><button id="tf">=</button></div>
+      <div class="zm"><span id="zU"></span><button id="um">A-</button><button id="up">A+</button><button id="uf">=</button></div>
+      <div class="zm"><span id="zL"></span><button id="lang"></button><button id="full"></button></div>
+    </div>
+    <div class="sec" style="font-size:.8em;opacity:.7" id="credit"></div>
+  </div>
+</div>
+
+<dialog id="dlg"></dialog>
+<script src="data.js"></script>
+<script>
+"use strict";
+/* ============================ HEROS - version navigateur ============================
+   Le moteur (flags, routines, vie) et le decodage de DataHeros sont des portages du
+   programme Python heros_jeu.py ; les textes viennent des vrais fichiers DataHeros. */
+const D = window.HEROS, SC = D.logic.scenes, RT = D.logic.routines, LAB = D.lab, VIS = D.vis;
+RT['1bc06'] = [['toujours', 'CODE_FINAL', SC.findIndex(s => s.nom === 'TT39')]];
+const IDX = {}; SC.forEach((s, i) => { if (!(s.nom in IDX)) IDX[s.nom] = i; });
+const VIE_MAX = 32, VIE_DEPART = 28, NSLOTS = 4;
+const MAP = {"z1": [{"k": "village", "l": "Villa", "r": 0, "c": 3}, {"k": "falaise", "l": "Falai", "r": 1, "c": 3}, {"k": "bergen", "l": "RivNo", "r": 1, "c": 2}, {"k": "berge", "l": "Berge", "r": 2, "c": 2}, {"k": "voleur", "l": "Voleu", "r": 2, "c": 3}, {"k": "plateau", "l": "Scorp", "r": 2, "c": 4}, {"k": "dragon", "l": "Dragn", "r": 2, "c": 5}, {"k": "orques", "l": "Orque", "r": 3, "c": 2}, {"k": "carref", "l": "Carrf", "r": 3, "c": 3}, {"k": "mort", "l": "HMort", "r": 3, "c": 4}, {"k": "marais", "l": "Marai", "r": 4, "c": 2}, {"k": "etang", "l": "Etang", "r": 4, "c": 3}, {"k": "tronc", "l": "Tronc", "r": 4, "c": 4}, {"k": "bassin", "l": "Bassn", "r": 4, "c": 5}, {"k": "pont", "l": "Pont", "r": 4, "c": 1}, {"k": "ile", "l": "Ile", "r": 4, "c": 0}, {"k": "geant", "l": "Geant", "r": 5, "c": 2}, {"k": "sables", "l": "Sable", "r": 5, "c": 1}, {"k": "foret", "l": "ForSd", "r": 5, "c": 3}, {"k": "collines", "l": "Colli", "r": 6, "c": 2}, {"k": "louve", "l": "Louve", "r": 6, "c": 3}, {"k": "bataille", "l": "Batai", "r": 7, "c": 2}, {"k": "pierres", "l": "Pierr", "r": 8, "c": 2}, {"k": "hall", "l": "Hall", "r": 9, "c": 2}, {"k": "temple", "l": "Templ", "r": 10, "c": 2}], "z2": [{"k": "chute", "l": "Chute", "le": "Fall", "r": 2, "c": 0}, {"k": "fresque", "l": "Fresque", "le": "Fresco", "r": 2, "c": 1}, {"k": "eboulis", "l": "Eboulis", "le": "Rubble", "r": 2, "c": 2}, {"k": "escalier", "l": "Escalier", "le": "Stairs", "r": 4, "c": 0}, {"k": "secret", "l": "Secret", "le": "Secret", "r": 4, "c": 1}, {"k": "galerie", "l": "Galerie", "le": "Gallery", "r": 4, "c": 2}], "sc": {"TC1": 0, "TC2": 0, "TC3": 0, "TC4": 0, "TC5": 0, "TC6": 0, "TL1": 0, "TL2": 0, "TL3": 0, "TL4": 0, "TL5": 0, "TL6": 0, "TL7": 0, "TL8": 0, "TL9": 0, "TL10": 0, "TL11": 0, "TL12": 0, "TL13": 0, "TL14": 0, "TL15": 0, "TL16": 0, "TL17": 0, "TL18": 0, "TL19": 0, "TL20": 0, "TL21": 0, "TL22": 0, "TL23": 0, "TL24": 0, "TL25": 0, "TL26": 0, "TL27": 0, "TL28": 0, "TL29": 0, "TL30": 0, "TL34": 0, "TL35": 0, "TL36": 0, "TL37": 0, "TL38": 0, "L28a": 0, "L29a": 0, "L29b": 0, "L29c": 0, "L34a": 0, "TM1": 1, "TM2": 1, "TM3": 1, "TM26": 2, "TM12": 3, "TM13": 3, "TM27": 3, "TM4": 4, "TM5": 4, "TM6": 4, "TM7": 4, "TM8": 4, "TM9": 4, "TM10": 4, "TM11": 4, "TM44": 5, "TM45": 5, "TM46": 5, "TM47": 5, "TM48": 5, "TM49": 5, "TM14": 6, "TM15": 6, "TM16": 6, "TM17": 6, "TM18": 6, "TM19": 6, "TM20": 6, "TM21": 6, "TM22": 6, "TM23": 6, "M21c": 6, "TM29": 7, "TM30": 7, "TM31": 7, "M31a": 7, "M31b": 7, "TM24": 8, "TM37": 9, "TM38": 9, "TM39": 9, "TM40": 9, "TM41": 9, "M105": 10, "M106": 10, "M107": 10, "M108": 10, "M109": 10, "TM25": 11, "TM86": 12, "TM87": 12, "TM88": 12, "TM89": 12, "TM90": 12, "TM91": 12, "TM92": 12, "TM50": 13, "TM51": 13, "TM52": 13, "TM53": 14, "TM54": 14, "TM72": 15, "TM73": 15, "TM74": 15, "TM75": 15, "TM76": 15, "TM77": 15, "TM78": 15, "TM79": 15, "TM80": 15, "TM81": 15, "TM82": 15, "TM83": 15, "TM84": 15, "TM85": 15, "M72b": 15, "M85a": 15, "M85b": 15, "TM55": 16, "TM56": 16, "TM57": 16, "TM58": 16, "TM59": 16, "TM60": 16, "TM61": 16, "TM62": 16, "TM63": 16, "TM64": 16, "TM65": 16, "TM66": 16, "M66a": 16, "TM32": 17, "TM33": 17, "TM34": 17, "TM35": 17, "TM36": 17, "M110": 18, "M111": 18, "TM42": 19, "TM43": 19, "TM93": 20, "TM94": 20, "TM95": 20, "TM96": 20, "TM97": 20, "TM98": 20, "TM99": 20, "M100": 20, "M101": 20, "M102": 20, "M103": 20, "M104": 20, "104a": 20, "104b": 20, "TM67": 21, "TM68": 21, "TM69": 21, "TM70": 21, "TM71": 21, "M112": 22, "M113": 22, "M114": 22, "M115": 23, "M116": 23, "TT1": 25, "TT2": 26, "TT3": 26, "TT4": 26, "TT10": 26, "TT20": 26, "TT21": 26, "TT22": 26, "TT23": 26, "TT24": 26, "TT25": 26, "TT27": 26, "TT29": 26, "TT6": 27, "TT7": 27, "TT13": 27, "TT16": 27, "TT17": 27, "TT18": 27, "T18a": 27, "T18b": 27, "T18c": 27, "TT19": 27, "TT28": 27, "TT30": 27, "TT9": 28, "TT11": 28, "TT48": 28, "TT31": 29, "TT33": 29, "TT38": 29, "TT39": 29, "TT42": 29, "TT43": 29, "TT44": 29, "TT46": 29, "TT26": 30, "TT32": 30, "TT34": 30, "TT36": 30, "TT40": 30, "TT41": 30, "TT47": 30}, "n1": 25};
+
+/* ---------------------------------------------------------------- textes UI */
+const T = {
+ fr: { obj:'Objets', vie:'Vie', or:'Or', choix:'Choix', cmd:'Commandes', zoom:'Zoom', zt:'Texte', zu:'Interface',
+  back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vie32:'Vie 32 (V)', map:'Carte (M)', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
+  mapT:'CARTE DU MONDE', mapT2:'TEMPLE - plan schématique', mapP:'Autre page', here:'Vous êtes ici', lifemsg:'Vie remise à 32.', cardinal:['N','S','E','O'],
+  lang:'English', full:'Plein écran', start:'Appuyez sur une touche ou cliquez pour commencer',
+  intro:'Introduction %d/4 - une touche ou un clic : page suivante - Échap : sauter l\'introduction',
+  fin:'*** FIN DU JEU ***   (B : retour, Q : quitter)', noch:'Ce choix n\'existe pas dans cette scène.',
+  backmsg:'Retour arrière (%d écran(s) en réserve).', noback:'Pas d\'écran antérieur.',
+  soundon:'Son activé.', soundoff:'Son coupé.', saved:'Partie sauvée (emplacement %d).', loaded:'Partie chargée (emplacement %d).',
+  empty:'(vide)', slot:'Emplacement %d', sceneW:'scène %s, Vie %d, Or %d', loadfail:'Emplacement %d vide ou illisible.',
+  close:'Fermer', ch:'TRICHE', tele:'Se téléporter', go:'Aller', vie28:'Vie = 28', setor:'Fixer l\'or', objs:'Objets (cocher = porté)',
+  cheatwarn:'Un inventaire "impossible" peut donner des scènes inattendues. B annule la triche.', cheated:'Triche appliquée (B pour l\'annuler).',
+  saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · V vie 32 · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
+  credit:'HEROS © 1994 Olivier Thil (Amiga, concours DREAM). Version navigateur adaptée (annuler, vie 32, 4 sauvegardes, carte) ; textes lus dans DataHeros. Adaptation réalisée avec l\'aide d\'une IA.',
+  bye:'À bientôt ! (touche ou clic pour recommencer)' },
+ en: { obj:'Items', vie:'Life', or:'Gold', choix:'Choices', cmd:'Commands', zoom:'Zoom', zt:'Text', zu:'Interface',
+  back:'Back (B)', save:'Save (S)', load:'Load (L)', vie32:'Life 32 (V)', map:'Map (M)', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
+  mapT:'WORLD MAP', mapT2:'TEMPLE - schematic plan', mapP:'Other page', here:'You are here', lifemsg:'Life set to 32.', cardinal:['N','S','E','W'],
+  lang:'Français', full:'Fullscreen', start:'Press any key or click to start',
+  intro:'Introduction %d/4 - any key or click: next page - Esc: skip the introduction',
+  fin:'*** THE END ***   (B: back, Q: quit)', noch:'This choice does not exist in this scene.',
+  backmsg:'Stepped back (%d screen(s) left).', noback:'No earlier screen.',
+  soundon:'Sound on.', soundoff:'Sound off.', saved:'Game saved (slot %d).', loaded:'Game loaded (slot %d).',
+  empty:'(empty)', slot:'Slot %d', sceneW:'scene %s, Life %d, Gold %d', loadfail:'Slot %d is empty or unreadable.',
+  close:'Close', ch:'CHEAT', tele:'Teleport', go:'Go', vie28:'Life = 28', setor:'Set gold', objs:'Items (checked = carried)',
+  cheatwarn:'An "impossible" inventory can lead to unexpected scenes. B undoes the cheat.', cheated:'Cheat applied (B to undo it).',
+  saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · V life 32 · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
+  credit:'HEROS © 1994 Olivier Thil (Amiga, DREAM contest). Adapted browser version (undo, life 32, 4 saves, map); texts read from DataHeros. Adaptation made with the help of an AI.',
+  bye:'See you soon! (key or click to restart)' }
+};
+const OBJ = {
+ fr: ['Serre-tête','Bracelet de bronze',"Anneau d'argent",'Gemme rouge','Gemme verte','Clé','Bracelets ailés','Cape Rouge','Pendentif en Or','Écailles de dragon','Nourriture','Épée','Torche','Pierre noire','Deuxième pierre','Champignons'],
+ en: ['Headband','Bronze bracelet','Silver ring','Red gem','Green gem','Key','Winged bracelets','Red Cape','Golden Pendant','Dragon scales','Food','Sword','Torch','Black stone','Second stone','Mushrooms']
+};
+let lang = 'fr';
+const fmt = (s, ...a) => { let i = 0; return s.replace(/%[ds]/g, () => a[i++]); };
+const tr = k => T[lang][k];
+const $ = id => document.getElementById(id);
+const store = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return mem[k] ?? d; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch (e) { mem[k] = v; } } };
+const mem = {};
+
+/* -------------------------------------------------------- DataHeros (decodage) */
+const b64 = s => { const b = atob(s), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; };
+class Textes {
+  constructor(u8) {
+    this.d = u8; const dv = new DataView(u8.buffer);
+    const debut = dv.getUint32(0); this.debut = {}; const fins = new Set();
+    for (let p = 4; p < debut; p += 8) {
+      let n = ''; for (let k = 0; k < 4; k++) { const c = u8[p + k]; if (c) n += String.fromCharCode(c); }
+      const off = dv.getUint32(p + 4); if (!(n in this.debut)) this.debut[n] = off; fins.add(off);
+    }
+    this.fins = [...fins].sort((a, b) => a - b); this.cache = {};
+  }
+  brut(nom) {                      // [[col, lig, "texte latin-1"]]
+    if (this.cache[nom]) return this.cache[nom];
+    const deb = this.debut[nom]; let fin = this.d.length;
+    for (const f of this.fins) if (f > deb) { fin = f; break; }
+    const oct = this.d.subarray(deb, fin); let res = [];
+    for (const cle of [0x55, 0xAA]) { const l = this.analyser(oct, cle); if (l) { res = l; break; } }
+    return this.cache[nom] = res;
+  }
+  analyser(oct, cle) {
+    const lignes = []; let i = 0; const n = oct.length;
+    while (i < n) {
+      if ((oct[i] ^ cle) === 0) break;
+      if (i + 2 > n) return null;
+      const col = oct[i] ^ cle, lig = oct[i + 1] ^ cle;
+      if (col >= 80 || lig >= 64) return null;
+      i += 2; let s = '';
+      while (i < n) { const c = oct[i] ^ cle; if (c === 0xFF || c === 0) break; s += String.fromCharCode(c); i++; }
+      lignes.push([col, lig, s]);
+      if (i < n && (oct[i] ^ cle) === 0xFF) i++;
+    }
+    if (!lignes.length) return null;
+    let tot = 0, ok = 0;
+    for (const [, , t] of lignes) for (let k = 0; k < t.length; k++) { tot++; const c = t.charCodeAt(k); if ((c >= 0x20 && c < 0x7F) || c >= 0xA0) ok++; }
+    return tot && ok / tot >= 0.9 ? lignes : null;
+  }
+}
+let TX = null;
+function chargerLangue(l) { lang = l; TX = new Textes(b64(l === 'fr' ? D.dataFr : D.dataEn)); document.documentElement.lang = l; store.set('heros_lang', l); }
+
+/* ------------------------------------------------------------------ moteur */
+const bit = (v, n) => (v >> n) & 1;
+function condVraie(cond, W, L) {
+  for (let c of cond.split(' ET ')) {
+    c = c.trim(); if (c === 'toujours') continue;
+    let m = c.match(/^Flags([WL]) bit (\d+) (actif|inactif)$/);
+    if (m) { const v = m[1] === 'W' ? W : L; if ((bit(v, +m[2]) === 1) !== (m[3] === 'actif')) return false; continue; }
+    m = c.match(/^\(FlagsW & (0x[0-9a-fA-F]+)\) (==|!=) (\d+)$/);
+    if (m) { const eq = (W & parseInt(m[1], 16)) === +m[3]; if (eq !== (m[2] === '==')) return false; continue; }
+    throw new Error('condition inconnue : ' + c);
+  }
+  return true;
+}
+function appliquer(eff, st) {
+  for (let e of eff.split(', ')) {
+    e = e.trim(); let m = e.match(/^(ACTIVE|EFFACE|BASCULE) Flags([WL]) bit (\d+)$/);
+    if (m) {
+      const k = m[2], n = 1 << +m[3];
+      if (m[1] === 'ACTIVE') st[k] = (st[k] | n) >>> 0; else if (m[1] === 'EFFACE') st[k] = (st[k] & ~n) >>> 0; else st[k] = (st[k] ^ n) >>> 0;
+      continue;
+    }
+    m = e.match(/^Compteur (-=|:=) (\d+)$/);
+    if (m) { st.or = m[1] === '-=' ? st.or - +m[2] : +m[2]; continue; }
+    m = e.match(/^(Vie|FlagsW|FlagsL) := (\d+)$/);
+    if (m) { st[{ Vie: 'vie', FlagsW: 'W', FlagsL: 'L' }[m[1]]] = +m[2]; continue; }
+  }
+}
+const nouvelEtat = () => ({ sc: IDX.TC1, W: 0, L: 0, vie: 0, or: 0 });
+function arriver(st, dest) {
+  st.sc = dest; st.vie = Math.min(VIE_MAX, st.vie + SC[dest].vie);
+  if (st.vie < 0) { st.vie = 0; st.W = 0; st.or = 0; st.sc = 0; }
+}
+const choixValides = st => SC[st.sc].liens.map((l, k) => l ? k + 1 : 0).filter(x => x);
+function choisir(st, k) {
+  const lien = SC[st.sc].liens[k - 1];
+  if (lien[0] === 'R') { arriver(st, lien[1]); return null; }
+  for (const [cond, eff, dest] of RT[lien[1]]) {
+    if (condVraie(cond, st.W, st.L)) {
+      appliquer(eff, st);
+      if (dest === '(aucune)') return 'quitter';
+      if (dest !== 'RESTER') arriver(st, dest);
+      return null;
+    }
+  }
+  return null;
+}
+window.HerosMoteur = { SC, IDX, nouvelEtat, choisir, choixValides, LAB };
+
+/* ------------------------------------------------------------------- son */
+const Son = {
+  actif: store.get('heros_son', '1') === '1', liste: null, a: null, b: null,
+  jouer(n) {
+    if (!this.actif) { this.demande = n; return; }
+    if (n === this.liste) return;
+    this.arreter(); this.liste = n;
+    const L = D.lists[n], a = new Audio(`snd/l${n}a.ogg`);
+    a.volume = .7; this.a = a;
+    if (L.b > 0) {
+      const b = new Audio(`snd/l${n}b.ogg`); b.loop = true; b.volume = .7; this.b = b;
+      a.addEventListener('ended', () => { if (this.liste === n) b.play().catch(() => {}); });
+    } else a.loop = true;
+    a.play().catch(() => { this.liste = null; });   // bloqué avant le premier geste : on réessaiera
+  },
+  arreter() { for (const x of [this.a, this.b]) if (x) { x.pause(); x.src = ''; } this.a = this.b = null; this.liste = null; },
+  scene(i) { this.jouer(D.scMusic[i]); },
+  intro() { this.jouer(D.intro); },
+  bascule() { this.actif = !this.actif; store.set('heros_son', this.actif ? '1' : '0'); if (!this.actif) this.arreter(); else if (this.demande != null) this.jouer(this.demande); return this.actif; }
+};
+
+/* ------------------------------------------------------------------ jeu */
+let mode = 'titre', introN = 0, hist = [nouvelEtat()], groupes = [], sceneSortie = false;
+let cwPx = 8, lhPx = 12, S = 1, zoomT = +store.get('heros_zt', '1'), zoomU = +store.get('heros_zu', '1');
+let ratioFonte = 0.6, hViewport = 320;
+const stage = $('stage'), page = $('page'), scroll = $('scroll');
+
+function mesureFonte() {
+  const c = document.createElement('canvas').getContext('2d');
+  c.font = '100px "DejaVu Sans Mono","Cascadia Mono",Consolas,Menlo,"Liberation Mono",monospace';
+  ratioFonte = c.measureText('0').width / 100 || 0.6;
+}
+function mettreEchelle() {
+  const col = $('colText'); const dispo = col.clientWidth - 2;
+  const hDispo = col.clientHeight - $('msg').offsetHeight - 2;
+  // 1.0 = le parchemin occupe la largeur de la colonne (sans dépasser la hauteur de fenêtre)
+  const sFit = Math.min(dispo / 608, Math.max(hDispo, 200) / 320 * 1.0);
+  S = Math.max(0.3, sFit * zoomT);
+  const stH = Math.max(320 * S, Math.min(hDispo, 640 * S));
+  stage.style.width = (608 * S) + 'px'; stage.style.height = stH + 'px';
+  hViewport = stH; cwPx = 8 * S; lhPx = 12 * S;
+  stage.style.setProperty('--lh', lhPx + 'px');
+  stage.style.setProperty('--cw', cwPx + 'px');
+  page.style.width = (608 * S) + 'px'; page.style.height = Math.max(640 * S, hViewport) + 'px';
+  const fs = Math.min(cwPx / ratioFonte, lhPx * 0.95); stage.style.fontSize = fs + 'px';
+  stage.style.setProperty('--ls', (cwPx - fs * ratioFonte) + 'px');
+}
+function appliquerZoomUI() {
+  document.documentElement.style.setProperty('--ui', zoomU);
+}
+function seg(brut) {          // [[col, lig, [[dec, texte, accent]]]]
+  let accent = false;
+  return brut.map(([col, lig, s]) => {
+    s = s.replace(/­/g, '─'); const segs = []; let dec = 0;
+    for (const m of s.split(/(@\d)/)) {
+      if (/^@\d$/.test(m)) accent = m[1] !== '1'; else if (m) { segs.push([dec, m, accent]); dec += m.length; }
+    }
+    return [col, lig, segs];
+  });
+}
+function dessinerPage(nom, v, valides, panneau) {
+  page.textContent = ''; groupes = [];
+  stage.style.setProperty('--n', v.n);
+  const lignes = seg(TX.brut(nom));
+  if (panneau && lignes.length) {
+    const bas = (Math.max(...lignes.map(l => l[1])) + 3) * 12;
+    const p = document.createElement('div'); p.id = 'panneau';
+    p.style.cssText = `left:calc(7*var(--cw));width:calc(62*var(--cw));top:0;height:calc(${Math.max(bas, 320)}*var(--cw)/8);background:${v.f};border-color:${v.b}`;
+    page.appendChild(p);
+  }
+  let courant = null, prec = null, g = null;
+  for (const [col, lig, segs] of lignes) {
+    const plain = segs.map(s => s[1]).join('');
+    const m = plain.match(/^\s*<\s*F(\d)\s*>/);
+    if (m) { courant = +m[1]; g = { k: courant, els: [] }; groupes.push(g); }
+    else if (courant !== null && (prec === null || lig !== prec + 1 || !plain.trim())) { courant = null; g = null; }
+    const el = document.createElement('div'); el.className = 'ln';
+    el.style.left = `calc(${col}*var(--cw))`; el.style.top = `calc(${lig}*var(--lh))`;
+    el.style.color = v.n;
+    for (const [dec, t, acc] of segs) {
+      const sp = document.createElement(acc ? 'b' : 'span'); sp.textContent = t; if (acc) sp.style.color = v.a; el.appendChild(sp);
+    }
+    if (courant !== null && g) { g.els.push(el); el.dataset.k = courant; }
+    page.appendChild(el); prec = lig;
+  }
+  groupes = groupes.filter(x => valides.includes(x.k));
+  for (const gr of groupes) for (const el of gr.els) {
+    el.classList.add('g');
+    el.addEventListener('mouseenter', () => gr.els.forEach(e => e.classList.add('hot')));
+    el.addEventListener('mouseleave', () => gr.els.forEach(e => e.classList.remove('hot')));
+    el.addEventListener('click', ev => { ev.stopPropagation(); choisirK(gr.k); });
+  }
+  if (!lignes.length) return [0, 0];
+  const lm = lignes.map(l => l[1]); return [Math.min(...lm), Math.max(...lm)];
+}
+function decalageInitial(prem, der) {
+  let off = (prem - 2) * lhPx; off = Math.min(off, (der + 3) * lhPx - hViewport); return Math.max(0, off);
+}
+function resumesChoix(nom) {
+  const res = {}; let cur = null;
+  for (const [, , segs] of seg(TX.brut(nom))) {
+    const plain = segs.map(s => s[1]).join('').trim();
+    const m = plain.match(/^<\s*F(\d)\s*>\s*(.*)/);
+    if (m) { cur = +m[1]; res[cur] = m[2]; } else if (cur !== null && plain) res[cur] += ' ' + plain; else cur = null;
+  }
+  return res;
+}
+function message(t) { $('msg').textContent = t || ''; }
+function fond(i) {
+  const v = VIS[i]; $('decor').style.backgroundImage = `url(img/decor${v.d}.png)`;
+  page.style.backgroundImage = `url(img/parch${v.p}.png)`;
+}
+function montrerTitre() {
+  mode = 'titre'; Son.intro();
+  $('titre').style.display = 'flex'; $('decor').style.backgroundImage = 'none'; page.style.backgroundImage = 'none'; page.textContent = '';
+  $('titreTxt').textContent = tr('start'); groupes = []; majHUD(null); vider(); activerCmds(false); message(tr('hint'));
+  scroll.scrollTop = 0;
+}
+function suiteIntro() {
+  $('titre').style.display = 'none'; introN++;
+  if (introN > 4) { introN = 0; mode = 'jeu'; hist = [nouvelEtat()]; afficher(); return; }
+  mode = 'intro'; const sc = IDX.TC1; fond(sc);
+  page.style.backgroundImage = 'none';
+  const [p, d] = dessinerPage('TIN' + introN, VIS[sc], [], true);
+  scroll.scrollTop = decalageInitial(p, d);
+  message(fmt(tr('intro'), introN)); vider(); majHUD(null); activerCmds(false);
+}
+function sauterIntro() { $('titre').style.display = 'none'; mode = 'jeu'; introN = 0; hist = [nouvelEtat()]; afficher(); }
+function vider() { $('choix').textContent = ''; }
+function activerCmds(on) {
+  for (const b of document.querySelectorAll('#cmds button')) b.disabled = !on && !['son', 'quit'].includes(b.dataset.c);
+}
+function afficher(msg) {
+  const st = hist[hist.length - 1], sc = st.sc, nom = SC[sc].nom, v = VIS[sc];
+  Son.scene(sc); $('titre').style.display = 'none'; fond(sc);
+  const valides = choixValides(st);
+  const [p, d] = dessinerPage(nom, v, valides, false);
+  scroll.scrollTop = decalageInitial(p, d);
+  majHUD(st); activerCmds(true); document.querySelector('#cmds [data-c=back]').disabled = hist.length <= 1;
+  vider(); const res = resumesChoix(nom);
+  for (const k of valides) {
+    const b = document.createElement('button'); b.innerHTML = `<b>F${k}</b>`; b.append(res[k] || ''); b.onclick = () => choisirK(k); $('choix').appendChild(b);
+  }
+  if (!valides.length) { const f = document.createElement('div'); f.className = 'fin'; f.textContent = tr('fin'); $('choix').appendChild(f); }
+  message(msg || '');
+}
+function choisirK(k) {
+  if (mode !== 'jeu') return;
+  const st = hist[hist.length - 1];
+  if (!choixValides(st).includes(k)) { message(tr('noch')); return; }
+  const nv = { ...st };
+  if (choisir(nv, k) === 'quitter') { quitter(); return; }
+  hist.push(nv); afficher();
+}
+function quitter() { Son.arreter(); mode = 'fin'; introN = 0; hist = [nouvelEtat()]; montrerTitre(); message(tr('bye')); }
+function retour() {
+  if (mode !== 'jeu') return;
+  if (hist.length > 1) { hist.pop(); afficher(fmt(tr('backmsg'), hist.length - 1)); } else message(tr('noback'));
+}
+function majHUD(st) {
+  $('hObj').textContent = tr('obj'); $('hVie').textContent = tr('vie') + (st ? '  ' + st.vie : ''); $('hOr').textContent = tr('or') + (st ? '  ' + st.or : ''); $('hChoix').textContent = tr('choix');
+  const o = $('objs'); o.textContent = '';
+  for (let b = 0; b < 16; b++) {
+    const e = document.createElement('div'); const on = st && bit(st.W, b);
+    e.className = 'ico' + (on ? ' on' : ''); e.style.backgroundSize = '1800% 100%';
+    e.style.backgroundPosition = `${(on ? b + 1 : 0) * 100 / 17}% 0`; e.title = OBJ[lang][b] + (on ? '' : ' -'); o.appendChild(e);
+  }
+  const h = $('hearts'); h.textContent = '';
+  for (let i = 0; i < VIE_MAX; i++) { const e = document.createElement('i'); e.textContent = '♥'; if (st && i < Math.max(0, st.vie)) e.className = 'on'; h.appendChild(e); }
+  const g = $('gold'); g.textContent = ''; const n = st ? Math.max(0, Math.min(st.or, 4)) : 0;
+  for (let i = 0; i < n; i++) g.appendChild(document.createElement('i'));
+  if (st && st.or > 4) g.append('+' + (st.or - 4));
+}
+
+/* ------------------------------------------------------ sauvegardes, triche */
+const dlg = $('dlg');
+function fermerDlg() { if (dlg.open) dlg.close(); }
+function resumeSlot(n) {
+  try { const h = JSON.parse(store.get('heros_slot' + n, 'null')).historique; const e = h[h.length - 1]; return fmt(tr('sceneW'), LAB[e.sc], e.vie, e.or); } catch (e) { return tr('empty'); }
+}
+function dlgSlots(action) {
+  dlg.innerHTML = `<h3>${tr(action === 'save' ? 'saveT' : 'loadT')}</h3>`;
+  for (let n = 1; n <= NSLOTS; n++) {
+    const d = document.createElement('div'); d.className = 'sl'; const b = document.createElement('button');
+    b.textContent = fmt(tr('slot'), n) + ' : ' + resumeSlot(n);
+    b.onclick = () => {
+      fermerDlg();
+      if (action === 'save') { store.set('heros_slot' + n, JSON.stringify({ version: 1, historique: hist })); message(fmt(tr('saved'), n)); }
+      else {
+        try {
+          const h = JSON.parse(store.get('heros_slot' + n, 'null')).historique;
+          if (!Array.isArray(h) || !h.length || !h.every(e => e.sc >= 0 && e.sc < SC.length)) throw 0;
+          hist = h; mode = 'jeu'; afficher(fmt(tr('loaded'), n));
+        } catch (e) { message(fmt(tr('loadfail'), n)); }
+      }
+    };
+    d.appendChild(b); dlg.appendChild(d);
+  }
+  const c = document.createElement('button'); c.textContent = tr('close'); c.onclick = fermerDlg; dlg.appendChild(c); dlg.showModal();
+}
+function dlgTriche() {
+  const nv = { ...hist[hist.length - 1] };
+  dlg.innerHTML = `<h3>${tr('ch')}</h3><div style="opacity:.8;font-size:.85em;margin-bottom:.5em">${tr('cheatwarn')}</div>
+   <div class="row"><label>${tr('tele')} <select id="chSc"></select></label></div>
+   <div class="row"><button id="chVie">${tr('vie28')}</button><label>${tr('or')} <input id="chOr" type="number" min="0" max="99" style="width:4.5em"></label></div>
+   <div>${tr('objs')}</div><div class="chk" id="chObj"></div><div class="row"><button id="chOk">OK</button><button id="chNo">${tr('close')}</button></div>`;
+  const sel = dlg.querySelector('#chSc'); SC.forEach((s, i) => { const o = document.createElement('option'); o.value = i; o.textContent = LAB[i]; if (i === nv.sc) o.selected = true; sel.appendChild(o); });
+  dlg.querySelector('#chOr').value = nv.or;
+  const co = dlg.querySelector('#chObj');
+  for (let b = 0; b < 16; b++) { const l = document.createElement('label'); const c = document.createElement('input'); c.type = 'checkbox'; c.checked = !!bit(nv.W, b); c.dataset.b = b; l.append(c, ' ' + OBJ[lang][b]); co.appendChild(l); }
+  dlg.querySelector('#chVie').onclick = () => { nv.vie = VIE_DEPART; };
+  dlg.querySelector('#chNo').onclick = fermerDlg;
+  dlg.querySelector('#chOk').onclick = () => {
+    nv.sc = +sel.value; nv.or = Math.max(0, Math.min(99, +dlg.querySelector('#chOr').value || 0));
+    let W = 0; co.querySelectorAll('input').forEach(c => { if (c.checked) W |= 1 << c.dataset.b; }); nv.W = W >>> 0;
+    fermerDlg(); hist.push(nv); afficher(tr('cheated'));
+  };
+  dlg.showModal();
+}
+
+/* -------------------------------------------------------------- clavier */
+const CHIFFRES = { '&': 1, 'é': 2, '"': 3, "'": 4, '(': 5, 'É': 2 };
+document.addEventListener('keydown', ev => {
+  if (dlg.open) return;
+  if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  Son.jouer(Son.demande ?? Son.liste ?? D.intro);          // premier geste : débloque l'audio
+  const k = ev.key;
+  if (mode === 'titre' || mode === 'fin') { if (k === 'Escape' || /^(Shift|Control|Alt|Meta|CapsLock|Tab)$/.test(k)) return; ev.preventDefault(); mode === 'fin' ? montrerTitreDepuisFin() : (introN = 0, suiteIntro()); return; }
+  if (mode === 'intro') { if (k === 'Escape') sauterIntro(); else if (!/^(Shift|Control|Alt|Meta|CapsLock|Tab)$/.test(k)) { ev.preventDefault(); suiteIntro(); } return; }
+  const fk = k.match(/^F([1-5])$/); let n = null;
+  if (fk) n = +fk[1]; else if (/^[1-5]$/.test(k)) n = +k; else if (CHIFFRES[k]) n = CHIFFRES[k];
+  if (n) { ev.preventDefault(); choisirK(n); return; }
+  const K = k.length === 1 ? k.toUpperCase() : k;
+  if (K === 'B') retour(); else if (K === 'V') vie32(); else if (K === 'S') dlgSlots('save'); else if (K === 'L') dlgSlots('load'); else if (K === 'T') dlgTriche();
+  else if (K === 'M') dlgCarte(); else if (K === 'N') basculerSon(); else if (K === 'Q') quitter();
+  else if (K === 'ArrowDown') { scroll.scrollTop += lhPx * 2; ev.preventDefault(); } else if (K === 'ArrowUp') { scroll.scrollTop -= lhPx * 2; ev.preventDefault(); }
+  else if (K === 'PageDown') { scroll.scrollTop += hViewport * .9; ev.preventDefault(); } else if (K === 'PageUp') { scroll.scrollTop -= hViewport * .9; ev.preventDefault(); }
+  else if (K === 'Home') { scroll.scrollTop = 0; } else if (K === 'End') { scroll.scrollTop = 1e6; }
+});
+function vie32() {
+  if (mode !== 'jeu') return;
+  const st = hist[hist.length - 1];
+  if (st.vie < VIE_MAX) hist.push({ ...st, vie: VIE_MAX });
+  afficher(tr('lifemsg'));
+}
+function dlgCarte() {
+  if (mode !== 'jeu') return;
+  const cur = MAP.sc[SC[hist[hist.length - 1].sc].nom], tem = cur >= MAP.n1;
+  let page = tem ? 2 : 1;
+  const draw = () => {
+    const Z = page === 1 ? MAP.z1 : MAP.z2, nr = page === 1 ? 11 : 5, nc = page === 1 ? 6 : 3, off = page === 1 ? 0 : MAP.n1;
+    let g = `<div class="map" style="grid-template-columns:repeat(${nc},1fr)">`;
+    const at = {}; Z.forEach((z, i) => at[z.r * 10 + z.c] = [z, i + off]);
+    for (let r = 0; r < nr; r++) for (let c = 0; c < nc; c++) {
+      const e = at[r * 10 + c];
+      g += e ? `<div class="mz${e[1] === cur || (page === 1 && tem && e[0].k === 'temple') ? ' here' : ''}" title="${e[0].k}">${(page === 2 && lang === 'en' ? e[0].le : e[0].l)}</div>` : '<div></div>';
+    }
+    g += '</div>';
+    const [N, S, E, O] = tr('cardinal');
+    dlg.innerHTML = `<h3>${tr(page === 1 ? 'mapT' : 'mapT2')}</h3>${g}<pre class="rose">      ${N}\n      :\n ${O} <----:----> ${E}\n      :\n      ${S}</pre>
+      <div class="row"><span class="mz here" style="padding:.1em .6em">${tr('here')}</span><button id="mpg">${tr('mapP')}</button><button id="mcl">${tr('close')}</button></div>`;
+    dlg.querySelector('#mcl').onclick = fermerDlg;
+    dlg.querySelector('#mpg').onclick = () => { page = 3 - page; draw(); };
+  };
+  draw(); dlg.showModal();
+}
+function montrerTitreDepuisFin() { introN = 0; suiteIntro(); }
+function basculerSon() { message(Son.bascule() ? tr('soundon') : tr('soundoff')); }
+stage.addEventListener('click', () => { Son.jouer(Son.demande ?? Son.liste ?? D.intro); if (mode === 'titre' || mode === 'fin') suiteIntro(); else if (mode === 'intro') suiteIntro(); });
+
+/* ------------------------------------------------------------- interface */
+function construireCmds() {
+  const c = $('cmds'); c.textContent = '';
+  const defs = [['back', 'back', retour], ['vie', 'vie32', vie32], ['map', 'map', dlgCarte], ['save', 'save', () => dlgSlots('save')], ['load', 'load', () => dlgSlots('load')], ['cheat', 'cheat', dlgTriche], ['son', 'sound', basculerSon], ['quit', 'quit', quitter]];
+  for (const [id, key, fn] of defs) { const b = document.createElement('button'); b.dataset.c = id; b.textContent = tr(key); b.onclick = e => { fn(); b.blur(); }; c.appendChild(b); }
+}
+function textesUI() {
+  $('hZoom').textContent = tr('zoom'); $('hCmd').textContent = tr('cmd'); $('zT').textContent = tr('zt'); $('zU').textContent = tr('zu'); $('zL').textContent = '';
+  $('lang').textContent = tr('lang'); $('home').textContent = tr('home'); $('home').href = '../?lang=' + lang; $('full').textContent = tr('full'); $('credit').textContent = tr('credit'); $('titreTxt').textContent = tr('start');
+}
+function rafraichirLangue() {
+  construireCmds(); textesUI();
+  if (mode === 'jeu') afficher(); else if (mode === 'intro') { introN--; suiteIntro(); } else { majHUD(null); message(tr('hint')); $('titreTxt').textContent = tr('start'); }
+}
+$('lang').onclick = () => { chargerLangue(lang === 'fr' ? 'en' : 'fr'); rafraichirLangue(); mettreEchelle(); };
+$('full').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); };
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function zT(f) { zoomT = clamp(f === 0 ? 1 : zoomT * f, 0.4, 3); store.set('heros_zt', zoomT); mettreEchelle(); }
+function zU(f) { zoomU = clamp(f === 0 ? 1 : zoomU * f, 0.6, 2.5); store.set('heros_zu', zoomU); appliquerZoomUI(); mettreEchelle(); }
+$('tm').onclick = () => zT(1 / 1.12); $('tp').onclick = () => zT(1.12); $('tf').onclick = () => zT(0);
+$('um').onclick = () => zU(1 / 1.12); $('up').onclick = () => zU(1.12); $('uf').onclick = () => zU(0);
+// séparateur déplaçable
+(() => {
+  const sp = $('split'), ui = $('colUi'); let w0 = +store.get('heros_wui', 0); if (w0) ui.style.width = w0 + 'px';
+  sp.addEventListener('pointerdown', e => { sp.setPointerCapture(e.pointerId); sp.classList.add('on'); });
+  sp.addEventListener('pointermove', e => {
+    if (!sp.classList.contains('on')) return;
+    const w = clamp(window.innerWidth - e.clientX - 3, 200, window.innerWidth - 260); ui.style.width = w + 'px'; mettreEchelle();
+  });
+  sp.addEventListener('pointerup', () => { sp.classList.remove('on'); store.set('heros_wui', parseInt($('colUi').style.width) || 0); });
+})();
+window.addEventListener('resize', mettreEchelle);
+$('colText').addEventListener('wheel', e => { if (e.ctrlKey) { e.preventDefault(); zT(e.deltaY < 0 ? 1.08 : 1 / 1.08); } }, { passive: false });
+
+/* ---------------------------------------------------------------- départ */
+mesureFonte();
+chargerLangue(((new URLSearchParams(location.search).get('lang')) || store.get('heros_lang', (navigator.language || 'fr').startsWith('fr') ? 'fr' : 'en')) === 'en' ? 'en' : 'fr');
+appliquerZoomUI(); construireCmds(); textesUI(); mettreEchelle();
+new ResizeObserver(mettreEchelle).observe($('colText'));
+montrerTitre();
+</script>
+</body>
+</html>

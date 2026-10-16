@@ -1,0 +1,47 @@
+HEROS (Amiga) - version avec choix de la langue par icones
+==========================================================
+
+Fichiers :
+  HerosExe       exe modifie (reste compresse : 138 Ko)
+  DataHeros-fr   textes francais (avec la nouvelle page TIN0)
+  DataHeros-en   textes anglais
+  HEROS.adf (a la racine du depot) disquette de test COMPLETE (A500, Kickstart 1.3, 1 Mo), nom du disque : HEROS
+  icones/        icones Workbench : Disk.info (dragon, disque HEROS),
+                 "heros - francais" et "heros - english" (+ .info)
+  outils/        scripts (patch, icones, ADF, textes)
+
+Disquette de test : demarre sur Workbench (startup-sequence sans le "cd Adream13:c/"). Ouvrez le disque HEROS,
+double-cliquez "heros - francais" ou "heros - english".
+Le disque contient seulement le systeme (c, l, libs, devs, s), HerosExe, DataHeros-fr/-en et les icones ;
+les autres programmes du disque DREAM 13 ont ete retires pour faire de la place (original intact).
+
+Comment ca marche :
+  - les deux icones sont des "projets" dont l'outil par defaut est HerosExe (sans chemin : HerosExe, DataHeros-xx et icones doivent etre dans le meme dossier) ;
+  - l'exe lit le nom de l'icone cliquee : les 2 premieres lettres du DERNIER MOT donnent la langue
+    (francais -> fr, english -> en, deutsch -> de...) et ouvre DataHeros-<langue> ;
+  - depuis le CLI : HerosExe en / HerosExe fr (sans argument : fr). Rien n'est copie, la
+    disquette peut rester protegee.
+  - nouvelle langue : python3 outils/make_icon.py "heros - deutsch" DE <icone-modele.info> <rep> 336 4
+    + fichier DataHeros-de.
+
+Si l initialisation du jeu echoue, une alerte (texte rouge) indique le probleme et la plus grande zone CHIP libre.
+
+Configuration : Amiga 500 + extension 512 Ko (1 Mo au total). Avec 512 Ko seulement : "Not enough memory", comme l'original.
+
+Nouvelles touches pendant le jeu :
+  B   retour arriere (annule le dernier choix, plusieurs niveaux)
+  V   vie au maximum (32 coeurs)
+  M   carte du monde (touche M des claviers QWERTY et AZERTY) : la case ou vous etes est en couleur ;
+      dans le temple, une 2e page montre un plan schematique du temple. Re-appuyer sur M pour revenir.
+  S   sauvegarde (F1 a F4 = emplacements 1 a 4, F5 annuler, fichiers HerosSave-1 a 4)   L   chargement (aussi depuis l'ecran-titre et les pages d'intro : F5 annule et lance une nouvelle partie)
+Les sauvegardes sont ecrites sur la disquette : mettre un disque NON protege (le jeu lui-meme n'ecrit rien d'autre).
+Sur disque protege : message d'erreur et retour au jeu.
+
+Disque dur : copier HerosExe, DataHeros-fr/-en et les icones dans un meme dossier ; aucun assign necessaire. Les sauvegardes HerosSave-N vont dans ce dossier (repertoire courant).
+
+Note : les sauvegardes creees avec une version anterieure de ces ajouts ne sont plus lisibles (format modifie).
+
+Changements d'ecran : les fondus de palette sont plus courts (environ deux fois plus rapides que l'original) ; reglage dans outils/patch_heros.py (FSTEP, FADEMASK).
+
+Vie : la jauge compte 32 coeurs (depart a 28). Les gains de vie sont desormais plafonnes a 32 (l'original laissait la valeur depasser 32 sans l'afficher).
+Icones : seules les deux icones projet (francais / english) sont necessaires ; HerosExe n'a plus d'icone propre.

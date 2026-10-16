@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HEROS - Amiga 1994 · aventure textuelle</title>
+<meta name="description" content="HEROS (Olivier Thil, Amiga, 1994) : jouer dans le navigateur, télécharger la disquette ADF adaptée.">
+<style>
+:root{--bg:#120c08;--panel:#1c130c;--clair:#f0d9a8;--or:#ffd070;--bord:#5a4126;--mut:#b49a72;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg) radial-gradient(ellipse at top,#2a1a0e,transparent 60%);color:var(--clair);font:17px/1.55 Georgia,"Palatino Linotype",serif}
+a{color:var(--or)}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+header{display:flex;justify-content:flex-end;gap:10px;padding:14px 0}
+.flag{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--bord);border-radius:8px;padding:6px 12px;color:var(--clair);cursor:pointer;font:inherit;font-size:.9rem}
+.flag:hover{border-color:var(--or)}
+.flag svg{width:28px;height:19px;border-radius:2px;display:block}
+.hero{text-align:center;padding:10px 0 26px}
+.hero img{width:min(100%,640px);image-rendering:pixelated;border:3px solid var(--bord);border-radius:6px;box-shadow:0 10px 40px #000a}
+h1{font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:.18em;margin:.5em 0 .1em;color:var(--or);text-shadow:0 2px 0 #000}
+.sub{color:var(--mut);margin:0;font-style:italic}
+.cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:26px 0 6px}
+.btn{display:inline-block;padding:14px 26px;border-radius:8px;border:2px solid var(--or);background:var(--or);color:#1a0f06;text-decoration:none;font-weight:700;font-family:system-ui,sans-serif}
+.btn.alt{background:transparent;color:var(--or)}
+.btn:hover{filter:brightness(1.12)}
+h2{color:var(--or);border-bottom:1px solid var(--bord);padding-bottom:.2em;margin-top:2.2em;font-size:1.5rem}
+.card{background:var(--panel);border:1px solid var(--bord);border-radius:10px;padding:4px 20px 14px}
+li{margin:.35em 0}
+kbd{background:#2e2014;border:1px solid var(--bord);border-bottom-width:2px;border-radius:4px;padding:0 .4em;font:.85em monospace;color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.small{font-size:.85rem;color:var(--mut)}
+footer{margin-top:3em;border-top:1px solid var(--bord);padding-top:1em}
+.en{display:none}
+body.l-en .fr{display:none}
+body.l-en .en{display:revert}
+body.l-en span.en,body.l-en a.en{display:inline}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <button class="flag" id="flag" aria-label="Language"></button>
+</header>
+
+<div class="hero">
+  <img src="jeu/img/titre.png" alt="HEROS">
+  <h1>HEROS</h1>
+  <p class="sub fr">Aventure textuelle Amiga · Olivier Thil · 1994</p>
+  <p class="sub en">Amiga text adventure · Olivier Thil · 1994</p>
+  <div class="cta">
+    <a class="btn" id="play" href="jeu/">
+      <span class="fr">▶ Jouer dans le navigateur</span><span class="en">▶ Play in your browser</span></a>
+    <a class="btn alt" href="HEROS.adf" download>
+      <span class="fr">💾 Télécharger la disquette (.adf)</span><span class="en">💾 Download the disk (.adf)</span></a>
+  </div>
+</div>
+
+<h2><span class="fr">Le contexte</span><span class="en">Background</span></h2>
+<div class="card">
+<div class="fr">
+<p><strong>HEROS</strong> est un jeu d'aventure « dont vous êtes le héros » programmé sur Amiga en 1994 par <strong>Olivier Thil</strong> et diffusé en shareware, à l'occasion du concours <em>DREAM</em>. Vous incarnez un jeune homme lancé dans une quête médiévale-fantastique : villages, forêts, marais, dragon, temple oublié… Chaque page de texte, illustrée d'un décor et accompagnée de musique, offre quelques choix (F1 à F5). Il faut gérer sa <strong>vie</strong>, son <strong>or</strong> et ses <strong>objets</strong>.</p>
+<p>Ce projet n'a pas pour but de refaire le jeu mais de le <strong>conserver et le rendre plus confortable</strong>, avec l'aide d'une IA (Claude) : l'exécutable original a été patché (le jeu reste sur sa disquette protégée, rien n'est copié sur disque ou en mémoire), une <strong>version anglaise</strong> a été ajoutée, et une <strong>version navigateur</strong> reprend les mêmes textes, images et musiques.</p>
+</div>
+<div class="en">
+<p><strong>HEROS</strong> is a “choose your own adventure” game written for the Amiga in 1994 by <strong>Olivier Thil</strong> and released as shareware for the <em>DREAM</em> contest. You play a young man on a medieval-fantasy quest: villages, forests, swamps, a dragon, a forgotten temple… Each text page, with its picture and music, offers a few choices (F1–F5). You must manage your <strong>life</strong>, your <strong>gold</strong> and your <strong>items</strong>.</p>
+<p>The aim of this project is not to remake the game but to <strong>preserve it and make it more comfortable</strong>, with the help of an AI (Claude): the original executable was patched (the game still runs from its protected floppy, nothing is copied to disk or memory), an <strong>English version</strong> was added, and a <strong>browser version</strong> uses the same texts, pictures and music.</p>
+</div>
+</div>
+
+<h2><span class="fr">Nos modifications</span><span class="en">Our changes</span></h2>
+<div class="grid">
+<div class="card fr"><h3>Sur Amiga (ADF)</h3><ul>
+<li>Page d'introduction supplémentaire : avertissement « adaptation réalisée avec une IA » et liste des touches, en couleurs.</li>
+<li><kbd>B</kbd> : retour arrière (annuler le dernier choix, historique de plusieurs écrans).</li>
+<li><kbd>V</kbd> : remet la vie au maximum (32).</li>
+<li><kbd>S</kbd> / <kbd>L</kbd> : sauvegarder / charger, 4 emplacements (F1–F4, F5 annule) ; <kbd>L</kbd> marche aussi depuis l'écran titre et l'introduction.</li>
+<li><kbd>M</kbd> : carte du monde en 2 pages (monde + plan du temple) avec la zone actuelle en surbrillance, légende N/S/E/O.</li>
+<li>Vie plafonnée à 32 (le jeu original pouvait dépasser la barre de cœurs).</li>
+<li>Changements d'écran plus rapides (fondus ~0,7 s).</li>
+<li>Langue FR / EN : par l'icône de projet double-cliquée ou <code>HerosExe fr|en</code> en CLI.</li>
+<li>Tourne sur A500 / 512 Ko, depuis la disquette (seul <code>HerosSave-N</code> est écrit).</li>
+</ul></div>
+<div class="card en"><h3>On Amiga (ADF)</h3><ul>
+<li>Extra intro page: “adapted with the help of an AI” notice and a colour-coded key list.</li>
+<li><kbd>B</kbd>: undo (step back through several screens).</li>
+<li><kbd>V</kbd>: refill life to the maximum (32).</li>
+<li><kbd>S</kbd> / <kbd>L</kbd>: save / load, 4 slots (F1–F4, F5 cancels); <kbd>L</kbd> also works from the title and intro screens.</li>
+<li><kbd>M</kbd>: two-page world map (world + temple plan), current zone highlighted, N/S/E/W legend.</li>
+<li>Life capped at 32 (the original could overflow the heart bar).</li>
+<li>Faster screen transitions (fades ~0.7 s).</li>
+<li>FR / EN: double-click the project icon, or <code>HerosExe fr|en</code> from the CLI.</li>
+<li>Runs on an A500 / 512 KB, from the floppy (only <code>HerosSave-N</code> is written).</li>
+</ul></div>
+<div class="card fr"><h3>Dans le navigateur</h3><ul>
+<li>Mêmes textes, décors et musiques que l'original, en français et en anglais (drapeau en haut de page).</li>
+<li>Mêmes touches : <kbd>F1</kbd>–<kbd>F5</kbd> ou <kbd>1</kbd>–<kbd>5</kbd>, <kbd>B</kbd>, <kbd>V</kbd>, <kbd>S</kbd>, <kbd>L</kbd>, <kbd>M</kbd>.</li>
+<li><kbd>N</kbd> son, <kbd>T</kbd> triche (téléportation, objets), <kbd>Q</kbd> quitter, zoom, plein écran.</li>
+<li>Sauvegardes dans le navigateur (localStorage). Fonctionne aussi sur mobile.</li>
+</ul></div>
+<div class="card en"><h3>In the browser</h3><ul>
+<li>Same texts, pictures and music as the original, in French and English (flag at the top).</li>
+<li>Same keys: <kbd>F1</kbd>–<kbd>F5</kbd> or <kbd>1</kbd>–<kbd>5</kbd>, <kbd>B</kbd>, <kbd>V</kbd>, <kbd>S</kbd>, <kbd>L</kbd>, <kbd>M</kbd>.</li>
+<li><kbd>N</kbd> sound, <kbd>T</kbd> cheat (teleport, items), <kbd>Q</kbd> quit, zoom, fullscreen.</li>
+<li>Saves are kept in your browser (localStorage). Also works on mobile.</li>
+</ul></div>
+</div>
+
+<h2><span class="fr">Télécharger la disquette</span><span class="en">Download the disk</span></h2>
+<div class="card">
+<div class="fr">
+<p><a href="HEROS.adf" download><strong>HEROS.adf</strong></a> — image de disquette Amiga (880 Ko, démarre sur le Workbench 1.3), nommée <code>HEROS</code>, avec l'icône de disque dragon. À utiliser avec un émulateur (WinUAE, FS-UAE, Amiberry…) ou à écrire sur une vraie disquette DD (ADF-Copy, Greaseweazle…).</p>
+<p>Au lancement, double-cliquer l'icône <em>héros - français</em> ou <em>héros - english</em> pour choisir la langue. Dans le jeu : <kbd>F1</kbd>–<kbd>F5</kbd> choix, <kbd>B</kbd> retour, <kbd>V</kbd> vie, <kbd>S</kbd>/<kbd>L</kbd> sauver/charger, <kbd>M</kbd> carte.</p>
+</div>
+<div class="en">
+<p><a href="HEROS.adf" download><strong>HEROS.adf</strong></a> — Amiga floppy image (880 KB, boots to Workbench 1.3), named <code>HEROS</code>, with a dragon disk icon. Use it with an emulator (WinUAE, FS-UAE, Amiberry…) or write it to a real DD floppy (ADF-Copy, Greaseweazle…).</p>
+<p>Double-click the <em>héros - français</em> or <em>héros - english</em> icon to pick the language. In-game: <kbd>F1</kbd>–<kbd>F5</kbd> choices, <kbd>B</kbd> back, <kbd>V</kbd> life, <kbd>S</kbd>/<kbd>L</kbd> save/load, <kbd>M</kbd> map.</p>
+</div>
+</div>
+
+<h2><span class="fr">Code et version Python</span><span class="en">Code &amp; Python version</span></h2>
+<div class="card">
+<p class="fr">Le dépôt contient aussi une version <strong>Python</strong> du jeu (console et interface Tk) qui lit les fichiers <code>DataHeros</code>, ainsi que les outils utilisés pour patcher l'exécutable et fabriquer les données et l'ADF. <a href="https://github.com/jaymanu79/amiga_heros">Voir le dépôt GitHub</a>.</p>
+<p class="en">The repository also holds a <strong>Python</strong> version of the game (console and Tk GUI) that reads the <code>DataHeros</code> files, plus the tools used to patch the executable and build the data and the ADF. <a href="https://github.com/jaymanu79/amiga_heros">See the GitHub repository</a>.</p>
+</div>
+
+<footer class="small">
+<p class="fr">HEROS © 1994 Olivier Thil (shareware, concours DREAM). Adaptations (anglais, patch Amiga, version navigateur, Python) : jaymanu, avec Claude (Anthropic). Projet de préservation non commercial ; si vous êtes l'auteur et souhaitez un retrait ou une modification, ouvrez une « issue » sur le dépôt.</p>
+<p class="en">HEROS © 1994 Olivier Thil (shareware, DREAM contest). Adaptations (English, Amiga patch, browser and Python versions): jaymanu, with Claude (Anthropic). Non-commercial preservation project; if you are the author and want anything removed or changed, please open an issue on the repository.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var UK='<svg viewBox="0 0 28 19"><rect width="28" height="19" fill="#012169"/><path d="M0 0L28 19M28 0L0 19" stroke="#fff" stroke-width="3.4"/><path d="M0 0L28 19M28 0L0 19" stroke="#c8102e" stroke-width="1.4"/><path d="M14 0V19M0 9.5H28" stroke="#fff" stroke-width="6"/><path d="M14 0V19M0 9.5H28" stroke="#c8102e" stroke-width="3.4"/></svg>', FR='<svg viewBox="0 0 28 19"><rect width="9.4" height="19" fill="#0055a4"/><rect x="9.3" width="9.4" height="19" fill="#fff"/><rect x="18.6" width="9.4" height="19" fill="#ef4135"/></svg>';
+  var q=new URLSearchParams(location.search).get('lang'), saved=null;
+  try{saved=localStorage.getItem('heros_lang')}catch(e){}
+  var lang=q||saved||((navigator.language||'fr').slice(0,2)==='fr'?'fr':'en');
+  function set(l){
+    lang=l==='en'?'en':'fr';
+    document.body.classList.toggle('l-en',lang==='en');
+    document.documentElement.lang=lang;
+    document.getElementById('play').href='jeu/?lang='+lang;
+    document.getElementById('flag').innerHTML=lang==='fr'?UK+' English':FR+' Français';
+    document.title=lang==='fr'?'HEROS - Amiga 1994 · aventure textuelle':'HEROS - Amiga 1994 · text adventure';
+    try{localStorage.setItem('heros_lang',lang)}catch(e){}
+  }
+  document.getElementById('flag').onclick=function(){set(lang==='fr'?'en':'fr')};
+  set(lang);
+})();
+</script>
+</body>
+</html>

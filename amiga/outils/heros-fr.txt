@@ -1,0 +1,3547 @@
+# HEROS - textes du jeu (extrait par heros_texte.py). Voir l'en-tête du programme pour le format.
+# Ne pas changer les lignes "===" ni "INDEX:" ; les codes @0 @1 @2 sont des couleurs.
+
+INDEX: TIN0 TC1 TC2 TC3 TC4 TC5 TC6 TL1 TL2 TL3 TL4 TL5 TL6 TL7 TL7a TL8 TL9 TL10 TL11 TL12 TL13 TL14 TL15 TL16 TL17 TL18 TL19 TL27 TL28 L28a TL29 L29a L29b L29c TL30 TL34 L34a TL35 TL36 TL37 TL38 TM1 TM2 TM3 TM4 TM5 TM6 TM7 TM8 TM9 TM10 TM11 TM12 TM13 TM14 TM15 TM16 TM17 TM18 TM19 TM20 TM21 M21c TM22 TM23 TM24 TM25 TM26 TM27 TM28 M28a TM29 TM30 TM31 M31a M31b TM32 TM33 TM34 TM35 TM36 TM37 TM38 TM39 TM40 TM41 TM42 TM43 TM44 TM45 TM46 TM47 TM48 TM49 TM50 TM51 TM52 TM53 TM54 TM55 TM56 TM57 TM58 TM59 TM60 TM61 TM62 TM63 TM64 TM65 TM66 M66a TM67 TM68 TM69 TM70 TM71 TM72 M72b TM73 TM74 TM75 TM76 TM77 TM78 TM79 TM80 TM81 TM82 TM83 TM84 TM85 M85a M85b TM86 TM87 TM88 TM89 TM90 TM91 TM92 TM93 TM94 TM95 TM96 TM97 TM98 TM99 M100 M101 M102 M103 M104 104a 104b M105 M106 M107 M108 M109 M110 M111 M112 M113 M114 M115 M116 TT1 TT2 TT3 TT4 TT6 TT7 TT9 TT10 TT11 TT13 TT16 TT17 TT18 T18a T18b T18c TT19 TT20 TT21 TT22 TT23 TT24 TT25 TT26 TT27 TT28 TT29 TT30 TT31 TT32 TT33 TT34 TT36 TT38 TT39 T39a TT40 TT41 TT42 TT43 TT44 TT46 TT47 TT48 TIN1 TIN2 TIN3 TIN4 TFin
+
+=== TIN0 cle=55
+26,1|    H  E  R  O  S
+26,2| \xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad
+11,4,52|Ce jeu d'aventure, HEROS, est l'oeuvre d'Olivier Thil (1994, shareware, concours DREAM).
+11,+2,52|Cette version a été adaptée avec l'aide d'une IA (Claude, d'Anthropic). Nous n'avons pas pu joindre l'auteur original. Textes, images et sons d'origine inchangés.
+11,+2,52|Ce qui a été ajouté :
+11,+1,52,2|- lecture directe de DataHeros-fr (français) ou DataHeros-en (English) ;
+11,+1,52,2|- au CLI : HerosExe en  ou  HerosExe fr (défaut fr).
+11,+2,52|Cliquez pour continuer.
+
+=== TIN1 cle=55
+26,1|    H  E  R  O  S
+26,2| \xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad
+17,3|Logiciel Shareware en version Intégrale
+17,4|     Copyright 1994 - Olivier Thil
+11,6|DREAM  organise autour du  logiciel  HEROS  un grand
+11,7|concours  doté  de  nombreux  prix  dont une  CD-32,
+11,8|grâce  aux  partenaires :   A S C I I  et  A F I V .
+11,9|Pour participer, terminez ce superbe jeu  d'Aventure
+11,10|et envoyez sur carte postale à DREAM, le code secret
+11,11|délivré en fin de jeu. N'hésitez pas à vous reporter
+11,12|aux pages 6 et 7 du numéro 13 ( Décembre ) de DREAM.
+11,13|Le  REGLEMENT  est  disponible  chez   POSSE  PRESS,
+11,14|21,  rue  Notre  Dame  de  Nazareth,   75003  Paris.
+11,16|La clôture des participations aura lieu  le 30/01/95
+11,17|         le cachet de la poste faisant foi.
+
+=== TIN2 cle=55
+26,1|    LES PARTENAIRES
+26,2| \xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad
+14,4|-----------------------------------------------
+14,5|ASCII,     revendeur de  matèriel  informatique
+14,6|-----      et de logiciels.
+14,7|Adresse:   ASCII
+14,8|           10, rue Lépante
+14,9|           06000 Nice.
+14,10|Tél:       93.13.08.66   Fax:       93.13.90.95
+14,11|-----------------------------------------------
+14,12|AFIV,      distributeur de logiciels de Domaine
+14,13|----       Public.
+14,14|Adresse:   AFIV
+14,15|           10, rue Lépante
+14,16|           06000 Nice.
+14,17|Tél:       93.92.15.00
+14,18|-----------------------------------------------
+
+=== TIN3 cle=55
+28,1|     R E G L E
+28,2|\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad
+28,3|    D U   J E U
+9,5|HEROS est un jeu d'aventure accessible à tout le monde.
+9,6|Le principe d'utilisation en est  simple.  Il suffit de
+9,7|lire le texte  qui  vous est proposé,  en déroulant  un
+9,8|parchemin  à  l'aide  du joystick,  de la souris  ou du
+9,9|clavier.  A l'issue de la lecture, vous  devrez prendre
+9,10|une décision  en pressant  une des touches  de fonction
+9,11|qui  vous  seront  proposées. Cette  action  vous  fera
+9,12|accéder à  un  nouveau  parchemin.  Ce principe va vous
+9,13|permettre de progresser dans l'aventure et pourquoi pas
+9,14|d'en atteindre  la fin.  Vous devrez surtout  préserver
+9,15|votre capital de vie,  en évitant  les nombreux pièges.
+9,16|ATTENTION:  la touche Escape  vous  permet  de  quitter
+9,17|le jeu  à  n'importe  quel  moment, sans  confirmation.
+
+=== TIN4 cle=55
+26,1|    NOTE DE L'AUTEUR
+26,2| \xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad
+13,5|Avant de  vous laisser  séduire par ce logiciel,
+13,6|je voulais ouvrir une petite parenthèse au sujet
+13,7|de la distribution Shareware et du soutien moral
+13,8|et financier  qu'il faut absolument apporter aux
+13,9|auteurs,  pour  les encourager  à continuer pour
+13,10|votre plus grand plaisir.
+13,12|Pour me contacter :        Olivier Thil
+13,13|\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad\xad        66, rue des couronnes
+13,14|                           75020 Paris    France
+14,18|Je vous souhaite  de longues  nuits  blanches...
+
+=== TFin cle=55
+18,8|Vos douleurs disparaissent,
+18,9|votre vision se voile et vous sentez
+18,10|votre esprit désincarné flotter
+18,11|lentement vers la Vallée de la Mort.
+18,12|Une plaine de lave uniforme, balayée
+18,13|par le vent s'étend à perte de vue.
+18,14|Les âmes des morts errent ici,
+18,15|solitaires et sans but.
+18,16|Lorsque vous vous approchez de
+18,17|la Vallée, un vent d'un autre monde
+18,18|se lève et emporte votre âme.
+18,19|Vous êtes à présent dans un tunnel
+18,20|blanc très lumineux... et des voix
+18,21|résonnent alors, ce sont celles
+18,22|des êtres qui vous ont amené
+18,23|dans le monde d'Hodin:
+18,24|'Tout n'est pas encore perdu...
+18,25|Si votre esprit le veut, nous pouvons
+18,26|l'unir à nouveau à votre corps et
+18,27|remonter le Temps. Si tel est votre
+18,28|désir, nous pouvons vous renvoyer
+18,29|dans le Passé, au moment où vous
+18,30|êtes arrivé sur le monde d'Hodin'.
+18,32|< F1 > Vous acceptez de revenir
+18,33|       en arrière et de reprendre
+18,34|       votre quête.
+18,35|< F2 > Las! Vous abandonnez...
+18,36|       Vous condamnant à errer jusqu'à
+18,37|       la fin des temps dans la Vallée
+18,38|       de la Mort...
+
+=== TC1 cle=55
+18,8|Vous reprenez conscience...
+18,9|Vous souffrez d'une sourde douleur
+18,10|à la tête. Le vent souffle dans
+18,11|vos cheveux lorsque vous ouvrez
+18,12|les yeux.
+18,13|Vous êtes allongé sur le dos et
+18,14|constatez que vous êtes perché sur
+18,15|une tourelle avec des créneaux.
+18,16|En vous penchant par dessus le petit
+18,17|muret, vous découvrez une immense cité
+18,18|blanche suspendue dans les nuages.
+18,19|C'est au sommet de la plus haute tour
+18,20|de cette cité que vous vous trouvez
+18,21|à présent.
+18,22|Vos souvenirs sont trop vagues;
+18,23|Vous vous rappelez simplement
+18,24|d'un flash blanc... et puis plus rien!
+18,26|< F1 > Vous décidez d'emprunter
+18,27|       l'escalier en colimaçon pour
+18,28|       explorer cette mystérieuse cité.
+
+=== TC2 cle=55
+18,8|Après une descente de plusieurs
+18,9|minutes vous pénétrez dans une grande
+18,10|pièce circulaire où des êtres
+18,11|vous accueillent: 'Bienvenue',
+18,12|dit une silhouette féminine d'une
+18,13|grande pâleur, enveloppée dans une robe
+18,14|tourbillonnante aux teintes vives.
+18,15|La tête de cette femme est parfaitement
+18,16|lisse, sans le moindre cheveu.
+18,17|Sa robe présente des reflets colorés
+18,18|à chaque pas qu'elle effectue en
+18,19|s'avançant vers vous;
+18,20|Votre regard ne peut se détacher de ce
+18,21|miroitement incessant.
+18,23|< F1 > Vous levez les yeux vers
+18,24|       son visage.
+18,25|< F2 > Vous sentez une nouvelle
+18,26|       présence s'avancer vers vous.
+
+=== TC3 cle=55
+18,8|Vous levez les yeux sur elle et
+18,9|voyez avec horreur sur son visage,
+18,10|un reflet de vous-même...
+18,11|Vous êtes en train de livrer un combat
+18,12|à mort dans les dédales d'un temple.
+18,13|L'image alors se transforme, cette
+18,14|fois vous vous retrouvez au coeur
+18,15|d'une vallée encaissée peuplée d'ombres
+18,16|étranges et puis vous vous hâtez
+18,17|le long d'une lande désolée.
+18,18|Quand enfin ces images s'estompent,
+18,19|vous vous apercevez que ce visage lisse
+18,20|et pâle en face de vous est dépourvu
+18,21|d'yeux.
+18,23|< F1 > Vous vous tournez maintenant
+18,24|       vers un autre être qui se
+18,25|       rapproche de vous.
+
+=== TC4 cle=55
+18,8|Un autre être dont l'apparence change
+18,9|sans cesse s'approche à son tour
+18,10|de vous. Il est d'abord tout jeune
+18,11|enfant, mais doué, à l'évidence, d'un
+18,12|grand savoir, puis un veil homme aux
+18,13|cheveux blancs, tout pétri de sagesse.
+18,14|La métamorphose de la jeunesse au grand
+18,15|âge s'opère en quelques instants et
+18,16|pourtant elle semble imperceptible.
+18,17|La voix de l'être est douce et sans âge.
+18,18|'Vous vous demandez sans nul doute
+18,19|pourquoi nous vous avons fait venir
+18,20|sur le monde d'Hodin?
+18,21|Eh bien! sachez que votre présence
+18,22|doit empêcher que ne survienne
+18,23|un bouleversement fatal dans l'équilibre
+18,24|de la nature. Car un voile maléfique
+18,25|obstrue notre monde, et ne cesse de
+18,26|s'agrandir.
+18,27|Dans le jardin des dieux nous ne pouvons
+18,28|rien faire pour rétablir l'harmonie.
+18,29|Ce n'est pas à nous d'agir, nos pouvoirs
+18,30|ne peuvent traverser ce voile, pour
+18,31|combattre celui qui veut plonger Hodin
+18,32|dans le chaos. Aussi avez-vous été
+18,33|choisi pour vos nombreuses qualités
+18,34|afin de rétablir l'harmonie...
+18,35|Votre tête vous fait toujours aussi
+18,36|mal; Vous vous dites que ce ne peut
+18,37|être qu'un mauvais rêve et que vous
+18,38|allez bientôt vous réveiller,
+18,39|mais en attendant...
+18,41|< F1 > Vous voulez en savoir plus.
+
+=== TC5 cle=55
+18,8|Un troisième être s'approche de vous
+18,9|d'une démarche féline. C'est une très
+18,10|belle jeune fille qui porte à l'épaule
+18,11|un arc et un carquois rempli de flèches.
+18,12|Elle vous tend une épée qui reflète
+18,13|une intense lumière, ainsi qu'un sac
+18,14|contenant des éléments de base
+18,15|de survie:  - De la nourriture,
+18,16|            - Une torche,
+18,17|            - Deux petits silex,
+18,18|            - Des vêtements.
+18,19|En saisissant le sac, vous constatez
+18,20|que le sol de la pièce dans laquelle
+18,21|vous vous tenez représente une carte
+18,22|réaliste d'une région.
+18,24|< F1 > Intrigué, vous vous penchez
+18,25|       sur le sol, pour en étudier
+18,26|       les détails.
+
+=== TC6 cle=55
+18,8|En regardant de plus près,
+18,9|vous pouvez voir de minuscules
+18,10|silhouettes qui labourent des champs
+18,11|ou parcourent les routes de tout
+18,12|un monde où l'on distingue des
+18,13|châteaux forts, des chevaliers
+18,14|sur leurs montures...
+18,15|Interrompant votre contemplation,
+18,16|la jeune fille s'adresse à vous:
+18,17|'Nous allons vous envoyer dans le monde
+18,18|d'Hodin, dit-elle, pour cela nous
+18,19|vous accordons un capital de 28 points
+18,20|de vie. Mais sachez que si vous tombez
+18,21|dans les griffes de la mort, nous ne
+18,22|pourrons rien faire pour vous aider...
+18,23|Soyez digne de votre mission!'
+18,24|ajoute-t-elle avec solennité.
+18,25|'Quelle mission?' demandez-vous...
+18,26|Mais au même instant, à votre grande
+18,27|horreur, vous vous sentez inexorablement
+18,28|happé au fond d'un gouffre noir qui
+18,29|se dessine sur la carte...
+18,31|< F1 > Vous perdez une nouvelle fois
+18,32|       conscience.
+
+=== TL1 cle=55
+18,8|Lorsque vous émergez enfin des ténèbres,
+18,9|Vous constatez que vous êtes allongé
+18,10|sur un tapis d'herbe...
+18,11|En vous redressant vous contemplez
+18,12|un paysage très vert. Une large rivière
+18,13|bordée de fougères géantes coule
+18,14|paisiblement. Vous en suivez la berge,
+18,15|sur un terrain à présent plus clairsemé.
+18,16|Vous jetez alors un coup d'oeil
+18,17|derrière vous et votre coeur se met à
+18,18|battre à vive allure à la vue d'un Elfe
+18,19|Noir qui est en train de flairer votre
+18,20|piste. Il s'avance d'une démarche
+18,21|rapide et souple qui semblerait
+18,22|gracieuse si l'on était tout d'abord
+18,23|frappé par l'aspect sinistre
+18,24|de sa tenue et l'expression cruelle
+18,25|de son visage.
+18,26|Tandis que vous l'observez ainsi,
+18,27|il relève la tête et vous montre de son
+18,28|long doigt. Les elfes ne sont pas loin
+18,29|et il vous faut prendre une décision
+18,30|rapide...
+18,32|< F1 > Vous Courez le long de la berge.
+18,33|< F2 > Vous plongez dans l'eau
+18,34|       de la rivière et nagez pendant
+18,35|       un certain temps avant de revenir
+18,36|       sur la berge.
+18,37|< F3 > Vous vous cachez dans des fourrés.
+
+=== TL2 cle=55
+18,8|Vous courez aussi vite que possible,
+18,9|mais tous vos efforts vous ont épuisé.
+18,10|Incapable de trouver un endroit où
+18,11|vous cacher, Vous n'avez plus d'autre
+18,12|choix que d'affronter les Elfes Noirs.
+18,13|Ils vous rejoignent d'ailleurs en
+18,14|quelques instants et vous vous mettez
+18,15|en garde... L'une des monstrueuses
+18,16|créatures fait cependant un geste
+18,17|étrange et une douleur fulgurante
+18,18|vous déchire soudain la poitrine.
+18,19|Vous vous écroulez alors sur le sol,
+18,20|sans pouvoir faire un seul geste pour
+18,21|vous défendre. Les Elfes ont eu recours
+18,22|à une magie maléfique qui annihile
+18,23|en vous toute capacité de résistance.
+18,24|Ils n'ont ainsi aucun mal à vous tuer
+18,25|puis à vous emmener dans
+18,26|les profondeurs de leur repaire.
+18,28|< F1 > Votre quête se termine ici.
+
+=== TL3 cle=55
+22,8|Vous vous cachez dans
+22,9|les fourrés en espérant que
+22,10|les elfes ne parviendront pas
+22,11|à suivre votre piste...
+22,12|Après quelques minutes d'attente:
+22,14|< F1 > Vous patientez encore.
+22,15|< F2 > Vous vous risquez hors
+22,16|       de votre cachette.
+
+=== TL4 cle=55
+18,8|Quelques instants plus tard, les Elfes
+18,9|vous encerclent et plongent leur épée
+18,10|dans les fourrés.
+18,11|Vous n'avez plus d'autre choix désormais
+18,12|que de les affronter et vous vous
+18,13|relevez donc en brandissant votre épée.
+18,14|L'un d'eux fait alors un geste étrange
+18,15|et une douleur fulgurante vous déchire
+18,16|soudain la poitrine. Vous vous écroulez
+18,17|alors sur le sol, sans pouvoir faire
+18,18|un seul geste pour vous défendre...
+18,19|Les Elfes ont eu recours à une magie
+18,20|maléfique qui annihile en vous toute
+18,21|capacité de résistance.
+18,22|Ils n'ont ainsi aucun mal à vous tuer
+18,23|puis à vous emmener dans
+18,24|les profondeurs de leur repaire.
+18,26|< F1 > Votre quête se termine ici.
+
+=== TL5 cle=55
+22,8|Vous attendez quelques instants
+22,9|en essayant d'oublier
+22,10|les crampes qui contractent
+22,11|douloureusement vos muscles...
+22,13|< F1 > Comme rien ne se produit,
+22,14|       vous vous risquez hors
+22,15|       de votre cachette et
+22,16|       vous traversez la rivière.
+
+=== TL6 cle=55
+18,8|La rivière coule entre les collines et
+18,9|vous la suivez en marchant dans l'eau,
+18,10|sachant que les Elfes Noirs perdront
+18,11|ainsi votre piste.
+18,12|Lorsque vous avez parcouru une bonne
+18,13|distance de cette manière, vous
+18,14|remontez sur la berge opposée.
+18,16|< F1 > Vous poursuivez votre chemin.
+
+=== TL7 cle=55
+18,8|La rivière s'éloigne des collines et
+18,9|poursuit son cours dans une vaste plaine.
+18,10|Vous quittez à présent la berge pour
+18,11|traverser une prairie sauvage.
+18,12|Vous pensez avoir réussi à semer vos
+18,13|poursuivants lorsque vous apercevez
+18,14|soudain des silhouettes qui
+18,15|se rapprochent... Les Elfes Noirs
+18,16|vous ont retrouvé! Maudissant votre
+18,17|manque de chance, vous vous remettez
+18,18|à courir, mais vous êtes épuisé et
+18,19|cette nouvelle fuite vous coûte 2 points
+18,20|de vie.
+18,21|Il ne vous reste plus à présent qu'à
+18,22|faire volte-face pour attendre de pied
+18,23|ferme vos adversaires.
+18,25|< F1 > Vous vous préparez donc,
+18,26|       à combattre.
+
+=== TL7a cle=55
+18,8|Tandis que vous vous préparez à
+18,9|combattre... Un nuage de poussière
+18,10|s'élève à quelque distance et un bruit
+18,11|de galop vous parvient.
+18,12|Des cavaliers avancent dans votre
+18,13|direction et leur apparition fait
+18,14|aussitôt fuir les Elfes Noirs.
+18,15|Les cavaliers sont bientôt devant vous
+18,16|et vous constatez alors qu'il s'agit
+18,17|plutôt de cavalières:
+18,18|Ce sont, en effet, des femmes-guerriers,
+18,19|vêtues de cottes de maille et
+18,20|de casques. Quelques instants plus tard,
+18,21|elles vous ont encerclé; l'expression
+18,22|de leur visage vous indique qu'elles
+18,23|n'ont pas l'intention de vous manifester
+18,24|la moindre bienveillance.
+18,25|Leur Cheftaine qui s'est détachée
+18,26|du groupe, s'avance et vous demande
+18,27|d'un ton peu aimable ce que vous faites
+18,28|là en bordure de la lande.
+18,30|< F1 > Vous lui demandez de vous aider
+18,31|       dans votre quête.
+18,32|< F2 > Vous lui expliquez que vous
+18,33|       venez d'un autre monde.
+18,34|< F3 > Vous prétendez que vous êtes
+18,35|       le seul survivant d'une caravane
+18,36|       tombée dans une embuscade.
+18,37|< F4 > Vous faites semblant d'être
+18,38|       sourd et muet.
+18,39|< F5 > Vous lui demandez, de vous
+18,40|       escorter dans la direction
+18,41|       de la vallée de la mort.
+
+=== TL8 cle=55
+18,8|La cheftaine et ses compagnes éclatent
+18,9|de rire. Les mains sur les hanches,
+18,10|la tête rejetée en arrière en signe
+18,11|de défi, la Cheftaine désigne alors
+18,12|d'un mouvement de menton l'une des
+18,13|jeunes femmes à cheval.
+18,14|'Montez en croupe derrière Leia et
+18,15|donnez-moi votre épée, nous allons
+18,16|vous conduire jusqu'au prochain village'.
+18,18|< F1 > Vous acceptez de lui confier
+18,19|       votre épée comme elle le demande.
+18,20|< F2 > Vous refusez de lui confier
+18,21|       votre épée.
+
+=== TL9 cle=55
+18,8|La Cheftaine fronce les sourcils et
+18,9|un murmure s'élève parmi ses compagnes,
+18,10|mais elle les fait taire d'un geste.
+18,11|'Nous allons vous accompagner jusqu'au
+18,12|prochain village. Montez en croupe sur
+18,13|le cheval de Leia, ajoute-t-elle en
+18,14|vous désignant l'une des femmes
+18,15|guerriers et donnez-moi votre épée'.
+18,17|< F1 > Vous lui confiez votre épée et
+18,18|       montez sur le cheval de la jeune
+18,19|       femme.
+18,20|< F2 > Vous refusez en répondant que
+18,21|       vous aimez mieux  poursuivre
+18,22|       seul votre chemin.
+
+=== TL10 cle=55
+18,8|Vous faites quelques signes
+18,9|inintelligibles en marmonnant des
+18,10|grognements et vous montrez du doigt
+18,11|votre bouche et vos oreilles.
+18,12|L'espace d'un instant, certaines d'entre
+18,13|elles pensent que vous êtes en train de
+18,14|leur jeter un sort, et elles tirent
+18,15|leur épée, mais bientôt l'une des
+18,16|femmes-guerriers les arrête d'un geste.
+18,17|'Un aventurier sourd et muet! ' s'écrie
+18,18|t-elle, apparemment amusée.
+18,19|Leur chef vous fait alors signe
+18,20|de monter en croupe derrière une jeune
+18,21|femme, Leia, qui ne semble pas
+18,22|enchantée à l'idée de devoir partager
+18,23|son cheval avec vous...
+18,24|Vous parcourez ainsi quelques centaines
+18,25|de mètres en silence, puis les femmes
+18,26|reprennent leur conversation.
+18,27|Vous comprenez bientôt qu'elles font
+18,28|partie du Guet, la police du chef-lieu
+18,29|de cette région, et qu'elles sont
+18,30|chargées d'inspecter la vallée du Mal.
+18,32|< F1 > Pour continuer.
+
+=== TL11 cle=55
+18,8|'D'où venait donc cette caravane?
+18,9|demande la Cheftaine, des quatre tours
+18,10|de Kadann, peut-être?'
+18,12|< F1 > Elle venait en effet des tours
+18,13|       de Kadann.
+18,14|< F2 > Vous improvisez en répondant
+18,15|       qu'elle venait d'Eurodisney.
+18,16|< F3 > Ou bien qu'elle venait de
+18,17|       la cité de l'Arche perdue.
+
+=== TL12 cle=55
+18,8|La Cheftaine vous lance un regard
+18,9|narquois puis d'un ton sarcastique:
+18,10|'Mais bien sûr, puissant guerrier
+18,11|dit-elle, nous serons très heureuses
+18,12|de faire ce que vous demandez.
+18,13|Montez donc en croupe derrière Leia,
+18,14|ajoute-t-elle en désignant l'une
+18,15|de ses compagnes'.
+18,16|Cette dernière étouffe un petit rire
+18,17|et la Cheftaine reprend:
+18,18|'Je vais cependant vous demander
+18,19|de me confier votre arme'.
+18,21|< F1 > Pour continuer.
+
+=== TL13 cle=55
+18,8|Leia vous aide à monter sur son cheval.
+18,9|De toute évidence, elle n'est guère
+18,10|enchantée d'avoir à partager avec vous
+18,11|sa monture et vous chevauchez en silence
+18,12|à travers la plaine.
+18,14|< F1 > Pour continuer.
+
+=== TL14 cle=55
+18,8|Sur un ordre de la Cheftaine,
+18,9|le cercle des chevaux se resserre
+18,10|autour de vous. Vous tirez alors votre
+18,11|épée et vous parvenez à blesser l'une
+18,12|des femmes avant d'être attaqué
+18,13|de toutes parts.
+18,14|Ce sont des combattantes bien
+18,15|entraînées et elles ont tôt fait de
+18,16|vous assommer en vous frappant du plat
+18,17|de leurs lames... Vous laissez tomber
+18,18|votre arme, incapable de résister plus
+18,19|longtemps, puis vous vous écroulez
+18,20|lourdement sur le sol. Vous perdez
+18,21|2 points de vie.
+18,22|Lorsque vous reprenez vos esprits,
+18,23|vous vous rendez compte qu'il est
+18,24|inutile de résister, vous ne possédez
+18,25|plus votre épée, et vous décidez
+18,26|de faire ce qu'on vous dira.
+18,27|Leia vous tend alors la main et
+18,28|vous aide à monter sur son cheval.
+18,29|Elle ne parait pas enchantée cependant
+18,30|de partager avec vous sa monture
+18,31|jusqu'au prochain village.
+18,33|< F1 > Vous avez au moins la consolation
+18,34|       d'aller dans la bonne direction.
+
+=== TL15 cle=55
+18,8|Soudain, la Cheftaine, derrière vous,
+18,9|se met à hurler:
+18,10|'Attention! Une embuscade! Baissez vous
+18,11|tous'... Vous entendez alors une flèche
+18,12|siffler tandis que Leia, obéissant à
+18,13|l'ordre donné, se baisse sur l'encolure
+18,14|de son cheval.
+18,16|< F1 > Si vous voulez vous baisser.
+18,17|< F2 > Si vous préférez attendre
+18,18|       de voir ce qui va se passer.
+
+=== TL16 cle=55
+18,8|'Vous mentez! lance la Cheftaine d'un
+18,9|ton sec, les Tours de Kadann n'existent
+18,10|pas, Je ne puis rien pour un menteur...'
+18,11|Vous regardez les femmes-guerriers
+18,12|disparaître à l'horizon, satisfait
+18,13|de vous en être débarrassé...
+18,14|Quand soudain, les Elfes Noirs
+18,15|réapparaissent.
+18,17|< F1 > Vous Courez le plus vite
+18,18|       possible.
+
+=== TL17 cle=55
+18,8|Vous vous baissez et vous entendez
+18,9|la flèche se planter dans le tronc
+18,10|d'un arbre, un peu plus loin.
+18,11|'Alors lance la Cheftaine on a donc
+18,12|retrouvé son sens de l'ouïe!
+18,13|Un véritable miracle, dirait-on!'
+18,14|Elle donne alors un ordre à Leia et
+18,15|la jeune femme aussitôt vous jette
+18,16|à bas de son cheval. Puis elle bondit
+18,17|sur vous et vous neutralise en un
+18,18|instant, vous confisquant votre épée.
+18,19|Vous êtes sonné... deux des femmes
+18,20|guerriers vous aident à remonter sur
+18,21|le cheval de Leia. Votre erreur vous
+18,22|fait perdre 1 point de vie.
+18,24|< F1 > Vous voilà reparti.
+
+=== TL18 cle=55
+18,8|Vous avez parfaitement compris
+18,9|que cette fausse embuscade n'était
+18,10|qu'un piège pour vous faire réagir.
+18,11|Vous ne bougez donc pas et la flèche,
+18,12|tirée par l'une des femmes-guerriers
+18,13|vient se ficher dans le tronc
+18,14|d'un arbre.
+18,15|Elles sont à présent convaincues que
+18,16|vous êtes véritablement sourd et muet.
+18,17|Vous chevauchez ensuite pendant un long
+18,18|moment, et les étendues sauvages
+18,19|laissent place à une lande désolée.
+18,20|Au loin un petit village se découpe
+18,21|sur un coucher de soleil.
+18,22|Vous arrivez bientôt devant...
+18,23|Vous sautez alors à bas du cheval
+18,24|de Leia et vous faites un geste de
+18,25|la main en guise d'adieu.
+18,26|La Cheftaine vous remet alors 4 pièces
+18,27|d'Or pour passer la nuit dans une des
+18,28|deux auberges du village, en vous
+18,29|indiquant du doigt leur direction.
+18,30|Vous pénétrez dans le village pendant
+18,31|que les femmes-guerriers disparaîssent
+18,32|dans l'obscurité de la nuit.
+18,34|< F1 > Vous décidez de passer la nuit
+18,35|       dans 'l'Auberge du Pendu'.
+18,36|< F2 > Vous préférez passer la nuit
+18,37|       dans 'l'Auberge du Calme'.
+
+=== TL19 cle=55
+18,8|Vous chevauchez pendant un long moment,
+18,9|et les étendues sauvages laissent place
+18,10|à une lande désolée.
+18,11|Au loin un petit village se découpe sur
+18,12|fond de coucher de soleil. Vous sautez
+18,13|alors à bas du cheval de Leia,
+18,14|et demandez votre épée. la Cheftaine
+18,15|réplique aussitôt: 'Voilà votre épée,
+18,16|ainsi que 3 pièces d'Or pour passer
+18,17|la nuit. Adieu l'aventurier'.
+18,19|< F1 > Vous vous dirigez vers le village,
+18,20|       pendant que les femmes-guerriers
+18,21|       disparaîssent dans l'obscurité
+18,22|       de la nuit.
+
+=== TL27 cle=55
+18,8|'Je ne connais pas d'Eurodisney,
+18,9|mais nous allons vous escorter jusqu'au
+18,10|prochain village, dit la Cheftaine,
+18,11|votre histoire ne m'étonne pas, les
+18,12|brigands sont nombreux dans la région.
+18,13|Voulez-vous monter en croupe derrière
+18,14|Leia?' Elle désigne une des jeunes
+18,15|femmes qui vous tend aussitôt la main
+18,16|pour vous aider à prendre place derrière
+18,17|elle. Leia, ne semble cependant guère
+18,18|enchantée d'avoir à partager sa monture
+18,19|avec vous et vous n'échangez pas une
+18,20|parole tandis que vous traversez
+18,21|l'étendue sauvage.
+18,23|< F1 > Vous vous dirigez vers le village.
+
+=== TL28 cle=55
+18,8|Les femmes-guerriers perdent quelque peu
+18,9|de leur arrogance lorsque vous faites
+18,10|mention de l'Arche. Leur Cheftaine
+18,11|hésite un instant en froncant
+18,12|les sourcils, et une crainte passe dans
+18,13|le regard de ses compagnes.
+18,14|Finalement après s'être éclairci
+18,15|la gorge, la Cheftaine dit:
+18,16|'Vous voulez bien sûr parler de l'Arche
+18,17|d'Alliance... Et reprenant son arrogance
+18,18|elle ajoute, nous allons vous mener
+18,19|jusqu'au prochain village.
+18,20|Voulez-vous monter en croupe derrière
+18,21|Leia?' Elle désigne une des jeunes
+18,22|femmes qui vous tend aussitôt la main
+18,23|pour vous aider à prendre place derrière
+18,24|elle. Leia, ne semble cependant guère
+18,25|enchantée d'avoir à partager sa monture
+18,26|avec vous et vous n'échangez pas une
+18,27|parole tandis que vous traversez
+18,28|l'étendue sauvage.
+18,30|< F1 > Vous vous dirigez vers le village.
+
+=== L28a cle=55
+18,8|Vous arrivez bientôt devant un petit
+18,9|village qui se découpe sur un coucher
+18,10|de soleil. Vous sautez alors à bas
+18,11|du cheval de Leia, vous les remercier
+18,12|et faites un geste de la main en guise
+18,13|d'adieu.
+18,14|La Cheftaine vous remez alors 4 pièces
+18,15|d'Or pour passer la nuit dans
+18,16|une auberge.
+18,18|< F1 > Vous pénétrez dans le village,
+18,19|       pendant que les femmes-guerriers
+18,20|       disparaîssent dans l'obscurité
+18,21|       de la nuit.
+
+=== TL29 cle=55
+18,8|Alors que vous traversez le village
+18,9|en quête d'une auberge, un groupe
+18,10|de trois hommes sort de l'obscurité
+18,11|d'un porche. L'un d'eux, un homme à
+18,12|l'allure redoutable, la joue sillonnée
+18,13|par une cicatrice de l'oreille au menton,
+18,14|vous fixe alors d'un regard menaçant,
+18,15|puis vous lance d'une voix grinçante:
+18,16|'La bourse ou la vie?'
+18,18|< F1 > Leurs menaces ne vous
+18,19|       impressionnent pas du tout,
+18,20|       vous saisissez votre épée.
+18,21|< F2 > Vous gagnez un peu de temps
+18,22|       en leur demandant simplement
+18,23|       la direction de l'auberge
+18,24|       la plus proche.
+18,25|< F3 > Vous leur demandez si ce sont
+18,26|       des Voleurs.
+
+=== L29a cle=55
+18,8|Ils froncent les sourcils et, soudain,
+18,9|une terrible douleur vous déchire les
+18,10|reins. Un quatrième voleur que vous
+18,11|n'aviez pas vu vous a donné un coup
+18,12|de poignard dans le dos... Vous faites
+18,13|volte-face et vous vous adossez
+18,14|à un mur.
+18,15|Un homme de forte corpulence se tient
+18,16|debout devant vous avec, à la main,
+18,17|un poignard qui ruisselle de votre sang,
+18,18|pendant que de son autre main il vous
+18,19|fouille les poches, tout devient noir
+18,20|autour de vous; Vous vous écroulez
+18,21|à terre.
+18,23|< F1 > Votre aventure s'achève
+18,24|       malheureusement dans cette
+18,25|       sombre ruelle.
+
+=== L29b cle=55
+18,8|'Nous n'avons pas peur de la Loi,
+18,9|aussi faites attention, vous pourriez
+18,10|bien vous retrouver les bras en croix
+18,11|avec un couteau dans le ventre avant
+18,12|d'avoir compris ce qui vous est arrivé!,
+18,13|réplique le balafré'... soudain,
+18,14|une terrible douleur vous déchire
+18,15|le crâne. Un quatrième voleur que
+18,16|vous n'aviez pas vu, vous a donné
+18,17|un coup violent sur la tête...
+18,18|Vous reprenez vos esprits quelques
+18,19|instants plus tard, une terrible
+18,20|migraine vous fait perdre 6 points de
+18,21|vie. Un homme vous aide à vous relever,
+18,22|il n'y a plus trace des voleurs.
+18,23|Vos pièces d'Or ont disparu,
+18,24|Heureusement que vous en aviez
+18,25|dissimulé une dans votre chaussure.
+18,26|L'homme qui vous a aidé à vous relever
+18,27|vous indique la direction des deux
+18,28|auberges du village.
+18,30|< F1 > Vous décidez de passer la nuit
+18,31|       dans 'l'Auberge du Pendu'.
+18,32|< F2 > Vous préférez passer la nuit
+18,33|       dans 'l'Auberge du Calme'.
+
+=== L29c cle=55
+18,8|Le Balafré éclate de rire.
+18,9|Ceux qui avaient la main sur le manche
+18,10|de leur poignard lâchent leur arme,
+18,11|et un quatrième homme qui se trouvait
+18,12|derrière vous va rejoindre ses acolytes.
+18,13|'Bien sûr que nous sommes des voleurs,
+18,14|dit-il, c'est bien la première fois
+18,15|qu'on me pose une question aussi
+18,16|stupide, l'ami'.
+18,17|Ils vous invitent alors à boire
+18,18|un verre. Vous acceptez et vous
+18,19|vous asseyez parmi eux sur un tonneau...
+18,20|@2Vous ouvrez difficilement les yeux
+18,21|le lendemain matin, vous êtes assis sur
+18,22|le sol, adossé à un tonneau.@1
+18,23|Une terrible migraine vous déchire
+18,24|le crâne vous faisant perdre
+18,25|4 points de vie.
+18,26|Il n'y a plus trace des voleurs,
+18,27|ni de vos pièces d'Or d'ailleurs.
+18,29|< F1 > Après avoir mis la tête dans
+18,30|       un tonneau rempli cette fois
+18,31|       d'une eau fraîche, vous
+18,32|       quittez le village en prenant
+18,33|       la direction du Sud.
+
+=== TL30 cle=55
+18,8|Vous suivez un sentier en direction
+18,9|du village. Quelques minutes plus tard,
+18,10|vous entendez des voix et vous
+18,11|rencontrez des Chasseurs en compagnie
+18,12|desquels vous marchez jusqu'au village.
+18,13|Après tant d'aventures, la seule chose
+18,14|dont vous ayez besoin, c'est de trouver
+18,15|une auberge pour y passer une bonne
+18,16|nuit de sommeil. Les Chasseurs vous
+18,17|indiquent deux auberges.
+18,19|< F1 > Vous décidez de vous rendre
+18,20|       à 'l'Auberge du Calme'.
+18,21|< F2 > Vous préférez passer la nuit
+18,22|       dans 'l'Auberge du Pendu'.
+
+=== TL34 cle=55
+18,8|'l'Auberge du Pendu' semble être
+18,9|une auberge agréable et spacieuse.
+18,10|Vous donnez 4 pièces d'Or à l'aubergiste
+18,11|et vous montez dans votre chambre.
+18,12|Dès que vous posez la tête sur
+18,13|l'oreiller, vous vous endormez...
+18,14|Le lendemain matin, à votre réveil,
+18,15|vous vous sentez parfaitement reposé
+18,16|et vous gagnez 2 points de vie.
+18,18|< F1 > Vous ramassez vos affaires et
+18,19|       quittez le village en prenant
+18,20|       la direction du Sud.
+
+=== L34a cle=55
+18,8|'l'Auberge du Pendu' semble être
+18,9|une auberge agréable et spacieuse.
+18,10|L'aubergiste vous demande 4 pièces d'Or
+18,11|pour une chambre... Vous ne les avez
+18,12|malheureusement pas.
+18,14|< F1 > Vous quittez les lieux,
+18,15|       en vous dirigent cette fois
+18,16|       vers 'l'Auberge du Calme'.
+
+=== TL35 cle=55
+18,8|Vous pénetrez à l'intérieur
+18,9|de 'l'Auberge du Calme'.
+18,10|Au rez-de-chaussée, la salle est bondée
+18,11|de chevaliers apparemment décidés
+18,12|à faire la fête, mais vous ne leur
+18,13|prêtez aucune attention et vous montez
+18,14|dans votre chambre après avoir payé
+18,15|2 pièces d'Or à l'aubergiste.
+18,16|Malheureusement, il y a tant de bruit
+18,17|en bas que vous ne parvenez pas à fermer
+18,18|l'oeil. Les fêtards vous font ainsi
+18,19|perdre 1 point de vie.
+18,21|< F1 > Vous enfouissez la tête sous
+18,22|       l'oreiller en essayant de ne
+18,23|       pas les entendre.
+18,24|< F2 > Vous descendez dans la salle
+18,25|       en brandissant votre épée
+18,26|       et en les menaçant.
+18,27|< F3 > Vous quittez cette auberge
+18,28|       et allez plutôt à 'l'Auberge
+18,29|       du Pendu'.
+
+=== TL36 cle=55
+18,8|Vous faites de votre mieux pour essayer
+18,9|de ne pas entendre le vacarme qui monte
+18,10|du rez-de-chaussée,
+18,11|mais les réjouissances deviennent de
+18,12|plus en plus bruyantes et vous ne
+18,13|parvenez à trouver le sommeil que bien
+18,14|après minuit...
+18,15|Vous êtes cependant réveillé de bonne
+18,16|heure par l'agitation des chevaliers
+18,17|qui quittent l'Auberge. Cette nuit
+18,18|agitée vous fait perdre 1 point de vie.
+18,20|< F1 > Furieux, vous ramassez alors vos
+18,21|       affaires et quittez le village
+18,22|       en prenant la direction du Sud.
+
+=== TL37 cle=55
+18,8|Après votre long voyage de la journée,
+18,9|c'est plus que vous ne pouvez en
+18,10|supporter et vous descendez l'escalier
+18,11|quatre à quatre en brandissant votre
+18,12|épée. 'Vous allez la mettre en sourdine,
+18,13|ou sinon!'...
+18,14|En les menaçant ainsi, vous n'obtenez,
+18,15|cependant pour toute réponse que
+18,16|de grands éclats de rire.
+18,17|Vous vous avancez alors vers eux, l'air
+18,18|furieux, mais l'un d'eux saisit
+18,19|aussitôt une chaise dont il vous frappe
+18,20|le bras d'un grand coup. Votre épée
+18,21|tombe à terre et votre bras contusionné
+18,22|vous fait perdre 2 points de vie.
+18,24|< F1 > Vous vous rendez compte qu'il
+18,25|       est tout à fait impossible
+18,26|       de vous battre contre tous
+18,27|       ces hommes réunis et
+18,28|       vous retournez donc dans
+18,29|       votre chambre.
+
+=== TL38 cle=55
+18,8|'Vous n'avez pas assez pour une chambre,
+18,9|s'exclame l'aubergiste...'
+18,10|Tout ce qu'il peut vous proposer pour
+18,11|1 pièce d'Or, c'est une place au chaud
+18,12|dans son étable pour passer la nuit.
+18,13|Exténué par votre journée,
+18,14|vous acceptez...
+18,15|Vous êtes réveillé de bonne heure
+18,16|par le hennissement d'un cheval.
+18,17|Vous vous sentez reposé, sans plus...
+18,19|< F1 > Vous ramassez vos affaires et
+18,20|       quittez le village en prenant
+18,21|       la direction du Sud.
+
+=== TM1 cle=55
+18,8|A mesure que vous avancez, le sol
+18,9|devient rocheux et le chemin s'élève.
+18,10|Bientôt, au lieu du morne feuillage
+18,11|des arbres, c'est le ciel que vous voyez
+18,12|au-dessus de vous et vous arrivez un peu
+18,13|plus tard au sommet d'une haute falaise
+18,14|qui surplombe le cours de la rivière.
+18,15|Les eaux boueuses coulent vingt mètres
+18,16|au-dessous et la falaise est trop
+18,17|escarpée pour songer à en descendre
+18,18|la paroi. En contrebas, vous apercevez
+18,19|d'énormes Crocodiles qui flottent
+18,20|paresseusement au soleil.
+18,21|Au Sud s'étale une large vallée
+18,22|ceinturée par de hautes falaises.
+18,23|Il existe deux sentiers par lesquels
+18,24|vous pouvez quitter cette falaise.
+18,26|< F1 > Vous allez vers le Sud en
+18,27|       pénétrant dans la vallée.
+18,28|< F2 > Vous allez vers l'Ouest, le long
+18,29|       de la rivière.
+18,30|< F3 > Vous plongez dans l'eau et nagez
+18,31|       en direction du Nord.
+18,32|< F4 > Vous plongez dans l'eau,
+18,33|       mais nagez plutôt en direction
+18,34|       de l'Est.
+
+=== TM2 cle=55
+18,8|Vous pensez que vous pouvez peut-être
+18,9|atteindre l'île que vous apercevez
+18,10|au Sud, en nageant dans la rivière.
+18,11|Peut-être même existe-t-il quelque part
+18,12|un chemin orienté vers l'Est que vous
+18,13|pourrez emprunter.
+18,15|< F1 > Vous aurez en tout cas une longue
+18,16|       distance à parcourir et vous
+18,17|       vous y préparez soigneusement.
+
+=== TM3 cle=55
+18,8|Vous commencez par jeter vos affaires
+18,9|au bas de la falaise après les avoir mis
+18,10|en boule, puis vous plongez vous-même.
+18,11|Hélas! vous vous rendez très vite compte,
+18,12|mais trop tard, que l'eau est peu
+18,13|profonde et le lit de la rivière
+18,14|recouvert d'une épaisse couche de vase.
+18,15|Vous voilà enlisé...
+18,16|Vous parvenez cependant à vous dégager,
+18,17|mais lorsque vous atteignez enfin la
+18,18|surface de l'eau, vous vous trouvez nez
+18,19|à nez avec un crocodile aux machoires
+18,20|grandes ouvertes. Vous empoignez votre
+18,21|épée, mais votre geste est vain.
+18,22|Les mâchoires se referment sur vous...
+18,24|< F1 > Votre aventure se termine dans
+18,25|       l'estomac du reptile.
+
+=== TM4 cle=55
+18,8|Vous entrez dans une agréable clairière
+18,9|entourée de chênes noueux. Un petit
+18,10|homme à l'air joyeux est assis par terre,
+18,11|le dos appuyé contre le tronc d'un arbre.
+18,12|Il est en train de manger une pomme,
+18,13|un panier à pique-nique ouvert à côté
+18,14|de lui. Apparemment, il n'a pas d'arme,
+18,15|en dehors du couteau dont il se sert
+18,16|pour couper sa pomme. Il remarque alors
+18,17|votre présence et vous salue:
+18,18|'Bonjour, l'aventurier, que diriez-vous
+18,19|de partager le modeste repas d'un Voleur?'
+18,21|< F1 > Vous acceptez son invitation.
+18,22|< F2 > Vous ne lui prêtez pas attention.
+18,23|< F3 > Vous l'attaquez.
+
+=== TM5 cle=55
+18,8|Vous vous asseyez en face de lui.
+18,9|'Que faites-vous dans la vie?' lui
+18,10|demandez-vous. 'Je détrousse les
+18,11|voyageurs, répond-il. Lorsque quelqu'un
+18,12|entre dans la clairière par ce sentier
+18,13|là-bas, mes filets tombent sur lui et
+18,14|l'emprisonnent; je n'ai plus alors qu'à
+18,15|lui vider les poches'. Il pointe
+18,16|le doigt vers le feuillage des arbres
+18,17|et votre regard suit la direction
+18,18|qu'il indique.
+18,20|< F1 > Vous lui faite entièrement
+18,21|       confiance.
+18,22|< F2 > Vous restez sur vos gardes.
+
+=== TM6 cle=55
+18,8|Une cordelette s'enroule autour de
+18,9|votre cou; Le Voleur vous a trompé!
+18,10|Fort heureusement, vous êtes beaucoup
+18,11|plus fort que lui et vous l'obligez à
+18,12|lâcher prise puis vous le faites
+18,13|basculer par-dessus votre épaule.
+18,14|Vous êtes à nouveau libre à présent,
+18,15|mais vous avez perdu 2 points de vie
+18,16|au cours de la bagarre. Le voleur
+18,17|vient de dégainer un poignard.
+18,19|< F1 > Vous attaquez ce traître.
+18,20|< F2 > Vous préférez vous enfuir.
+
+=== TM7 cle=55
+18,8|Dans un mouvement instinctif, vous vous
+18,9|laissez tomber en arrière de tout votre
+18,10|long. Le Voleur qui s'apprêtait à vous
+18,11|étrangler avec une cordelette se trouve
+18,12|pris au dépourvu.
+18,14|< F1 > Vous vous relevez alors d'un bond.
+
+=== TM8 cle=55
+18,8|Vous entendez le Voleur pousser un cri
+18,9|de colère tandis qu'il se précipite sur
+18,10|vous. Il n'est armé que d'un poignard.
+18,11|Il vous est impossible de prendre
+18,12|la fuite, car le voleur ne vous laisse
+18,13|pas un instant de répit. En un instant,
+18,14|il vous bondit dessus, vous avez juste
+18,15|le réflexe de brandir votre épée.
+18,16|L'homme s'empale sur votre épée et tombe
+18,17|à vos pieds; il n'était pas si habile
+18,18|qu'il l'avait cru! Vous fouillez alors
+18,19|dans ses affaires et la seule chose
+18,20|utile que vous y trouviez est une grande
+18,21|Cape Rouge. Ensuite vous grignotez un
+18,22|morceau de pain, que vous trouvez dans
+18,23|son panier et qui vous fait gagner
+18,24|1 point de vie.
+18,26|< F1 > Vous prenez la Cape Rouge, puis
+18,27|       vous poursuivez votre chemin.
+18,28|< F2 > La Cape Rouge ne vous inspire pas,
+18,29|       vous la laissez et poursuivez
+18,30|       votre chemin.
+
+=== TM9 cle=55
+18,8|Trois directions vous permettent de
+18,9|continuer votre chemin. Celle orientée
+18,10|à l'Ouest semble suivre une pente
+18,11|descendante vers la rivière. A l'Est
+18,12|le terrain semble très rocailleux.
+18,14|< F1 > Vous allez au Nord, en remontant
+18,15|       sur la falaise.
+18,16|< F2 > Vous prenez le sentier qui
+18,17|       descend vers la rivière en
+18,18|       direction de l'Ouest.
+18,19|< F3 > Vous préférez prendre la
+18,20|       direction de l'Est.
+
+=== TM10 cle=55
+18,8|Vous ne prenez aucun risque, cet homme
+18,9|est peut être malfaisant. Vous ne voulez
+18,10|rien avoir à faire avec lui et traversez
+18,11|la clairière sans lui prêter attention.
+18,12|Cependant, au moment ou vous allez
+18,13|rejoindre le sentier, une cordelette
+18,14|s'enroule autour de votre cou...
+18,15|Vous vous débattez, mais le voleur vous
+18,16|étrangle et vous vous écroulez sur
+18,17|le sol, sans connaissance. Vous perdez
+18,18|aussitôt 4 points de vie. Lorsque vous
+18,19|reprenez conscience, vous vous sentez
+18,20|mal et vous avez le tournis. De plus,
+18,21|certains de vos objets ont peut être
+18,22|disparu, et il n'y a plus trace
+18,23|du voleur.
+18,25|< F1 > Après avoir repris vos esprits
+18,26|       vous êtes furieux de vous être
+18,27|       laissé avoir aussi facilement.
+
+=== TM11 cle=55
+18,8|Vous êtes de retour dans l'agréable
+18,9|clairière entourée de chênes noueux,
+18,10|Où vous avez rencontré le Voleur.
+18,12|< F1 > Vous traversez la clairière.
+
+=== TM12 cle=55
+18,8|@0Le sentier se met à descendre et
+18,9|des tourbillons de brume vous entourent.
+18,10|Une odeur fétide se dégage alentour et
+18,11|vous retenez votre souffle, vos yeux
+18,12|vous piquent. Mais avant que vous ayez
+18,13|pu traverser ce brouillard, vous êtes
+18,14|contraint de respirer à nouveau et
+18,15|l'atmosphère viciée qui règne en ces
+18,16|lieux vous coûte 2 points de vie.@1
+18,18|< F1 > Vous suivez la rivière vers
+18,19|       le Nord.
+18,20|< F2 > Vous prenez la direction de l'Est.
+18,21|< F3 > Vous suivez la berge vers le Sud.
+
+=== TM13 cle=55
+18,8|Le sentier ici est étroit et serpente
+18,9|entre de gros rochers.@2 Un brouillard
+18,10|épais baigne les lieux et vous ne
+18,11|parvenez pas à voir très loin.@1 Mais
+18,12|soudain, la brume se lève et vous vous
+18,13|retrouvez devant l'entrée d'une grotte.
+18,14|Vous allumez une torche et vous pénétrez
+18,15|dans la grotte qui s'enfonce dans
+18,16|l'obscurité. Vous avancez ainsi avec
+18,17|précaution jusqu'à l'entrée d'un petit
+18,18|couloir aux murs lisses qui part
+18,19|du tunnel principal. Une forte odeur
+18,20|de @0souffre@1 règne alentour.
+18,22|< F1 > Vous souhaitez continuer
+18,23|       à explorer le large tunnel
+18,24|       aux parois rocheuses dans lequel
+18,25|       vous vous trouvez à présent.
+18,26|< F2 > Vous préférez bifurquer dans
+18,27|       le couloir étroit.
+
+=== TM14 cle=55
+22,8|Vous suivez le tunnel pendant
+22,9|un certain temps, puis vous
+22,10|arrivez enfin dans une vaste
+22,11|caverne. Le dos d'un énorme
+22,12|Dragon apparaît alors devant
+22,13|vous...
+22,14|Le monstre fait presque vingt
+22,15|mètres de long et sa peau est
+22,16|recouverte d'épaisses écailles
+22,17|brunes. Sa queue immense est
+22,18|enroulée autour d'un fabuleux
+22,19|trésor composé @0de pierres
+22,20|précieuses, d'Or, de coupes
+22,21|et de vases sertis de pierreries@1
+22,22|qui sont entassés pêle-mêle sous
+22,23|la masse imposante de
+22,24|la créature. Quelques écailles
+22,25|tombées de sa peau parsèment
+22,26|le sol autour du dragon.
+22,28|< F1 > Vous enfoncez votre épée
+22,29|       dans le dos du monstre.
+22,30|< F2 > Vous essayez de ramasser
+22,31|       quelques unes de ces
+22,32|       écailles.
+22,33|< F3 > Vous tentez de vous
+22,34|       emparer de quelques
+22,35|       pièces du trésor.
+22,36|< F4 > Vous quittez la caverne.
+
+=== TM15 cle=55
+18,8|Le Dragon hurle de douleur mais ses
+18,9|écailles épaisses l'ont malgré tout
+18,10|protégé et votre coup d'épée n'a pas
+18,11|réussi à le neutraliser. D'un coup de
+18,12|queue, il vous frappe à l'épaule; vous
+18,13|perdez aussitôt 2 points de vie.
+18,14|Vous êtes alors saisi de terreur lorsque
+18,15|le Dragon tourne la tête vers vous en
+18,16|vous fixant de ses yeux rouges en amande
+18,17|qui @0étincellent@1 dans l'obscurité.
+18,18|Il a un regard cruel et la douleur que
+18,19|vous lui avez infligé l'a rendu furieux.
+18,21|< F1 > Vous revenez en courant le long
+18,22|       du couloir.
+18,23|< F2 > Vous essayez de ramasser quelques
+18,24|       écailles.
+18,25|< F3 > Vous essayez de vous emparez de
+18,26|       quelques pièces de son trésor.
+
+=== TM16 cle=55
+18,8|Vous essayez de ramasser des écailles
+18,9|du dragon, mais dans votre hâte, vous
+18,10|trébuchez contre un coffre d'or rempli
+18,11|de perles noires...
+18,12|Le Dragon se tourne alors vers vous et
+18,13|souffle un jet de @0flammes@1 dans votre
+18,14|direction avant même que vous ayez pu
+18,15|vous relever.
+18,17|< F1 > Quelques instants plus tard,
+18,18|       il ne reste plus de vous qu'un
+18,19|       petit tas de cendres.
+
+=== TM17 cle=55
+18,8|Vous essayez de vous emparer d'un casque
+18,9|incrusté de pierreries, mais dans votre
+18,10|hâte, vous trébuchez contre un coffre
+18,11|d'or rempli de perles noires...
+18,12|Le Dragon se tourne alors vers vous et
+18,13|souffle un jet de @0flammes@1 dans votre
+18,14|direction avant même que vous ayez pu
+18,15|vous relever.
+18,17|< F1 > Quelques instants plus tard,
+18,18|       il ne reste plus de vous qu'un
+18,19|       petit tas de cendres.
+
+=== TM18 cle=55
+18,8|Vous avancez sur la pointe des pieds et
+18,9|vous parvenez à ramasser deux des
+18,10|écailles tombées de la peau du Dragon.
+18,11|Chacune d'elles mesure une vingtaine
+18,12|de centimètres de long.
+18,14|< F1 > Vous ressortez de la caverne en
+18,15|       prenant garde à ne pas faire
+18,16|       de bruit.
+
+=== TM19 cle=55
+18,8|Le Dragon n'essaye même pas de vous
+18,9|rattraper; vous sortez donc de la grotte
+18,10|sans encombre. Vos yeux doivent se
+18,11|réhabituer à la lumière du jour.
+18,12|La falaise au-dessus de la grotte laisse,
+18,13|sans arrêt, échapper de petits éboulis.
+18,15|< F1 > Vous décidez de vous en éloigner,
+18,16|       en prenant la direction
+18,17|       de l'Ouest.
+
+=== TM20 cle=55
+18,8|Le tunnel continue tout droit,
+18,9|puis tourne vers la gauche en descendant
+18,10|une légère pente. Au détour de la courbe
+18,11|qu'il forme à cet endroit,
+18,12|vous vous trouvez soudain nez-à-nez
+18,13|avec un immense Dragon...
+18,14|Ses lourdes paupières sont presque
+18,15|fermées, et de petites bouffées
+18,16|de souffre lui sortent des naseaux.
+18,17|Il mesure presque vingt mètres de long
+18,18|et sa peau est recouverte d'écailles
+18,19|brunes. Sa longue queue entoure
+18,20|jalousement un fantastique trésor
+18,21|composé @0de pierres précieuses,
+18,22|d'Or, de coupes, de vases sertis
+18,23|de pierreries@1 et de toutes sortes
+18,24|d'autres richesses entassées pêle-mêle,
+18,25|sous la masse somnolente du monstre.
+18,27|< F1 > Vous avancez vers le Dragon
+18,28|       sans faire de bruit.
+18,29|< F2 > Vous enfoncez votre épée dans
+18,30|       le corps du monstre.
+18,31|< F3 > Vous revenez sur vos pas pour
+18,32|       explorer l'autre tunnel.
+18,33|< F4 > Vous quittez la grotte.
+18,34|< F5 > Vous essayez de voler quelques
+18,35|       pièces du trésor.
+
+=== TM21 cle=55
+18,8|Vous vous avancez vers le Dragon sur la
+18,9|pointe des pieds. Ses narines frémissent
+18,10|alors il ouvre un grand oeil rouge en
+18,11|amande. Prenez garde car cet oeil rouge
+18,12|vous regarde...
+18,14|< F1 > Vous quittez le plus rapidement
+18,15|       possible la caverne.
+18,16|< F2 > Vous restez où vous êtes et
+18,17|       attendez de voir ce qui va
+18,18|       se passer.
+18,19|< F3 > Vous battez en retraite pour
+18,20|       aller explorer l'étroit tunnel.
+
+=== M21c cle=55
+18,8|Le Dragon se tourne alors vers vous et
+18,9|souffle un jet de @0flammes@1 dans votre
+18,10|direction avant même que vous ayez pu
+18,11|réagir...
+18,13|< F1 > Quelques instants plus tard,
+18,14|       il ne reste plus de vous qu'un
+18,15|       petit tas de cendres.
+
+=== TM22 cle=55
+18,8|Vous avancez en tournant légèrement
+18,9|sur la droite. Le tunnel continue tout
+18,10|droit, en montant une légère pente.
+18,11|Et puis vous bifurquez dans l'étroit
+18,12|couloir, pour aboutir enfin dans une
+18,13|grande caverne. Le Dragon est étendu
+18,14|un peu plus loin, mais cette fois,
+18,15|vous êtes derrière lui.
+18,16|Quelques écailles tombées de sa
+18,17|carapace sont dispersées sur le sol
+18,18|autour de lui.
+18,20|< F1 > Vous enfoncez votre épée dans
+18,21|       le dos du monstre.
+18,22|< F2 > Vous essayez de ramasser quelques
+18,23|       unes de ces écailles.
+18,24|< F3 > Vous tentez de vous emparer de
+18,25|       quelques pièces du trésor.
+18,26|< F4 > Vous quittez la caverne.
+
+=== TM23 cle=55
+18,8|Au bout de quelques instants,
+18,9|vous sortez de la grotte sans encombre.
+18,10|Vos yeux doivent se réhabituer à
+18,11|la lumière du jour.
+18,12|La falaise au-dessus de la grotte
+18,13|laisse, sans arrêt, échapper de petits
+18,14|éboulis.
+18,16|< F1 > Vous décidez de vous en éloigner,
+18,17|       en prenant la direction
+18,18|       de l'Ouest.
+
+=== TM24 cle=55
+18,8|Vous arrivez dans une petite clairière
+18,9|envahie d'herbe. Vous jetez un regard
+18,10|autour de vous, mais vous ne découvrez
+18,11|rien d'intéressant. Trois chemins
+18,12|permettent de quitter cette clairière.
+18,14|< F1 > Vous allez vers la rivière en
+18,15|       prenant la direction de l'Ouest.
+18,16|< F2 > Vous vous dirigez vers l'étang
+18,17|       qui se trouve au Sud.
+18,18|< F3 > Vous prenez la direction de l'Est.
+
+=== TM25 cle=55
+18,8|L'étang semble peu profond, et vous
+18,9|décidez de le traverser. Lors de votre
+18,10|traversée personne ne vous attaque.
+18,11|Mais en atteignant l'autre rive,
+18,12|vous vous apercevez avec dégoût que
+18,13|de grosses Sangsues se sont accrochées
+18,14|à vos jambes et vous sucent le sang!
+18,15|Vous les retirez une par une, en les
+18,16|brûlant. Elles vous ont fait perdre
+18,17|1 point de vie.
+18,19|< F1 > Vous allez vers le Nord.
+18,20|< F2 > Vous vous dirigez vers la forêt
+18,21|       au Sud.
+18,22|< F3 > Vous marchez vers L'Ouest.
+18,23|< F4 > Vous Préférez prendre
+18,24|       la direction de l'Est.
+
+=== TM26 cle=55
+18,8|Vous vous retrouvez bientôt dans une
+18,9|petite clairière au bord de la Rivière
+18,10|Croupie. La rive opposée est à cent
+18,11|mètres au moins et le cours d'eau est
+18,12|infesté de crocodiles et d'autres
+18,13|créatures tout aussi peu accueillantes.
+18,15|< F1 > Vous marchez vers le Sud,
+18,16|       le long de la berge.
+18,17|< F2 > Vous montez sur la falaise par
+18,18|       le sentier de l'Est.
+18,19|< F3 > Vous décidez de bricoler
+18,20|       un radeau, à l'aide de troncs
+18,21|       abattus et de lianes, qui vous
+18,22|       conduira grâce au courant,
+18,23|       vers le Sud.
+
+=== TM27 cle=55
+18,8|Le Travail est long et difficile,
+18,9|mais le résultat semble tout à fait
+18,10|satisfaisant.
+18,11|Vous mettez le radeau à l'eau et sautez
+18,12|dessus. Le courant semble cependant
+18,13|plus rapide que vous ne l'aviez jugé...
+18,15|< F1 > Vous tentez autant que possible
+18,16|       de maîtriser la situation.
+
+=== TM28 cle=55
+18,8|Au loin, Vous apercevez une île au
+18,9|centre de la rivière. Soudain! Vous
+18,10|rentrez en contact avec un rocher qui
+18,11|affleure le niveau de l'eau.
+18,12|Sous le choc votre radeau se disloque.
+18,13|Vous vous arrangez pour rester accroché
+18,14|au plus gros tronc.
+18,15|De part et d'autre, les berges sont
+18,16|recouvertes d'une épaisse végétation.
+18,17|Bientôt, vous apercevez devant vous
+18,18|un vieux pont de pierres d'une taille
+18,19|impressionnante qui fait la jonction
+18,20|entre la berge de gauche et l'île.
+18,22|< F1 > Vous souhaitez vous y accrocher
+18,23|       lorsque le courant vous aura
+18,24|       entraîné juste au-dessous.
+18,25|< F2 > Vous préférez regagner la terre
+18,26|       ferme à la nage, en vous
+18,27|       dirigeant vers la berge la plus
+18,28|       proche, se situant à l'Est.
+
+=== M28a cle=55
+18,8|Vous devez fournir énormement d'efforts
+18,9|pour vous rapprocher de la berge tout
+18,10|en évitant les rochers et autres objets
+18,11|entraînés par le courant. Vous arrivez
+18,12|enfin, à plat ventre et sur les coudes,
+18,13|à atteindre la berge...
+18,14|Toutes ces péripéties vous font perdre
+18,15|2 points de vie.
+18,17|< F1 > Exténué, vous attendez quelques
+18,18|       instants allongé sur le dos,
+18,19|       avant de repartir.
+
+=== TM29 cle=55
+18,8|Vous distinguez des traces indiquant
+18,9|que quelqu'un est passé par là récemment.
+18,10|A quelque distance vous trouvez une
+18,11|autre clairière, et lorsque vous y
+18,12|entrez, une flèche vous frôle la tête
+18,13|en sifflant. Vous apercevez alors trois
+18,14|Orques à la peau rongée par la gale.
+18,15|Ils ont des arcs à la main, et les deux
+18,16|créatures qui n'ont pas encore tiré
+18,17|vous décochent leurs flèches.
+18,18|Vous faites un bond de côté.
+18,19|L'une des flèches vous manque, mais
+18,20|l'autre vous entaille le bras et vous
+18,21|perdez 1 point de vie.
+18,23|< F1 > Vous les attaquez avec votre épée.
+18,24|< F2 > Vous vous enfuyez à toutes jambes.
+
+=== TM30 cle=55
+18,8|Vous vous ruez sur les Orques et votre
+18,9|bravoure les surprend. Ils laissent
+18,10|alors tomber leurs arcs et dégainent
+18,11|des épées. Heureusement pour vous que
+18,12|ce sont des combattants peu habiles.
+18,13|Vous n'en faites qu'une bouchée et
+18,14|vous vous en sortez avec seulement une
+18,15|légère blessure au bras, qui vous fait
+18,16|perdre 1 point de vie.
+18,17|Vous fouillez les cadavres des Orques.
+18,18|Leurs armes sont de qualité médiocre
+18,19|et la nourriture qu'ils transportaient
+18,20|est trop répugnante pour y toucher.
+18,21|L'un des monstres disposait cependant
+18,22|d'un @0Pendentif@1 en Or avec un dragon
+18,23|ailé gravé sur l'une des faces.
+18,25|< F1 > Vous Conservez le Pendentif en Or
+18,26|       en le mettant autour de votre
+18,27|       cou, et continuez votre chemin.
+18,28|< F2 > Vous continuez votre chemin sans
+18,29|       ramasser le Pendentif.
+
+=== TM31 cle=55
+18,8|Au loin, au Sud, des collines
+18,9|s'étendent entre la forêt et la rivière.
+18,10|Pour le moment trois chemins vous
+18,11|permettent de repartir.
+18,13|< F1 > Vous vous dirigez vers l'Est.
+18,14|< F2 > Vous suivez la berge vers le Nord.
+18,15|< F3 > Vous suivez la berge vers le Sud.
+
+=== M31a cle=55
+18,8|Vous vous trouvez dans la clairière ou
+18,9|vous avez échappé à l'attaque des trois
+18,10|Orques armés d'arcs et de flèches.
+18,11|Vous avancez avec beaucoup de précaution,
+18,12|quand dissimulé derrière un arbre,
+18,13|vous apercevez les trois Orques autour
+18,14|d'un feu.
+18,15|Vous décidez de vous rapprocher
+18,16|davantage de ces répugnantes créatures,
+18,17|quand sous votre poids une branche
+18,18|craque... D'un bond les trois Orques
+18,19|saisissent leurs arcs, et se retournent
+18,20|vers vous.
+18,22|< F1 > Vous êtes trop près pour essayer
+18,23|       de vous enfuir. Vous les
+18,24|       attaquez avec votre épée.
+
+=== M31b cle=55
+18,8|Vous vous trouvez dans la clairière où
+18,9|vous avez tué les trois Orques armés
+18,10|d'arcs et de flèches. Tout semble
+18,11|tranquille à présent.
+18,13|< F1 > Vous traversez la clairière
+18,14|       avec tout de même beaucoup
+18,15|       de précautions.
+
+=== TM32 cle=55
+18,8|Vous arrivez sur un terrain sableux
+18,9|entouré d'arbustes, la rivière passe
+18,10|juste derrière.
+18,11|Apparemment, il n'y a rien d'intéressant
+18,12|alentour et vous vous apprêtez donc à
+18,13|repartir lorsque vous vous trouvez pris
+18,14|dans des sables mouvants!
+18,16|< F1 > Vous décidez de ne pas bouger
+18,17|       pour voir ce qui va se passer.
+18,18|< F2 > Pris de panique vous essayez
+18,19|       de vous en extraire.
+
+=== TM33 cle=55
+18,8|Vous reculez pour prendre votre élan.
+18,9|Malheureusement votre bond est un peu
+18,10|trop court et vous êtes obligé
+18,11|de patauger dans les sables mouvants
+18,12|pour gagner un sol plus ferme.
+18,13|Vous parvenez alors à vous extraire
+18,14|des sables mouvants juste à temps car
+18,15|un Ver de Sable géant émerge juste
+18,16|derrière vous. Vous êtes hors de portée
+18,17|du monstre qui redisparaît aussitôt
+18,18|dans le sable, mais tous ces efforts et
+18,19|émotions vous coûtent 2 points de vie.
+18,21|< F1 > Vous reprenez votre souffle
+18,22|       avant de repartir vers l'Est,
+18,23|       en empruntant le chemin par
+18,24|       lequel vous êtes arrivé.
+
+=== TM34 cle=55
+18,8|Vous vous apercevez que vous êtes
+18,9|revenu dans la clairière aux sables
+18,10|mouvants, mais cette fois,
+18,11|vous ne vous laisserez plus surprendre.
+18,12|Vous avez deux solutions:
+18,14|< F1 > Vous essayez de sauter par-dessus
+18,15|       les sables mouvants.
+18,16|< F2 > Vous préférez rebrousser chemin,
+18,17|       en empruntant vers l'Est
+18,18|       le chemin par lequel vous êtes
+18,19|       arrivé.
+
+=== TM35 cle=55
+18,8|Vous êtes pris dans les sables mouvants
+18,9|et vous vous enfoncez lentement.
+18,10|Vous avez maintenant du sable jusqu'à
+18,11|la taille, et vous réalisez combien
+18,12|votre décision a été stupide...
+18,13|Vous essayez donc de vous dégager,
+18,14|quand vous sentez tout autour de vous,
+18,15|le sable se soulever. Vous êtes bientôt
+18,16|à l'intérieur d'un Ver de Sable géant
+18,17|qui referme sur vous sa puissante
+18,18|machoire.
+18,20|< F1 > L'aventure se termine
+18,21|       malheureusement ici, pour vous.
+
+=== TM36 cle=55
+18,8|Vous êtes obligé de patauger dans
+18,9|les sables mouvants pour gagner un sol
+18,10|plus ferme. Vous parvenez alors à vous
+18,11|extraire des sables mouvants juste
+18,12|à temps car un Ver de Sable géant
+18,13|émerge juste derrière vous...
+18,14|Vous êtes hors de portée du monstre
+18,15|qui redisparait aussitôt dans le sable,
+18,16|mais tous ces efforts et émotions vous
+18,17|coûtent 2 points de vie.
+18,19|< F1 > Vous reprenez votre souffle
+18,20|       avant de repartir vers l'Est,
+18,21|       en empruntant le chemin par
+18,22|       lequel vous êtes arrivé.
+
+=== TM37 cle=55
+18,8|Les arbres noueux s'écartent bientôt
+18,9|devant vous, et vous entrez dans
+18,10|une autre clairière. Vous constatez
+18,11|aussitôt qu'on s'est battu ici.
+18,12|Le sol a été piétiné, l'herbe humide
+18,13|est tachée de sang et deux flèches sont
+18,14|plantées dans un arbre un peu plus loin.
+18,16|< F1 > Vous voulez examiner cette
+18,17|       clairière pour voir ce qu'elle
+18,18|       recèle.
+18,19|< F2 > Vous préférez la quitter le plus
+18,20|       vite possible.
+
+=== TM38 cle=55
+18,8|Vous avez donc décidé d'examiner cette
+18,9|clairière. En contemplant la hauteur
+18,10|de la cime des arbres, vous trébuchez
+18,11|contre le cadavre d'un Orque.
+18,12|Vous fouillez rapidement la répugnante
+18,13|dépouille mais vous ne trouvez rien
+18,14|d'intéressant. Puis vous apercevez
+18,15|un homme blessé, assis par terre,
+18,16|le dos appuyé contre le tronc d'un
+18,17|arbre. Vous vous approchez pour
+18,18|le secourir, mais lorsque vous arrivez
+18,19|près de lui, il est déjà mort:
+18,20|trois flèches lui ont transpercé
+18,21|la poitrine. Deux autres Orques sont
+18,22|étendus à ses côtés. Il a défendu
+18,23|chèrement sa vie. En jetant un coup
+18,24|d'oeil alentour, vous ne voyez ni armes
+18,25|ni paquetage; Les Orques qui ont
+18,26|survécu à la bataille ont dû tout
+18,27|emporter. Vous vous efforcez de donner
+18,28|à l'homme mort une sépulture décente et
+18,29|tandis que vous vous agenouillez auprès
+18,30|de lui pour transporter son corps dans
+18,31|sa tombe, vous remarquez qu'il tient
+18,32|un objet dans sa main crispée.
+18,33|Avec beaucoup de mal vous arrivez à
+18,34|extraire une @0Pierre Noire@1 ovoïde
+18,35|et très lisse.
+18,37|< F1 > Vous gardez la Pierre,
+18,38|       et pousuivez votre chemin.
+18,39|< F2 > Vous quittez les lieux en
+18,40|       enterrant la Pierre avec le mort.
+
+=== TM39 cle=55
+18,8|Trois chemins permettent de quitter
+18,9|la clairière. Celui qui descend
+18,10|vers le Sud paraît plus étroit et
+18,11|plus sombre que les autres.
+18,13|< F1 > Vous vous dirigez vers l'Ouest.
+18,14|< F2 > Vous prenez la direction de
+18,15|       la forêt au Sud.
+18,16|< F3 > Vous reparter en direction
+18,17|\x09      du Nord.
+
+=== TM40 cle=55
+18,8|Vous êtes de retour dans la clairière
+18,9|où vous avez enterré l'homme tué par
+18,10|des Orques, et où vous avez trouvé
+18,11|la @0pierre Noire@1 ovoïde.
+18,13|< F1 > Vous traversez avec beaucoup
+18,14|       de précautions cette clairière.
+
+=== TM41 cle=55
+18,8|Vous êtes de retour dans la clairière
+18,9|où vous avez enterré l'homme tué par
+18,10|des Orques, ainsi que cette pierre Noire
+18,11|étrange qu'il tenait serrée dans sa main.
+18,12|Vous ne voyez plus trace de la bataille
+18,13|qui a eu lieu précédemment. Les cadavres
+18,14|des Orques ont disparu, en revanche
+18,15|la sépulture est toujours présente.
+18,17|< F1 > Vous vous hâtez de traverser
+18,18|       la clairière.
+18,19|< F2 > Vous décidez de déterrer
+18,20|       la Pierre Noire ovoïde,
+18,21|       avant de repartir.
+
+=== TM42 cle=55
+18,8|Soudain, vous vous retrouvez en plein
+18,9|soleil, debout au bord d'un gouffre
+18,10|immense qui semble descendre jusqu'au
+18,11|centre de la terre.
+18,12|Tout autour de vous, le sol rocailleux
+18,13|est noir et craquelé, strié de crevasses
+18,14|et de fissures, et des vapeurs
+18,15|pestilentielles s'élèvent des
+18,16|profondeurs du gouffre.
+18,17|La chaîne de collines sur laquelle
+18,18|vous êtes se poursuit vers le Sud.
+18,19|A quelques centaines de mètres vers
+18,20|l'Est, la forêt encore dense s'étend
+18,21|jusqu'aux collines.
+18,23|< F1 > Vous remontez vers le Nord.
+18,24|< F2 > Vous continuez à progresser dans
+18,25|       les collines en direction du Sud.
+18,26|< F3 > Vous quittez les collines pour
+18,27|       entrer dans la forêt à l'Est.
+
+=== TM43 cle=55
+18,8|Les arbres laissent place à un sol
+18,9|aride recouvert de roche.
+18,10|A quelque distance devant vous,
+18,11|deux autres sentiers rejoignent celui
+18,12|que vous suivez. Le croisement se fait
+18,13|sur un petit plateau. En inspectant
+18,14|l'horizon, vous percevez d'un seul coup,
+18,15|des bruits de petits rochers qui roulent.
+18,16|En regardant à terre, vous voyez courir
+18,17|vers vous des dizaines de petits
+18,18|Scorpions...
+18,19|Avant que vous ayez eu le temps
+18,20|de réagir, les Scorpions ont grimpé
+18,21|sur vos bottes et le long de vos jambes
+18,22|de pantalon. Ils commencent alors à vous
+18,23|piquer et vous perdez 4 points de vie.
+18,25|< F1 > Furieux, vous sautez par-dessus
+18,26|       les autres Scorpions et vous
+18,27|       quittez la clairière.
+
+=== TM44 cle=55
+18,8|Vous vous hâtez de choisir une direction.
+18,9|Au Sud s'étale une longue forêt. A l'Est,
+18,10|un @0brouillard@1 épais et jaunâtre masque
+18,11|une partie de la falaise.
+18,13|< F1 > Vous allez vers l'Est.
+18,14|< F2 > Vous préférez vous diriger vers
+18,15|       la forêt au Sud.
+18,16|< F3 > Vous prenez la direction
+18,17|       de l'Ouest.
+
+=== TM45 cle=55
+18,8|Vous êtes de retour dans la clairière
+18,9|où vous avez été attaqué par
+18,10|les scorpions. Vous jetez un regard
+18,11|inquiet autour de vous pour voir
+18,12|s'ils sont toujours là, et...
+18,13|En effet ils y sont, se précipitant
+18,14|vers vous de tous côtés. Mais cette
+18,15|fois, vous êtes prêt à les affronter.
+18,16|Il vous faut réagir rapidement et
+18,17|décider ce que vous allez faire avec
+18,18|ces Scorpions.
+18,20|< F1 > Vous décidez de leur marcher
+18,21|       dessus et de les frapper
+18,22|       à l'aide de votre épée.
+18,23|< F2 > Vous sautez d'un bond par-dessus
+18,24|       les Scorpions et vous quittez
+18,25|       le plateau.
+
+=== TM46 cle=55
+18,8|Ils sont trop nombreux pour que vous
+18,9|puissiez les combattre. Déjà, ils ont
+18,10|grimpé sur vos bottes puis le long
+18,11|de vos jambes de pantalon et commencent
+18,12|à vous piquer.
+18,13|Vous perdez 4 points de vie.
+18,15|< F1 > Furieux, vous sautez par-dessus
+18,16|       les autres Scorpions et vous
+18,17|       quittez le plateau.
+
+=== TM47 cle=55
+18,8|Les arbres laissent place à un sol
+18,9|aride recouvert de roche.
+18,10|A quelque distance devant vous,
+18,11|deux autres sentiers rejoignent celui
+18,12|que vous suivez. Le croisement se fait
+18,13|sur un petit plateau. En scrutant
+18,14|l'horizon, le pendentif que vous avez
+18,15|récupéré sur l'un des Orques se met à
+18,16|luire en émettant des sons aigus.
+18,17|En regardant à terre, vous voyez courir
+18,18|vers vous des dizaines de petits
+18,19|Scorpions, qui semblent être stoppés
+18,20|par un mur invisible tout autour
+18,21|de vous.
+18,23|< F1 > Vous vous débarrassez
+18,24|       du pendentif et quittez
+18,25|       le plateau rapidement.
+18,26|< F2 > Vous quittez simplement
+18,27|       les lieux.
+
+=== TM48 cle=55
+18,8|Vous êtes de retour dans la clairière
+18,9|où vous avez été attaqué par
+18,10|les scorpions. Vous jetez un regard
+18,11|autour de vous pour voir s'ils sont
+18,12|toujours là, et...
+18,13|En effet ils y sont, se précipitant
+18,14|vers vous de tous côtés. Ils sont
+18,15|Stoppés par une force invisible,
+18,16|émise par le pendendif que vous avez
+18,17|récupéré sur un Orque.
+18,19|< F1 > Vous quittez simplement
+18,20|       les lieux.
+18,21|< F2 > Vous vous débarrassez
+18,22|       du pendentif et quittez
+18,23|       le plateau rapidement.
+
+=== TM49 cle=55
+22,8|En poursuivant votre marche,
+22,9|vous sentez que vous allez
+22,10|trop loin vers l'Est depuis
+22,11|votre entrée dans la forêt.
+22,12|Vous vous demandez alors si
+22,13|vous avez pris le bon chemin et,
+22,14|soudain, vous pénétrez dans
+22,15|une clairière envahie d'herbe.
+22,16|Vous trouvez au milieu de
+22,17|la clairière un bassin rempli
+22,18|d'une eau qui semble pure comme
+22,19|du @0cristal@1.
+22,20|Une petite plage de sable fin
+22,21|borde l'un des côtés du bassin.
+22,22|Aucun autre chemin ne permet
+22,23|de sortir de la clairière en
+22,24|dehors de celui par lequel
+22,25|vous êtes arrivé.
+22,27|< F1 > Vous quittez les lieux
+22,28|       en retournant vers
+22,29|       l'Ouest.
+22,30|< F2 > Vous buvez l'eau du
+22,31|       bassin.
+22,32|< F3 > Vous attendez quelques
+22,33|       instants pour voir si
+22,34|       aucun danger ne vous
+22,35|       menace.
+
+=== TM50 cle=55
+22,8|Vous avez désormais appris
+22,9|à être prudent et vous observez
+22,10|attentivement le bassin ainsi
+22,11|que le reste de la clairière.
+22,12|Un gros Lézard vient boire
+22,13|de l'eau du bassin, puis s'en
+22,14|retourne d'une démarche souple.
+22,15|Vous ne voyez rien d'autre qui
+22,16|mérite d'être noté.
+22,18|< F1 > Vous souhaitez quitter
+22,19|       la clairière.
+22,20|< F2 > Vous préférez boire
+22,21|       à votre tour un peu
+22,22|       d'eau du bassin.
+
+=== TM51 cle=55
+22,8|Après avoir bu une gorgée
+22,9|de cette eau, vous avez
+22,10|une pêche d'enfer...
+22,11|L'eau de ce bassin a des
+22,12|propriétés bénéfiques et
+22,13|vous récupérez 6 points de vie.
+22,15|< F1 > Vous repartez ensuite en
+22,16|       retournant vers l'Ouest.
+
+=== TM52 cle=55
+22,8|Vous vous trouvez à nouveau
+22,9|dans la clairière au bassin
+22,10|d'eau pure comme du @0cristal@1.
+22,11|Vous vous avancez près du
+22,12|bassin, mais une flèche siffle
+22,13|à vos oreilles, puis une autre.
+22,14|Il vous est impossible de
+22,15|déterminer l'endroit d'où
+22,16|elles sont tirées.
+22,18|< F1 > Vous prenez la fuite par
+22,19|       le chemin que vous avez
+22,20|       emprunté pour arriver
+22,21|       jusqu'ici.
+
+=== TM53 cle=55
+22,8|Vous n'avez aucun mal à vous
+22,9|accrocher à l'un des piliers
+22,10|du pont et à l'escalader.
+22,11|Les gros blocs de pierre dont
+22,12|il est constitué offrent
+22,13|de solides points d'appui et
+22,14|vous ne tardez pas à vous
+22,15|hisser sur le parapet.
+22,17|< F1 > Vous sautez à pieds
+22,18|       joints sur le pont
+22,19|       lui même.
+
+=== TM54 cle=55
+22,8|Le pont est vieux mais en bon
+22,9|état et doit être long d'une
+22,10|cinquantaine de mètres.
+22,11|A l'Ouest, se dresse sur l'ile
+22,12|la silhouette d'une imposante
+22,13|tour.
+22,15|< F1 > Vous revenez sur
+22,16|       la terre ferme en
+22,17|       prenant la direction
+22,18|       de l'Est.
+22,19|< F2 > Vous vous dirigez vers
+22,20|       l'ile.
+
+=== TM55 cle=55
+18,8|Un trou dans le sol vous fait bientôt
+18,9|trébucher. Vous regardez à terre et
+18,10|vous vous apercevez alors que le trou
+18,11|en question est une empreinte
+18,12|d'un mètre de long, laissée là par
+18,13|un énorme pied.
+18,14|Un peu plus loin vous vous retrouvez
+18,15|nez à nez avec un Géant d'une taille
+18,16|fantastique. Il a l'air furieux et
+18,17|brandit une grosse massue:
+18,18|'IL EST INTERDIT DE PASSER!' hurle t-il
+18,19|à votre encontre.
+18,21|< F1 > Vous essayez de le calmer.
+18,22|< F2 > Vous décidez de l'attaquer.
+
+=== TM56 cle=55
+18,8|'Je suis désolé, monsieur le Géant,
+18,9|assurez-vous. J'ignorais que je me
+18,10|trouvais sur une propriété privée.
+18,11|Pourriez-vous me dire, s'il vous plait,
+18,12|ce qui vous a ainsi mis en fureur?'
+18,13|Tout à coup, son agressivité l'abandonne
+18,14|et il s'assoit par terre en reniflant,
+18,15|des larmes coulant sur ses joues.
+18,16|Ne trouvant rien pour se sécher les yeux,
+18,17|il s'essuie d'un revers de main.
+18,18|Vous êtes navré de le voir dans cet état.
+18,19|'Quelqu'un m'a volé mon mouchoir tout
+18,20|neuf, explique-t-il. C'est ma femme qui
+18,21|me l'avait fait et voilà que je l'ai
+18,22|perdu. Elle va être furieuse!!!
+18,23|Je n'arrive plus à le retrouver et
+18,24|je ne peux quand même pas rentrer chez
+18,25|moi sans lui!'
+18,27|< F1 > Vous lui demandez de vous
+18,28|       décrire le mouchoir.
+
+=== TM57 cle=55
+18,8|Le Géant se bat en poussant des cris
+18,9|de fureur. Il est doué d'une force
+18,10|colossale mais, par chance pour vous,
+18,11|ses gestes sont plutôt maladroits et
+18,12|sa massue semble très lourde.
+18,13|Alors que vous ne l'avez pas encore
+18,14|touché de la pointe de votre épée,
+18,15|sa massue vous frôle, en rapant
+18,16|légèrement votre bras droit,
+18,17|et retombe lourdement sur le sol.
+18,18|Les ecchymoses infligées à votre bras
+18,19|vous font perdre 4 points de vie.
+18,21|< F1 > Vous continuez le combat.
+18,22|< F2 > Vous préférez vous enfuir.
+
+=== TM58 cle=55
+18,8|Vous arrivez à lui infliger une
+18,9|blessure au mollet, et à éviter trois
+18,10|fois de suite sa redoutable massue.
+18,11|Mais malheureusement pour vous,
+18,12|la quatrième tentative du Géant
+18,13|vous réduit en bouillie.
+18,15|< F1 > Votre aventure s'achève ici.
+
+=== TM59 cle=55
+18,8|Vous quittez la clairière du Géant pour
+18,9|poursuivre votre chemin. Au Sud s'étend
+18,10|une chaîne de collines.
+18,12|< F1 > Vous remontez vers le Nord.
+18,13|< F2 > Vous vous dirigez vers le Sud.
+18,14|< F3 > Vous prenez la direction de la
+18,15|       rivière à l'Ouest.
+18,16|< F4 > Vous allez vers l'Est.
+
+=== TM60 cle=55
+18,8|Il vous vient soudain une idée qui vous
+18,9|fait presque éclater de rire, mais vous
+18,10|vous retenez pour ne pas offenser le
+18,11|malheureux Géant. Vous fouillez alors
+18,12|dans vos affaires et vous en sortez la
+18,13|Cape Rouge. 'Est-ce là votre mouchoir?'
+18,14|lui demandez-vous en lui tendant
+18,15|l'étoffe. Le Géant vous la prend
+18,16|aussitôt des mains, l'air tout joyeux.
+18,17|'Où l'avez-vous trouvée?' demande-t-il.
+18,18|Vous lui parlez de votre rencontre avec
+18,19|le Voleur, c'est sans doute lui qui a
+18,20|dérobé son mouchoir au Géant.
+18,21|Ce dernier recommence à pleurer, mais
+18,22|ce sont cette fois des larmes de joie
+18,23|qui coulent sur son visage.
+18,24|Il jure qu'il sera à tout jamais votre
+18,25|ami et vous demande ce qui vous a amené
+18,26|ici. 'Y a-t-il quelque chose que
+18,27|je puisse faire pour vous aider?'
+18,28|interroge-t-il.
+18,30|< F1 > Vous lui parlez de votre quête.
+
+=== TM61 cle=55
+18,8|Malheureusement, vous ne pouvez être
+18,9|d'aucune aide au Géant. Il ne semble
+18,10|plus du tout disposé à vous attaquer.
+18,12|< F1 > Vous poursuivez donc votre
+18,13|       chemin en passant devant lui.
+
+=== TM62 cle=55
+18,8|Vous reconnaissez la clairière où vous
+18,9|avez rencontré l'énorme Géant. Il n'y a
+18,10|plus trace de lui, il a du partir.
+18,12|< F1 > Vous poursuivez donc votre chemin.
+
+=== TM63 cle=55
+18,8|Vous reconnaissez la clairière où
+18,9|vous avez rencontré l'énorme Géant.
+18,10|Il est assis par terre en reniflant,
+18,11|des larmes coulent sur ses joues.
+18,12|Ne trouvant rien pour se sécher les yeux,
+18,13|il s'éssuie d'un revers de main.
+18,14|Vous êtes navré de le voir dans cet état.
+18,15|'Quelqu'un m'a volé mon mouchoir tout
+18,16|neuf, explique-t-il. C'est ma femme qui
+18,17|me l'avait fait et voilà que je l'ai
+18,18|perdu. Elle va être furieuse!!!
+18,19|Je n'arrive plus à le retrouver et
+18,20|je ne peux quand même pas rentrer chez
+18,21|moi sans lui!'
+18,23|< F1 > Vous lui demandez de vous décrire
+18,24|       le mouchoir.
+
+=== TM64 cle=55
+18,8|'La Pierre Noire que vous avez trouvée
+18,9|appartient au Sorcier qui vit sur l'île
+18,10|au Nord/Ouest'.
+18,12|< F1 > Vous remerciez le Géant et
+18,13|       poursuivez votre chemin.
+
+=== TM65 cle=55
+18,8|'Les écailles de dragon que vous avez
+18,9|trouvées, peuvent intéresser le Druide
+18,10|qui vit dans la forêt au Sud/Est'.
+18,12|< F1 > Vous remerciez le Géant et
+18,13|       poursuivez votre chemin.
+
+=== TM66 cle=55
+18,8|'Je vois que vous possédez le pendentif
+18,9|avec le symbole des forces du Mal qui
+18,10|règnent dans cette vallée, je vous
+18,11|conseille de vous en débarrasser tout
+18,12|de suite'.
+18,14|< F1 > Vous remerciez le Géant en vous
+18,15|       débarrassant du pendentif, et
+18,16|       poursuivez votre chemin.
+18,17|< F2 > Vous remerciez le Géant pour son
+18,18|       conseil mais vous ne voulez pas
+18,19|       vous séparer d'un objet aussi
+18,20|       précieux.
+
+=== M66a cle=55
+18,8|'Malheureusement, je ne peux vous être
+18,9|d'aucune aide', vous répond le Géant
+18,10|d'une voix désolée.
+18,12|< F1 > Vous poursuivez donc votre
+18,13|       chemin en passant devant lui.
+
+=== TM67 cle=55
+18,8|Vous arrivez sur le sommet d'une
+18,9|nouvelle colline, quand vous apercevez
+18,10|au loin deux groupes de créatures armées
+18,11|qui se précipitent vers vous.
+18,12|A l'Est c'est une bonne vingtaine
+18,13|d'Orques qui courent vers vous et vous
+18,14|pouvez déjà entendre leurs grognements
+18,15|tandis qu'ils s'efforcent de vous
+18,16|rattraper. Ils sont bossus, difformes,
+18,17|et brandissent des hâches dentelées.
+18,18|A l'Ouest, vous reconnaissez des Elfes
+18,19|Noirs. Ils sont grands et souples,
+18,20|portent des cuirasses ornées de pointes
+18,21|et sont armés d'épées à la lame d'acier
+18,22|noire. Ils se trouvent encore à bonne
+18,23|distance, mais ils se rapprochent vite.
+18,25|< F1 > Vous vous portez à la rencontre
+18,26|       des Orques.
+18,27|< F2 > Vous vous portez à la rencontre
+18,28|       des Elfes.
+18,29|< F3 > Vous remontez vers le Nord.
+18,30|< F4 > Vous vous dirigez en courant
+18,31|       vers le Sud.
+
+=== TM68 cle=55
+18,8|Vous vous précipitez vers les Orques
+18,9|en brandissant votre épée.
+18,10|Mais lorsque vous êtes presque sur eux,
+18,11|leur Capitaine, un monstre gigantesque
+18,12|aux dents jaunâtres, s'élance à son
+18,13|tour et vous heurte de plein fouet.
+18,14|Vous perdez alors tous deux l'équilibre
+18,15|et, trébuchant au bord d'un précipice,
+18,16|vous tombez au fond...
+18,17|Votre unique consolation sera de ne pas
+18,18|avoir été le seul à mourir.
+18,20|< F1 > L'aventure se termine
+18,21|       malheureusement ici, pour vous.
+
+=== TM69 cle=55
+18,8|Alors que vous vous approchez des Elfes,
+18,9|vous voyez l'un d'eux faire un geste
+18,10|étrange. A votre grande horreur, vous
+18,11|vous rendez compte qu'il est en train
+18,12|de vous jeter un sort et en effet, un
+18,13|instant plus tard, votre corps se raidit,
+18,14|vos mouvements deviennent difficiles,
+18,15|puis vous ne pouvez plus bouger du tout.
+18,16|Avec des rires cruels, les Elfes se
+18,17|précipitent aussitôt sur vous et n'ont
+18,18|ainsi aucun mal à vous tuer puis à vous
+18,19|emmener dans les profondeurs de leur
+18,20|repaire.
+18,22|< F1 > Votre quête se termine ici.
+
+=== TM70 cle=55
+18,8|Vous courez aussi vite que possible
+18,9|sur ce sol rocailleux; vous êtes
+18,10|bientôt hors d'haleine et la poitrine
+18,11|vous brûle.
+18,12|En regardant en arrière, vous êtes
+18,13|quelque peu soulagé de voir que
+18,14|les Orques et les Elfes se sont
+18,15|rencontrés et ont engagé une bataille.
+18,16|Les Elfes Noirs font usage de magie,
+18,17|d'étranges étincelles jaillissent de
+18,18|leurs mains, et les Orques numériquement
+18,19|supèrieurs ne sont pas en reste avec
+18,20|leurs armes tranchantes. Mais vous vous
+18,21|rendez compte qu'il faut continuer à
+18,22|fuir, car tout danger n'est pas écarté.
+18,24|< F1 > Vous continuez votre chemin
+18,25|       tout droit.
+
+=== TM71 cle=55
+18,8|Vous êtes de retour sur le lieu de
+18,9|l'affrontement entre les Orques et les
+18,10|Elfes. Vous vous approchez prudemment
+18,11|d'un terrain jonché de dizaines de corps
+18,12|inanimés. Ils n'y a plus âme qui vive,
+18,13|en tous cas dans le secteur.
+18,15|< F1 > Vous remontez vers le Nord.
+18,16|< F2 > Vous vous dirigez vers le Sud.
+
+=== TM72 cle=55
+18,8|Dominant votre peur, vous
+18,9|vous approchez de la sinistre tour.
+18,10|Des Chauves-Souris volent en tournoyant
+18,11|autour de son sommet.
+18,12|En vous approchant, Vous remarquez
+18,13|une tête hideuse sculptée sur la porte
+18,14|de bois massif.
+18,15|La porte s'ouvre alors devant vous
+18,16|et la silhouette d'un homme grand et
+18,17|d'une maigreur squelettique apparaît.
+18,18|Il porte une toge noire sur laquelle
+18,19|sont brodés des motifs écarlates qui
+18,20|semblent étinceler. Il vous accueille
+18,21|aimablement: 'soyez le bienvenu dans
+18,22|mon humble demeure de Sorcier,
+18,23|jeune homme'.
+18,25|< F1 > Vous entrez dans la tour.
+18,26|< F2 > Vous attaquez le Sorcier.
+18,27|< F3 > Vous n'êtes pas rassuré,
+18,28|       vous préférez rebrousser chemin.
+
+=== M72b cle=55
+18,8|Vous êtes de retour devant cette
+18,9|sinistre tour, survolée en son sommet
+18,10|par des centaines de Chauves-Souris.
+18,11|Dominant votre peur, vous vous approchez
+18,12|une nouvelle fois de la porte de
+18,13|bois massif.
+18,14|La porte s'ouvre alors devant vous
+18,15|et la silhouette d'un homme grand et
+18,16|d'une maigreur squelettique apparaît.
+18,17|Il porte une toge noire sur laquelle
+18,18|sont brodés des motifs écarlates qui
+18,19|semblent @0étinceler@1.
+18,20|Il vous accueille aimablement:
+18,21|'soyez le bienvenu dans mon humble
+18,22|demeure de Sorcier, jeune homme'.
+18,24|< F1 > Vous entrez dans la tour.
+18,25|< F2 > Vous attaquez le Sorcier.
+18,26|< F3 > Vous n'êtes toujours pas rassuré,
+18,27|       vous préférez rebrousser chemin.
+
+=== TM73 cle=55
+18,8|Vous avancez vers lui. D'un seul coup,
+18,9|ses yeux s'agrandissent et il recule
+18,10|d'un pas tout en faisant un geste
+18,11|étrange de la main.
+18,12|Vous vous doutez qu'il est en train de
+18,13|se livrer à quelque passe magique.
+18,15|< F1 > Vous lui bondissez dessus pour
+18,16|       l'attaquer.
+18,17|< F2 > Vous attendez de voir ce qu'il
+18,18|       va faire.
+18,19|< F3 > Vous vous enfuyez de cette tour.
+
+=== TM74 cle=55
+18,8|Vous courez de toute vos forces,
+18,9|quand une trappe s'ouvre devant vous,
+18,10|révèlant une profonde fosse.
+18,11|Vous ne pouvez éviter la chute...
+18,12|Lorsque vous reprenez conscience, vous
+18,13|vous retrouvez attaché à un mur par de
+18,14|grosses chaines. Le Sorcier se tient
+18,15|debout devant vous et vous sourit.
+18,16|Son sourire n'a cependant rien de
+18,17|chaleureux, car d'une main il vous
+18,18|arrache votre Pendentif en Or, et à
+18,19|la seule vue de ce qu'il tient dans son
+18,20|autre main, vous vous mettez à trembler
+18,21|de tous vos membres.
+18,23|< F1 > Votre aventure s'achève ici.
+
+=== TM75 cle=55
+18,8|Un énorme Démon, au pelage noir hirsute
+18,9|et à la peau recouverte de repugnantes
+18,10|verrues, apparaît entre le Sorcier et
+18,11|vous. C'est l'être le plus repoussant
+18,12|que vous ayez jamais vu...
+18,13|Le sorcier pointe alors vers vous
+18,14|un index décharné: 'Tue ce traitre et
+18,15|rapporte-moi le Pendentif en Or qu'il
+18,16|porte autour du cou. Tu pourras
+18,17|ensuite manger son cadavre'.
+18,18|Votre fin est proche, vous ne pouvez
+18,19|vous enfuir car le Démon vous
+18,20|rattraperait à coup sûr...
+18,21|Il se jette alors sur vous, et ne fait
+18,22|qu'une bouchée de votre personne.
+18,24|< F1 > Votre aventure s'achève
+18,25|       tragiquement dans l'estomac de
+18,26|       ce monstre.
+
+=== TM76 cle=55
+18,8|Votre attaque est si fulgurante que
+18,9|vous parvenez à blesser le Sorcier.
+18,10|'Espèce d'imbécile! s'écrie t'il.
+18,11|C'est moi-même qui vais t'arracher
+18,12|le Pendentif en Or, après t'avoir tuer!'
+18,13|Il sort alors de sous sa toge
+18,14|une Baguette Magique en bois; lorsqu'il
+18,15|la brandit, elle se transforme en
+18,16|une épée dentelée qui @0brille@1 d'une
+18,17|lueur rouge... Vous préférez prendre
+18,18|alors un peu de recul. Au même moment
+18,19|le Sorcier pointe son épée dans votre
+18,20|direction, et en un instant la lame
+18,21|s'allonge vous transperçant de part en
+18,22|part.
+18,24|< F1 > Votre aventure s'achève ici.
+
+=== TM77 cle=55
+18,8|'Je vous attendais, enchaîne-t-il.
+18,9|On m'avait malheureusement dérobé l'une
+18,10|des deux pierres. Mais vous l'avez fort
+18,11|heureusement retrouvée.
+18,12|Je vous confis donc la deuxième pierre
+18,13|et vous souhaite de réussir là où j'ai
+18,14|moi-même échoué'.
+18,16|< F1 > Vous remerciez le Sorcier, avant
+18,17|       de quitter les lieux, et vous
+18,18|       vous diriger vers le pont.
+
+=== TM78 cle=55
+18,8|Le Sorcier éclate d'un rire mauvais.
+18,9|'Je ne vais certainement pas gaspiller
+18,10|mon énergie à combattre un aussi piètre
+18,11|adversaire, lance-t-il avec mépris,
+18,12|mais exercez votre bravoure
+18,13|contre ceci...'
+18,14|Il fait alors un signe de la main en
+18,15|direction de la statue d'un Gobelin qui
+18,16|se dresse à l'abri d'une niche aménagée
+18,17|dans le mur.
+18,18|La statue s'avance aussitôt vers vous
+18,19|en brandissant son épée de pierre.
+18,21|< F1 > Vous êtes prêt à combattre
+18,22|       la statue.
+18,23|< F2 > Vous essayez à nouveau
+18,24|       d'attaquer en direct le Sorcier.
+
+=== TM79 cle=55
+18,8|La créature de pierre s'avance vers
+18,9|vous en traînant les pieds tandis que
+18,10|le Sorcier, fort satisfait de ce
+18,11|spectacle, émet de petits rires.
+18,12|De toute évidence, votre épée ne vous
+18,13|sera d'aucun secours contre un
+18,14|adversaire dur comme le roc. La seule
+18,15|chance que vous ayez serait de faucher
+18,16|la statue au niveau des jambes...
+18,17|Mais elle ne vous en laissera pas
+18,18|le temps, dans un mouvement de rotation
+18,19|l'épée de pierre vous fauche la tête,
+18,20|qui se détache de vos épaules.
+18,21|Vous tombez à genoux sur le sol...
+18,23|< F1 > L'aventure se termine ici.
+
+=== TM80 cle=55
+18,8|Votre attaque est si fulgurante que
+18,9|vous parvenez à blesser le Sorcier.
+18,10|'Espèce d'imbécile! s'écrie-t-il.
+18,11|C'est moi-même qui vais te tuer!'
+18,12|Il sort alors de sous sa toge
+18,13|une Baguette Magique en bois; lorsqu'il
+18,14|la brandit, elle se transforme en
+18,15|une épée dentelée qui @0brille@1 d'une
+18,16|lueur rouge... Vous préférez prendre
+18,17|alors un peu de recul. Au même moment
+18,18|le Sorcier pointe son épée dans votre
+18,19|direction, et en un instant la lame
+18,20|s'allonge vous transperçant de part
+18,21|en part.
+18,23|< F1 > Votre aventure s'achève ici,
+18,24|       en brochette.
+
+=== TM81 cle=55
+14,8|Le Sorcier s'avance vers vous et vous narre
+14,9|le récit suivant: 'Il y a bien longtemps de
+14,10|celà les adorateurs du Dieu de la Mort, dans
+14,11|le Temple qui se trouve au Sud de cette vallée,
+14,12|fabriquèrent un Talisman qui leur permettrait,
+14,13|lorsque le temps serait venu, d'appeler leur
+14,14|Dieu à régner sur ce monde.
+14,15|Ce temps hélas est arrivé et si le Dieu de la
+14,16|mort vient à régner ici, toute vie sera détruite.
+14,17|Seuls les serviteurs de la Mort subsisteront
+14,18|dans un état de morts-vivants. Quand le Dieu
+14,19|de la Mort, dont la représentation symbolique
+14,20|est un Dragon Ailé avec une multitude d'yeux,
+14,21|étendra son voile sur notre monde,
+14,22|tout sera corrompu et transformé en poussière
+14,23|et l'équilibre de la nature sera rompu pour
+14,24|toujours... Les gardiens de la Tradition qui
+14,25|oeuvrent à la cause du bien se sont efforcés
+14,26|d'empêcher cette catastrophe. Ils ont envoyé
+14,27|un groupe de sept croisés, dont je faisais
+14,28|partie, avec mission de s'emparer du Talisman
+14,29|ou bien le détruire. Nous avons échoué,
+14,30|cinq de mes compagnons sont morts à l'intérieur
+14,31|du temple. Le sixième s'est réfugié dans
+14,32|la forêt avec le secret qui permet de ne pas
+14,33|tomber sous l'emprise du Dieu de la Mort
+14,34|à l'approche du Temple. Pour ma part, je vis
+14,35|comme un hermite dans cette tour attendant
+14,36|comme l'annoncent les prédicateurs l'envoyé
+14,37|des Dieux, à qui je devrai remettre les clés
+14,38|de la porte de pierre, pour pénetrer dans
+14,39|le temple. Les clés sont constituées de deux
+14,40|pierres Noires ovoïdes et lisses qui tiennent
+14,41|chacune dans le creux de la main'.
+14,43|< F1 > Pour la suite de l'histoire.
+
+=== TM82 cle=55
+18,8|'Je vous attendais, enchaîne-t-il,
+18,9|Vous êtes celui que les prédicateurs
+18,10|annoncent. Malheureusement, un homme
+18,11|que j'avais hébergé pour la nuit
+18,12|s'est enfui en emportant l'une des
+18,13|deux pierres...
+18,14|Vous allez devoir la retrouver seul,
+18,15|sinon vous ne pourrez mener à bien
+18,16|cette quête. Une fois que vous l'aurez
+18,17|retrouvée vous reviendrez me voir.
+18,19|< F1 > Vous saluez le Sorcier.
+18,20|       Peu de temps après vous reprenez
+18,21|       la direction du vieux pont.
+
+=== TM83 cle=55
+18,8|Vous avancez et pénétrez pour la seconde
+18,9|fois, dans la tour. Arrivé dans le hall,
+18,10|le Sorcier s'avance rapidement vers vous
+18,11|en s'écriant: 'Espèce d'imbécile,
+18,12|pourquoi revenez-vous sans la Pierre!!!
+18,13|Vous n'êtes qu'un incapable... Furieux,
+18,14|il sort alors de sous sa toge une
+18,15|Baguette Magique qu'il brandit dans
+18,16|votre direction. Après plusieurs
+18,17|incantation, vous êtes pétrifié
+18,18|d'horreur par la vision que vous avez
+18,19|au travers d'un miroir mural, de votre
+18,20|corps qui se transforme peu a peu
+18,21|en celui d'un mulet.
+18,23|< F1 > Votre aventure se termine
+18,24|       malheureusement ici.
+
+=== TM84 cle=55
+18,8|Vous avancez et pénétrez pour la seconde
+18,9|fois, dans la tour. Arrivé dans le hall,
+18,10|le Sorcier s'avance rapidement vers vous:
+18,11|'Je vois que votre mission est un réel
+18,12|succès. Vous êtes bien le valeureux
+18,13|héros annoncé par les prédicateurs.
+18,14|Je vous confie donc la deuxième Pierre
+18,15|et vous souhaite de réussir là où j'ai
+18,16|moi-même échoué.
+18,18|< F1 > Vous remerciez le Sorcier, avant
+18,19|       de quitter les lieux, et vous
+18,20|       vous dirigez vers le pont.
+
+=== TM85 cle=55
+18,8|En arrivant devant la tour,
+18,9|vous remarquez cette fois que la lourde
+18,10|porte de bois massif sculptée d'une
+18,11|tête hideuse, est fermée. Vous essayez
+18,12|de la forcer, rien à faire...
+18,13|Il n'y a apparemment plus personne.
+18,15|< F1 > Perplexe, vous rebroussez chemin
+18,16|       vers le pont.
+
+=== M85a cle=55
+18,8|Vous avancez et pénétrez pour la seconde
+18,9|fois, dans la tour. Arrivé dans le hall,
+18,10|le Sorcier s'avance rapidement vers vous
+18,11|en s'écriant: 'Espèce d'imbécile,
+18,12|pourquoi revenez-vous sans la Pierre
+18,13|et avec en plus autour du cou
+18,14|la réprésentation du Mal? Vous n'êtes
+18,15|qu'un incapable...' Furieux, il sort
+18,16|alors de sous sa toge une Baguette
+18,17|Magique qu'il brandit dans votre
+18,18|direction. Après plusieurs incantations,
+18,19|vous êtes pétrifié d'horreur par
+18,20|la vision que vous avez au travers
+18,21|d'un miroir mural, de votre corps qui
+18,22|se transforme peu à peu en celui
+18,23|d'un mulet.
+18,25|< F1 > Votre aventure se termine
+18,26|       malheureusement ici.
+
+=== M85b cle=55
+18,8|Vous avancez et pénétrez pour la seconde
+18,9|fois, dans la tour. Arrivé dans le hall,
+18,10|le Sorcier s'avance rapidement vers vous:
+18,11|'Je vois que votre mission est un réel
+18,12|succès, par contre ce qui est moins
+18,13|bien c'est que vous portez autour du
+18,14|cou la réprésentation du Mal!' dit-il
+18,15|en levant sa Baguette Magique.
+18,16|Avant que vous n'ayez pu bouger,
+18,17|il marmonne alors quelques mots et
+18,18|le pendentif que vous portez autour
+18,19|du cou se transforme en poussière
+18,20|lumineuse et disparaît...
+18,21|Je vous confie maintenant la deuxième
+18,22|Pierre et vous souhaite de réussir là
+18,23|où j'ai moi-même échoué.
+18,25|< F1 > Vous remerciez le Sorcier, avant
+18,26|       de quitter les lieux, et vous
+18,27|       vous dirigez vers le pont.
+
+=== TM86 cle=55
+18,8|Vous pénétrez dans une forêt touffue.
+18,9|Il y a cependant une clairière à
+18,10|quelque distance devant vous. Le sol
+18,11|est ferme et vous pouvez y pénétrer
+18,12|d'un pas assuré. Vous remarquez
+18,13|plusieurs pierres plates de grande
+18,14|taille, un gros tronc creux et deux
+18,15|chemins qui permettent d'aller plus
+18,16|loin.
+18,18|< F1 > Vous inspectez le tronc creux.
+18,19|< F2 > Vous vous asseyez sur l'une
+18,20|       des pierres pour vous reposer.
+18,21|< F3 > Vous quittez la clairière
+18,22|       à l'instant même.
+
+=== TM87 cle=55
+18,8|Vous vous reposez quelques minutes
+18,9|et vous récuperez 2 points de vie.
+18,10|Vous entendez alors un bruit à
+18,11|l'intérieur de l'arbre.
+18,13|< F1 > Vous souhaitez savoir ce qui
+18,14|       se cache dans cet arbre.
+18,15|< F2 > Vous ne vous en préoccupez pas,
+18,16|       et quittez la clairière.
+
+=== TM88 cle=55
+18,8|Vous avez le choix entre trois sentiers,
+18,9|pour quitter cette clairière.
+18,11|< F1 > Vous sortez de la forêt vers
+18,12|       le Nord.
+18,13|< F2 > Vous vous dirigez vers un grand
+18,14|       étang, qui s'étale à l'Ouest.
+18,15|< F3 > Vous prenez la direction de l'Est.
+
+=== TM89 cle=55
+18,8|Vous vous approchez de l'arbre avec
+18,9|prudence. Une forte odeur s'en dégage:
+18,10|un animal sauvage a sans doute établi
+18,11|là sa tanière. Et soudain, en effet,
+18,12|apparaît dans l'ouverture du tronc
+18,13|creux la tête hirsute d'un Ours de
+18,14|taille gigantesque.
+18,16|< F1 > Vous souhaitez vous enfuir.
+18,17|< F2 > Vous préferez combattre l'Ours.
+
+=== TM90 cle=55
+18,8|Ce n'est certainement pas un Ours qui
+18,9|va vous faire peur. Vous lui lancez
+18,10|donc un cri de défi et vous brandissez
+18,11|votre épée. Il s'avance vers vous,
+18,12|dressé sur ses deux pattes arrières.
+18,13|Il se laisse alors retomber lourdement
+18,14|sur vous, surpris, vous esquissez la
+18,15|lourde masse mais vous ne pouvez éviter
+18,16|sa patte qui vous lacère le bras
+18,17|gauche. Vous répliquez d'un coup d'épée
+18,18|qui blesse profondément l'animal
+18,19|à l'épaule, Cette blessure le met
+18,20|en fuite, il disparaît en quelques
+18,21|secondes dans la forêt.
+18,22|Mais la blessure qu'il vous a infligée
+18,23|vous fait perdre 4 points de vie.
+18,24|Vous fouillez le tronc creux qui lui
+18,25|sert de tanière, mais sans rien trouver
+18,26|d'intéressant.
+18,28|< F1 > Après avoir soigné votre
+18,29|       blessure, vous repartez.
+
+=== TM91 cle=55
+18,8|Vous vous trouvez dans la clairière
+18,9|au gros tronc creux.
+18,11|< F1 > Vous inspectez le tronc creux.
+18,12|< F2 > Vous quittez la clairière à
+18,13|       l'instant même.
+
+=== TM92 cle=55
+18,8|Vous vous approchez de l'arbre avec
+18,9|prudence. Une forte odeur s'en dégage
+18,10|toujours, mais l'Ours n'est pas revenu.
+18,11|Vous fouillez à nouveau le tronc creux,
+18,12|et il n'y a toujours rien d'intéressant.
+18,14|< F1 > Vous quittez la clairière.
+
+=== TM93 cle=55
+18,8|Vous pénétrez sous les feuillages
+18,9|sombres de la forêt et bientôt,
+18,10|vous arrivez dans une clairière.
+18,11|Vous vous figez alors sur place en
+18,12|voyant apparaître devant vous une
+18,13|énorme Louve, presque aussi grande
+18,14|qu'un mulet; la Louve est en train de
+18,15|donner la têtée à deux petits...
+18,16|En vous apercevant, elle les repousse
+18,17|et se met à grogner, prête à bondir
+18,18|sur vous.
+18,20|< F1 > Vous l'attaquez.
+18,21|< F2 > Vous lui offrez un peu de
+18,22|       viande séchée.
+18,23|< F3 > Vous rebroussez chemin.
+
+=== TM94 cle=55
+18,8|Vous vous hâtez de quitter la clairière.
+18,9|Fort heureusement la Louve voulait
+18,10|simplement protéger ses petits.
+18,12|< F1 > Vous prenez la direction des
+18,13|       collines à l'Ouest.
+18,14|< F2 > Vous remontez à travers la forêt
+18,15|       vers le Nord.
+
+=== TM95 cle=55
+18,8|Vous fouillez dans vos affaires,
+18,9|un genou à terre, vous lancez
+18,10|la viande séchée à l'animal en lui
+18,11|parlant doucement. La Louve accepte
+18,12|votre présent tandis qu'au même moment,
+18,13|une silhouette vêtue d'une toge verte
+18,14|apparaît dans la clairière...
+18,15|C'est un homme avec une longue barbe
+18,16|qui tient un bâton en chêne dans
+18,17|une main.
+18,19|< F1 > Pour voir la suite.
+
+=== TM96 cle=55
+18,8|'Bonjour jeune étranger,
+18,9|Je suis le Druide, mais... vous portez
+18,10|la réprésentation du Mal! dit l'homme
+18,11|en frappant le sol de son bâton.
+18,12|Que la foudre vous réduise en poussières,
+18,13|et que le vent les emmène loin d'ici'.
+18,14|A peine a-t-il fini sa phrase qu'un
+18,15|éclair bleuté vous éblouit...
+18,17|< F1 > Votre aventure se termine ici.
+
+=== TM97 cle=55
+18,8|'Bonjour jeune étranger, Je suis
+18,9|le Druide gardien de la forêt et
+18,10|une si aimable générosité envers cette
+18,11|Louve mérite récompense.
+18,12|Vous ne devez pas vous promener aussi
+18,13|près du Temple, Sinon vous allez tomber
+18,14|sous l'emprise des Forces du Mal.
+18,15|Mais heureusement, je vois parmi vos
+18,16|affaires que vous avez ramassé des
+18,17|écailles de Dragon; Je vais pouvoir
+18,18|vous préparer un breuvage qui vous
+18,19|immunisera contre cette emprise
+18,20|maléfique'. Une fois prête, Vous buvez
+18,21|cette Potion et repartez immunisé en
+18,22|remerciant le Druide.
+18,24|< F1 > Vous prenez la direction des
+18,25|       collines à l'Ouest.
+18,26|< F2 > Vous remontez à travers la forêt
+18,27|       vers le Nord.
+
+=== TM98 cle=55
+18,8|'Bonjour jeune étranger, Je suis
+18,9|le Druide gardien de la forêt et
+18,10|une si aimable générosité envers cette
+18,11|Louve mérite récompense. Vous ne devez
+18,12|pas vous promener aussi près du Temple,
+18,13|Sinon vous allez tomber sous l'emprise
+18,14|des Forces du Mal. Pour que je puisse
+18,15|vous préparer une Potion qui vous
+18,16|immunisera contre cette emprise,
+18,17|il faut que vous me rameniez des
+18,18|écailles du Dragon qui vit dans une
+18,19|grotte au Nord/Est. Vous avez l'air
+18,20|fatigué, poursuit-il, tenez, prenez
+18,21|ceci'. Il sort alors d'une poche de sa
+18,22|toge une pomme rouge avec des reflets
+18,23|argentés. Vous prenez et mangez cette
+18,24|pomme qui a un extraordinaire pouvoir
+18,25|nutritif. Vous regagnez 4 points de vie.
+18,27|< F1 > Vous remontez à travers la forêt
+18,28|       vers le Nord.
+18,29|< F2 > Vous prenez la direction des
+18,30|       collines à l'Ouest.
+
+=== TM99 cle=55
+18,8|Vous pénétrez sous les feuillages
+18,9|sombres de la forêt et bientôt,
+18,10|vous arrivez dans la clairière où vous
+18,11|avez rencontré la Louve et le Druide.
+18,12|La clairière est à présent vide,
+18,13|vous n'avez plus rien à faire ici.
+18,15|< F1 > Vous remontez à travers la forêt
+18,16|       vers le Nord.
+18,17|< F2 > Vous prenez la direction des
+18,18|       collines à l'Ouest.
+
+=== M100 cle=55
+18,8|Vous pénétrez sous les feuillages
+18,9|sombres de la forêt et bientôt,
+18,10|vous arrivez dans une clairière.
+18,11|Vous vous figez de nouveau en voyant
+18,12|réapparaître devant vous l'énorme Louve
+18,13|blanche, toujours en train de donner
+18,14|la têtée à ses deux petits.
+18,15|En vous apercevant, elle les repousse
+18,16|et se met à grogner, prête à bondir
+18,17|sur vous...
+18,19|< F1 > Vous l'attaquez.
+18,20|< F2 > Vous lui offrez un peu de
+18,21|       viande séchée.
+18,22|< F3 > Vous rebroussez chemin.
+
+=== M101 cle=55
+18,8|Vous pénétrez sous les feuillages
+18,9|sombres de la forêt et bientôt,
+18,10|vous arrivez dans la clairière où vous
+18,11|avez rencontré la Louve et le Druide.
+18,12|Il n'y a apparemment plus personne.
+18,14|< F1 > Vous remontez à travers la forêt
+18,15|       vers le Nord.
+18,16|< F2 > Vous prenez la direction
+18,17|       des collines à l'Ouest.
+18,18|< F3 > Vous vous cachez dans des
+18,19|       fourrés en attendant à l'abri.
+
+=== M102 cle=55
+18,8|Vous épiez la clairière...
+18,9|Quelques instants plus tard, le Druide
+18,10|apparaît et s'approche: 'je vois que
+18,11|vous êtes de retour, et que parmi vos
+18,12|affaires vous avez ramené des écailles
+18,13|de Dragon; Je vais donc pouvoir vous
+18,14|préparer un breuvage qui vous immunisera
+18,15|contre l'emprise maléfique du Mal'.
+18,16|Une fois prête, vous buvez cette @0Potion@1
+18,17|et repartez immunisé en remerciant
+18,18|le Druide.
+18,20|< F1 > Vous remontez à travers
+18,21|       la forêt vers le Nord.
+18,22|< F2 > Vous prenez la direction
+18,23|       des collines à l'Ouest.
+
+=== M103 cle=55
+18,8|Vous épiez la clairière...
+18,9|Quelques instants plus tard, le Druide
+18,10|apparaît et s'approche: 'Je vois que
+18,11|vous êtes de retour, et que vous n'avez
+18,12|pas rapporté d'écailles de dragon.
+18,13|Vous n'en avez peut être pas besoin...
+18,14|Avant que vous n'ayez pu bouger,
+18,15|il marmonne alors quelques mots
+18,16|étranges et les buissons se mettent
+18,17|à pousser autour de vous.
+18,18|Des branches d'une vigueur surprenante
+18,19|vous enserrent bras et jambes vous
+18,20|interdisant de bouger.
+18,21|Vous suppliez le Druide de vous libérer,
+18,22|mais il s'éloigne et vous entendez déjà
+18,23|au loin le cri des loups.
+18,25|< F1 > Votre aventure se termine ici.
+
+=== M104 cle=55
+18,8|Vous tirez votre épée et vous vous
+18,9|lancez à l'attaque. D'un seul coup
+18,10|une silhouette sort rapidement des
+18,11|fourrés et vous lance un gland...
+18,12|Dans votre course vous ne pouvez éviter
+18,13|le projectile qui vous touche de plein
+18,14|fouet. Vous sentez alors votre corps
+18,15|se raidir et se transformer peu à peu
+18,16|en pierre.
+18,18|< F1 > Votre aventure se termine ici.
+
+=== 104a cle=55
+18,8|Vous épiez la clairière...
+18,9|Quelques instants plus tard, le Druide
+18,10|apparaît et s'approche: 'Je vois que
+18,11|vous êtes de retour sans avoir rapporté
+18,12|d'écailles de dragon et que vous portez
+18,13|autour du cou la réprésentation du Mal!'
+18,14|Avant que vous n'ayez pu bouger,
+18,15|il marmonne alors quelques mots
+18,16|étranges et les buissons se mettent
+18,17|à pousser autour de vous.
+18,18|Des branches d'une vigueur surprenante
+18,19|vous enserrent bras et jambes vous
+18,20|interdisant de bouger.
+18,21|Vous suppliez le Druide de vous libérer,
+18,22|mais il s'éloigne et vous entendez déjà
+18,23|au loin le cri des loups.
+18,25|< F1 > Votre aventure se termine ici.
+
+=== 104b cle=55
+18,8|Vous épiez la clairière...
+18,9|Quelques instants plus tard, le Druide
+18,10|apparaît et s'approche: 'Je vois que
+18,11|vous êtes de retour, et que parmi vos
+18,12|affaires vous avez ramené des écailles
+18,13|de Dragon et... que vous portez
+18,14|la réprésentation du Mal!' dit-il
+18,15|en frappant le sol de son bâton.
+18,16|Avant que vous n'ayez pu bouger,
+18,17|il marmonne alors quelques mots et
+18,18|le pendentif que vous portez autour
+18,19|du cou se transforme en poussière
+18,20|lumineuse et disparaît...
+18,21|Il reprend: 'Je vais maintenant pouvoir
+18,22|vous préparer un breuvage qui vous
+18,23|immunisera contre l'emprise maléfique
+18,24|du Mal'. Une fois prête, vous buvez
+18,25|cette Potion et repartez immunisé
+18,26|en remerciant le Druide.
+18,28|< F1 > Vous remontez à travers
+18,29|       la forêt vers le Nord.
+18,30|< F2 > Vous prenez la direction
+18,31|       des collines à l'Ouest.
+
+=== M105 cle=55
+18,8|Vous avancez sur un sol instable et
+18,9|@0humide@1 et de gros insectes virevoltent
+18,10|au-dessus des mares qui parsèment
+18,11|l'endroit.
+18,13|< F1 > Vous souhaitez traverser cet
+18,14|       endroit avec précaution pour
+18,15|       rejoindre un autre chemin.
+18,16|< F2 > Vous préférez essayer de
+18,17|       franchir d'un bond la partie
+18,18|       marécageuse du sol.
+
+=== M106 cle=55
+18,8|Vous parvenez à atteindre sans dommage
+18,9|le chemin que vous avez choisi.
+18,11|< F1 > Vous vous dirigez vers l'Est.
+18,12|< F2 > Vous préférez vous rapprocher
+18,13|       de l'île en vous dirigeant vers
+18,14|       un pont en pierres à l'Ouest.
+18,15|< F3 > Vous remontez plein Nord.
+18,16|< F4 > Vous partez en direction des
+18,17|       collines du Sud.
+
+=== M107 cle=55
+18,8|Vous trébuchez contre une racine et
+18,9|vous vous cognez la jambe contre
+18,10|une pierre. Il en résulte une légère
+18,11|contusion qui vous coûte 1 point de vie.
+18,12|Vous vous relevez furieux.
+18,14|< F1 > Vous vous dirigez vers l'Est.
+18,15|< F2 > Vous préférez vous rapprocher
+18,16|       de l'île en vous dirigeant vers
+18,17|       un pont en pierres à l'Ouest.
+18,18|< F3 > Vous remontez plein Nord.
+18,19|< F4 > Vous partez en direction des
+18,20|       collines du Sud.
+
+=== M108 cle=55
+18,8|Votre saut est malheureusement trop
+18,9|court, vous vous prenez le pied dans
+18,10|la vase et vous tombez en vous tordant
+18,11|le poignet. Cette chute vous coûte 1
+18,12|point de vie. Vous vous relevez furieux.
+18,14|< F1 > Vous vous dirigez vers l'Est.
+18,15|< F2 > Vous préférez vous rapprocher
+18,16|       de l'île en vous dirigeant vers
+18,17|       un pont en pierres à l'Ouest.
+18,18|< F3 > Vous remontez plein Nord.
+18,19|< F4 > Vous partez en direction des
+18,20|       collines du Sud.
+
+=== M109 cle=55
+18,8|Vous parvenez à sauter de l'autre côté
+18,9|sans difficulté, et poursuivez votre
+18,10|chemin.
+18,12|< F1 > Vous vous dirigez vers l'Est.
+18,13|< F2 > Vous préférez vous rapprocher
+18,14|       de l'île en vous dirigeant vers
+18,15|       un pont en pierres à l'Ouest.
+18,16|< F3 > Vous remontez plein Nord.
+18,17|< F4 > Vous partez en direction des
+18,18|       collines du Sud.
+
+=== M110 cle=55
+18,8|Le chemin qui vous mène vers le coeur
+18,9|de la forêt s'élève peu à peu. Le sol
+18,10|est très sec dans cette profonde forêt.
+18,11|Bientôt, les arbres deviennent moins
+18,12|denses et vous arrivez dans une vaste
+18,13|clairière parsemée de buissons.
+18,14|Vous vous immobilisez et écoutez
+18,15|le moindre son alentour, mais vous
+18,16|n'entendez rien d'anormal. Vous avancez
+18,17|alors dans la clairière, en quête d'un
+18,18|autre chemin, lorsque que vous vous
+18,19|rendez compte soudain que plusieurs
+18,20|loups vous observent...
+18,21|Les loups se mettent à grogner,
+18,22|l'un d'eux s'approche rapidement de
+18,23|vous et vous saute dessus. D'un coup
+18,24|d'épée vous frappez l'animal en plein
+18,25|saut, lui tranchant net la gorge.
+18,26|Vous vous éloignez lentement à reculons
+18,27|pendant que les autres loups se jettent
+18,28|alors, sur le cadavre encore chaud.
+18,29|Vous quittez les lieux prudemment.
+18,31|< F1 > Vous continuez d'avancer dans
+18,32|       la forêt vers le Sud.
+18,33|< F2 > Vous préférez remonter vers
+18,34|       le Nord.
+18,35|< F3 > Vous prenez la direction de
+18,36|       l'Ouest.
+
+=== M111 cle=55
+18,8|Le chemin qui vous mène vers le coeur
+18,9|de la forêt s'élève peu à peu. Le sol
+18,10|est très sec dans cette forêt profonde.
+18,11|Bientôt, les arbres deviennent moins
+18,12|denses et vous arrivez dans une vaste
+18,13|clairière parsemée de buissons. Vous
+18,14|entrez à nouveau dans la clairière où
+18,15|vous avez rencontré les loups.
+18,16|Tout est calme et vous ne remarquez
+18,17|rien d'anormal. Vous quittez les lieux
+18,18|prudemment.
+18,20|< F1 > Vous continuez d'avancer dans
+18,21|       la forêt vers le Sud.
+18,22|< F2 > Vous préférez remonter vers
+18,23|       le Nord.
+18,24|< F3 > Vous prenez la direction de
+18,25|       l'Ouest.
+
+=== M112 cle=55
+22,8|Le chemin se rétrécit d'une
+22,9|manière inquiétante et vous
+22,10|vous demandez si vous n'allez
+22,11|pas aboutir dans un cul-de-sac.
+22,12|Quelques mètres plus loin,
+22,13|deux énormes Rochers pointus
+22,14|se dressent de part et d'autre
+22,15|du sentier. Au loin un temple
+22,16|immense est planté au centre
+22,17|d'un cannyon.
+22,19|< F1 > Vous avancez et passez
+22,20|       entre les deux immenses
+22,21|       pierres.
+22,22|< F2 > Vous préférez remonter
+22,23|       vers le Nord.
+
+=== M113 cle=55
+22,8|Vous avancez en regardant
+22,9|le sommet des deux grandes
+22,10|pierres, quand vous trébuchez
+22,11|sur un casque en métal.
+22,12|En le saisissant, votre sang
+22,13|se glace, en lisant le nom
+22,14|de Leia gravé à l'intérieur.
+22,15|Vous observez à présent plus
+22,16|attentivement la surface
+22,17|du sol, qui est recouverte
+22,18|de cendres noires et d'objets
+22,19|métalliques divers:
+22,20|@0épées, fers à chevaux, étriers,
+22,21|armures, boucliers, lances,
+22,22|cottes de mailles, etc...@1
+22,23|Voilà la fin tragique qui est
+22,24|réservée aux indésirables!..
+22,26|< F1 > Vous continuez d'avancer
+22,27|       prudemment vers le Sud.
+22,28|< F2 > Pas vraiment rassuré,
+22,29|       Vous préférez remonter
+22,30|       vers le Nord.
+
+=== M114 cle=55
+22,8|Vous avancez en regardant
+22,9|le sommet des deux grandes
+22,10|pierres, quand vous trébuchez
+22,11|sur un casque en métal.
+22,12|En le saisissant, votre sang
+22,13|se glace, en lisant le nom
+22,14|de Leia gravé à l'intérieur.
+22,15|Vous n'avez pas le temps
+22,16|de réagir quand un éclair qui
+22,17|semble venir du ciel vous
+22,18|frappe de plein fouet...
+22,20|< F1 > Votre aventure se
+22,21|       termine ici.
+
+=== M115 cle=55
+18,8|Vous n'êtes plus qu'à une centaine
+18,9|de mètres de cette impressionnante
+18,10|construction. Le sol est aride et
+18,11|craquelé de profondes crevasses que
+18,12|vous devez éviter à chacun de vos pas.
+18,13|De plus, la température augmente à
+18,14|mesure que vous avancez, à tel point
+18,15|que votre corps ruisselle de sueur
+18,16|quand vous arrivez au pied du Temple.
+18,17|Vous montez un colossal escalier,
+18,18|constitué de gros blocs de pierre.
+18,19|Vous entrez dans un immense hall
+18,20|circulaire soutenu par d'immenses
+18,21|colonnes, où le vent s'engouffre en
+18,22|produisant des chuchotements.
+18,24|< F1 > Vous traversez le hall.
+
+=== M116 cle=55
+18,8|Vous n'êtes plus qu'à une centaine
+18,9|de mètres de cette impressionnante
+18,10|construction. Le sol est aride et
+18,11|craquelé de profondes crevasses, que
+18,12|vous devez éviter. Presque aussitôt,
+18,13|vous vous sentez étrangement somnolent
+18,14|et vous vous rendez compte que vous
+18,15|êtes en train de tituber. Si vous
+18,16|n'y prenez pas garde, vous risquez
+18,17|fort de tomber dans une crevasse.
+18,18|Vous faîtes à présent un effort de
+18,19|volonté pour essayer de vous éloigner
+18,20|du Temple, mais une voix appaisante
+18,21|vous suggère de vous laisser aller
+18,22|au sommeil. @2Vous ne pouvez résister
+18,23|et basculez dans une crevasse...@1
+18,25|< F1 > Votre aventure s'achève ici.
+
+=== TT1 cle=55
+22,8|Vous êtes couvert de contusions
+22,9|et vous vérifiez si votre chute
+22,10|ne vous a pas fait perdre
+22,11|d'Objets...
+22,12|Vous êtes dans un souterrain
+22,13|en partie éboulé.
+22,14|Les parois sont couvertes de
+22,15|lichens @0phosphorescents...@1
+22,16|L'un des bouts du souterrain se
+22,17|prolonge au-delà de la portée
+22,18|de votre torche;
+22,19|tout près de vous, des pierres
+22,20|et des gravats bloquent
+22,21|entièrement le passage.
+22,22|Quel miracle que vous ne soyez
+22,23|pas actuellement sous ces
+22,24|pierres! Il faut maintenant
+22,25|sortir de là!
+22,27|< F1 > Vous tentez de dégager
+22,28|       l'éboulement pour
+22,29|       éventuellement ressortir
+22,30|       par où vous avez
+22,31|       du entrer.
+22,32|< F2 > Vous explorez
+22,33|       le souterrain dans
+22,34|       l'autre direction.
+
+=== TT2 cle=55
+18,8|Vous vous éloignez de la fresque
+18,9|et remontez la salle éboulée.
+18,10|Au bout de quelques mètres, vous
+18,11|discernez une odeur de moisissures;
+18,12|et bientôt, la lumière de votre
+18,13|torche vous fait découvrir une
+18,14|véritable assemblée de champignons
+18,15|barrant le passage. Que faites-vous?
+18,17|< F1 > Vous continuez votre chemin
+18,18|       en bousculant les champignons.
+18,19|< F2 > Vous avez l'idée d'en manger.
+18,20|< F3 > Vous préférez faire demi-tour.
+
+=== TT3 cle=55
+18,8|Des étincelles terrifiantes fusent
+18,9|des multiples yeux de la statue.
+18,10|Une douleur infernale vous brûle le
+18,11|cerveau. Vous Sombrez dans le noir...
+18,13|< F1 > L'aventure est malheureusement
+18,14|       terminée.
+
+=== TT4 cle=55
+18,8|Grâce à la pointe de votre épée,
+18,9|ce travail s'effectue sans difficulté.
+18,10|Vous enfouissez votre larcin dans une
+18,11|de vos poches.
+18,13|< F1 > Vous revenez vers la salle
+18,14|       à la fresque pour l'explorer
+18,15|       dans l'autre sens.
+
+=== TT6 cle=55
+22,8|Au bout de quelques vingt ou
+22,9|trente mètres, le couloir se
+22,10|termine en cul-de-sac à cause
+22,11|d'un éboulement.
+22,13|< F1 > Vous faites demi-tour.
+22,14|< F2 > Vous décidez de vous
+22,15|       frayer un passage
+22,16|       à travers les gravats.
+
+=== TT7 cle=55
+18,8|Des multiples yeux de la statue
+18,9|fuse un terrifiant feu d'artifice et
+18,10|la porte située au bout de la salle,
+18,11|en face de la statue, s'ouvre d'elle
+18,12|même. Vous vous y précipitez...
+18,13|Le sol se met à trembler, des pierres
+18,14|se détachent du plafond de cette salle.
+18,15|Un écran argenté se matérialise à un
+18,16|mètre de vous, comme une porte vers
+18,17|un autre monde. Vous n'avez plus
+18,18|le choix, le Temple est en train de
+18,19|s'effondrer autour de vous...
+18,21|< F1 > Vous franchissez cette porte.
+
+=== TT9 cle=55
+18,8|Quelque vingt mètres plus loin,
+18,9|vous arrivez au pied d'un escalier.
+18,10|Les marches usées et couvertes de
+18,11|mousse n'ont pas l'air très sûres.
+18,12|Après hésitations, vous vous décidez
+18,13|quand même à les gravir; et
+18,14|vous débouchez dans une vaste salle.
+18,15|Vous promenez autour de vous
+18,16|le faisceau de votre torche.
+18,17|En face de vous, en face de l'escalier,
+18,18|un couloir perpendiculaire à la salle
+18,19|s'enfonce dans les ténèbres.
+18,20|A votre gauche, le mur du fond de cette
+18,21|salle est probablement rectangulaire.
+18,22|Ce mur est décoré d'une fresque.
+18,23|A votre droite, la salle, apparemment
+18,24|très longue, se poursuit dans les
+18,25|ténèbres avec des gravats et des signes
+18,26|d'éboulements.
+18,28|< F1 > Vous examinez la fresque.
+18,29|< F2 > Vous empruntez le couloir
+18,30|       en face de l'escalier.
+18,31|< F3 > Vous tournez à droite pour
+18,32|       explorer le prolongement
+18,33|       de la salle.
+
+=== TT10 cle=55
+18,8|L'idole se met à gronder!
+18,10|< F1 > Vous décidez d'enlever
+18,11|       immédiatement le serre-tête.
+18,12|< F2 > Vous décidez d'enlever
+18,13|       immédiatement l'anneau d'argent.
+18,14|< F3 > Vous décidez d'enlever
+18,15|       immédiatement l'anneau d'argent
+18,16|       et le serre-tête.
+18,17|< F4 > Vous décidez de n'enlever
+18,18|       ni l'anneau d'argent
+18,19|       ni le serre-tête.
+
+=== TT11 cle=55
+22,8|Chacune dans une alcôve et
+22,9|se faisant face, les statues
+22,10|représentent l'une une sorte
+22,11|de Reptile et l'autre une sorte
+22,12|de grand Singe.
+22,13|Chacune n'a qu'un seul oeil,
+22,14|une gemme légèrement @0luisante@1.
+22,15|L'oeil du Reptile est rouge
+22,16|de forme hexagonale et celui
+22,17|du Singe est vert de forme ronde.
+22,19|< F1 > Vous ignorez ces statues
+22,20|       et revenez vers la salle
+22,21|       à la fresque.
+22,22|< F2 > Vous les ignorez et
+22,23|       continuez le couloir
+22,24|       dans la direction opposée
+22,25|       à la salle de la fresque.
+22,26|< F3 > Vous décidez de dessertir
+22,27|       la gemme rouge et
+22,28|       de l'emporter.
+22,29|< F4 > Vous décidez de dessertir
+22,30|       la gemme verte et
+22,31|       de l'emporter.
+22,32|< F5 > Vous décidez de dessertir
+22,33|       les deux gemmes et
+22,34|       de les emporter.
+
+=== TT13 cle=55
+22,8|L'éboulement est récent,
+22,9|et les gravats instables.
+22,10|Dans un soudain nuage de
+22,11|poussière, une pluie de pierres
+22,12|vous ensevelit...
+22,13|Vous vous dégagez de la nouvelle
+22,14|avalanche, mais vous perdez
+22,15|2 points de vie.
+22,17|< F1 > Vous continuez à tenter
+22,18|       de déblayer.
+22,19|< F2 > Vous abandonnez et
+22,20|       commencez à explorer
+22,21|       le couloir dans l'autre
+22,22|       sens.
+
+=== TT16 cle=55
+22,8|L'éboulement a l'air ancien et
+22,9|le travail est pénible.
+22,10|Vous avez du poser votre torche
+22,11|à terre pour avoir les deux
+22,12|mains libres. Après avoir ainsi
+22,13|retiré trois ou quatre pierres,
+22,14|vous remarquez une galerie
+22,15|circulaire d'une quarantaine
+22,16|de centimètres de diamètre.
+22,17|Vous prenez votre torche pour
+22,18|l'éclairer... Quand une pure
+22,19|horreur en surgit!
+22,20|Une sorte de mille-pattes
+22,21|caparaçonné comme un scarabée,
+22,22|long de plus d'un mètre et
+22,23|pourvu d'énormes mandibules
+22,24|acérées. Il se jette sur vous,
+22,25|vous faisant perdre 4 points
+22,26|de vie. Vous n'avez que
+22,27|le temps de sortir votre Epée,
+22,28|pour tuer ce monstre.
+22,30|< F1 > Vous décidez prudemment
+22,31|       de faire demi-tour.
+
+=== TT17 cle=55
+22,8|Vous continuez opiniâtrement
+22,9|votre travail, et le sort
+22,10|semble décidemment contre vous!
+22,11|Une nouvelle avalanche de
+22,12|gravats se déverse sur vous,
+22,13|vous faisant perdre 4 points
+22,14|de vie.
+22,16|< F1 > Vous continuez coûte
+22,17|       que coûte à déblayer.
+22,18|< F2 > Vous baissez les bras
+22,19|       et commencez
+22,20|       à explorer le couloir
+22,21|       dans l'autre sens.
+
+=== TT18 cle=55
+22,8|Une quinzaine de mètres plus
+22,9|loin, le couloir est creusé
+22,10|de deux alcoves à gauche et
+22,11|à droite, l'une en face de
+22,12|l'autre... Ces alcoves
+22,13|contiennent chacune une statue
+22,14|ou des gemmes @0luisent@1
+22,15|faiblement.
+22,17|< F1 > Vous les examinez
+22,18|       de plus près.
+22,19|< F2 > Vous continuez votre
+22,20|       chemin.
+
+=== T18a cle=55
+22,8|Une quinzaine de mètres plus
+22,9|loin, vous revoila au niveau
+22,10|des deux alcoves creusées à
+22,11|gauche et à droite l'une en face
+22,12|de l'autre et contenant chacune
+22,13|une statue. Vous avez déjà
+22,14|desserti la gemme rouge...
+22,16|< F1 > Vous voulez à présent
+22,17|       dessertir la Gemme
+22,18|       verte.
+22,19|< F2 > Vous continuez votre
+22,20|       chemin.
+
+=== T18b cle=55
+22,8|Une quinzaine de mètres plus
+22,9|loin, vous revoila au niveau
+22,10|des deux alcoves creusées à
+22,11|gauche et à droite l'une en face
+22,12|de l'autre et contenant chacune
+22,13|une statue. Vous avez déjà
+22,14|desserti la gemme verte...
+22,16|< F1 > Vous voulez à présent
+22,17|       dessertir la Gemme
+22,18|       rouge.
+22,19|< F2 > Vous continuez votre
+22,20|       chemin.
+
+=== T18c cle=55
+22,8|Une quinzaine de mètres plus
+22,9|loin, vous revoila au niveau
+22,10|des deux alcoves creusées à
+22,11|gauche et à droite l'une en face
+22,12|de l'autre et contenant chacune
+22,13|une statue. Vous avez déjà
+22,14|desserti la gemme rouge et
+22,15|la gemme verte.
+22,17|< F1 > Vous continuez votre
+22,18|       chemin.
+22,19|< F2 > Vous revenez vers
+22,20|       la salle à la fresque
+22,21|       pour l'explorer dans
+22,22|       l'autre sens.
+
+=== TT19 cle=55
+18,8|Peu à peu, les champignons se font
+18,9|moins nombreux et les murs moins
+18,10|humides; il n'y a plus de traces
+18,11|d'éboulement.
+18,12|Vous êtes arrivé à l'autre bout de
+18,13|la longue salle à la fresque et
+18,14|vous vous trouvez maintenant devant
+18,15|un escalier. Vous l'empruntez et
+18,16|débouchez dans une autre salle.
+18,17|Celle-ci est parfaitement circulaire,
+18,18|jonchée d'ossements et d'armes
+18,19|rouillées. Vous apercevez une porte
+18,20|en face de vous. Vous vous y dirigez
+18,21|prudemment; et c'est à ce moment que
+18,22|se matérialise la pire des horreurs!
+18,23|Les ossements épars se regroupent
+18,24|en un clin d'oeil et cinq squelettes
+18,25|animés vous entourent avec des rictus
+18,26|de très mauvais augure.
+18,27|Vous n'avez que le temps de saisir
+18,28|une vieille lance pour défendre
+18,29|votre vie. vous réussissez à vous
+18,30|rapprocher de la porte, à l'ouvrir
+18,31|et à vous soustraire aux squelettes,
+18,32|mais leur assaut vous fait perdre
+18,33|10 points de vie...
+18,35|< F1 > Vous refermez avec beaucoup
+18,36|       de difficultés la porte
+18,37|       derrière vous.
+
+=== TT20 cle=55
+18,8|Vous êtes au fond de la salle,
+18,9|la fresque se trouve juste au dessous
+18,10|de ce parchemin. Après l'avoir examinée:
+18,12|< F1 > Vous explorez le couloir
+18,13|       en face de l'escalier.
+18,14|< F2 > Vous explorez les éboulements
+18,15|       vers l'autre bout de la salle.
+
+=== TT21 cle=55
+18,8|Que voulez-vous mettre dans les deux
+18,9|orbites vides?
+18,11|< F1 > Des bouts de champignons.
+18,12|< F2 > Des Gravats.
+18,13|< F3 > Des Gemmes.
+
+=== TT22 cle=55
+18,8|Que voulez-vous mettre dans les deux
+18,9|orbites vides?
+18,11|< F1 > Des Gravats.
+18,12|< F2 > Des Gemmes.
+
+=== TT23 cle=55
+18,8|Ces champignons sont parfaitement
+18,9|comestibles et même revigorants,
+18,10|vous regagnez 6 points de vie.
+18,11|Vous décidez d'en mettre quelques
+18,12|morceaux dans vos poches.
+18,14|< F1 > Vous continuez d'avancer
+18,15|       dans le même sens.
+
+=== TT24 cle=55
+18,8|Vous déposez votre offrande dans les
+18,9|orbites profondes... et la réaction
+18,10|est immédiate! La statue se met à
+18,11|luire et à vibrer étrangement.
+18,12|Une douleur infernale vous brûle le
+18,13|cerveau. Vous Sombrez dans le noir...
+18,15|< F1 > L'aventure est malheureusement
+18,16|       terminée.
+
+=== TT25 cle=55
+18,8|Vous faites maintenant face à une
+18,9|affreuse statue d'une espèce de monstre
+18,10|hybride. Vous remarquez les deux orbites
+18,11|vides, larges et creuses, apparemment
+18,12|profondes.
+18,14|< F1 > Vous ignorez la statue et
+18,15|       repartez sur votre gauche.
+18,16|< F2 > Vous ignorez la statue et
+18,17|       repartez sur votre droite.
+18,18|< F3 > Vous avez l'idée de déposer
+18,19|       une offrande dans les orbites
+18,20|       béantes.
+
+=== TT26 cle=55
+18,8|De justesse, vous refermez la porte
+18,9|derrière vous... ouf! Vous reprenez
+18,10|haleine. Devant vous, commence une
+18,11|longue galerie au pied d'un escalier,
+18,12|une salle qui semble avoir la même
+18,13|disposition et la même forme que
+18,14|la salle à la fresque.
+18,15|Vous commencez à la remonter.
+18,16|Vous en êtes à mi-chemin quand vous
+18,17|remarquez qu'elle se termine tout au
+18,18|fond, en face de vous, par une grille.
+18,19|A l'endroit précis ou vous êtes,
+18,20|il y a une alcôve creusée dans le mur
+18,21|à votre droite.
+18,22|l'alcôve contient une statue.
+18,24|< F1 > Vous Continuez vers la grille.
+18,25|< F2 > Vous Examinez la statue.
+
+=== TT27 cle=55
+22,8|Vous rejoignez la salle à
+22,9|la fresque en repassant entre
+22,10|les deux Statues.
+22,12|< F1 > Pour continuer.
+
+=== TT28 cle=55
+18,8|Que voulez-vous mettre dans les deux
+18,9|orbites vides?
+18,11|< F1 > Des Gravats.
+18,12|< F2 > Des bouts de champignons.
+
+=== TT29 cle=55
+18,8|Que voulez-vous mettre dans les deux
+18,9|orbites vides?
+18,11|< F1 > Des Gravats.
+
+=== TT30 cle=55
+18,8|Vous débouchez dans un couloir
+18,9|parallèle.
+18,10|De l'endroit où vous êtes,
+18,11|vous pouvez voir qu'il donne à gauche
+18,12|dans une petite salle, et à droite
+18,13|dans une grande.
+18,15|< F1 > Vous allez à gauche.
+18,16|< F2 > Vous allez à droite.
+
+=== TT31 cle=55
+18,8|Vous revenez sur vos pas.
+18,9|Vous arrivez bientôt à hauteur
+18,10|d'une alcôve creusée dans le mur
+18,11|à votre gauche et contenant
+18,12|une statue.
+18,14|< F1 > Vous examinez la statue.
+18,15|< F2 > Vous continuez tout droit.
+
+=== TT32 cle=55
+18,8|Vous revoilà dans la galerie.
+18,9|Vous vous dirigez vers la grille
+18,10|et constatez que la clé trouvée dans
+18,11|le coffre peut en ouvrir la serrure.
+18,12|Vous l'ouvrez et entrez dans la salle
+18,13|hexagonale.
+18,14|Au centre sur un autel de marbre noir,
+18,15|vous découvrez trois objets:
+18,16|      - Un serre-tête en or strié
+18,17|        de lignes parallèles.
+18,18|      - Un bracelet de bronze en forme
+18,19|        de serpent enroulé sur lui-même.
+18,20|      - Un anneau d'argent finement
+18,21|        torsadé.
+18,22|Décidez-vous de passer, d'enfiler,
+18,23|l'un ou l'autre, ou les trois bijoux?
+18,25|< F1 > Serre-tête.
+18,26|< F2 > Bracelet de bronze.
+18,27|< F3 > Anneau d'argent.
+18,28|< F4 > Paré ou non de bijoux,
+18,29|       vous reprenez le passage secret
+18,30|       resté ouvert et vous vous dirigez
+18,31|       vers la grande salle entrevue.
+
+=== TT33 cle=55
+18,8|Entre-temps, le passage secret
+18,9|s'est refermé; Et de ce côte-ci,
+18,10|rien ne semble prévu pour l'ouvrir.
+18,11|il ne vous reste plus qu'à vous armer
+18,12|de courage...
+18,14|< F1 > Vous revenez à la grande salle
+18,15|       et vous vous risquez à passer
+18,16|       devant l'idole colossale, dont
+18,17|       les yeux flamboyants sont
+18,18|       braqués sur vous.
+
+=== TT34 cle=55
+18,8|Le fond de la galerie est
+18,9|effectivement barré par une grille.
+18,10|Entre les barreaux, Vous apercevez
+18,11|une salle hexagonale, la grille forme
+18,12|l'un des six cotés de l'hexagone.
+18,13|Un autel de marbre noir se dresse
+18,14|en son centre. La grille est fermée
+18,15|par une serrure.
+18,17|< F1 > Vous tentez de l'ouvrir.
+18,18|< F2 > Vous faites demi-tour.
+
+=== TT36 cle=55
+18,8|Vous êtes au seuil d'une très grande
+18,9|salle. Près du mur de droite,
+18,10|à quelques pas de vous, se dresse
+18,11|une colossale statue parée d'ailes
+18,12|de chauve-souris.
+18,13|Elle semble continuellement vibrer.
+18,14|Et soudain, alors que vous êtes
+18,15|toujours sur le seuil de la salle,
+18,16|voilà qu'elle tourne lentement la tête
+18,17|vers vous. Ses multiples yeux @0brillent@1
+18,18|intensément...
+18,19|Tout au fond de la salle, sur le mur
+18,20|opposé à la statue, vous distinguez
+18,21|une grande double porte. Il ne fait
+18,22|maintenant aucun doute, la statue
+18,23|vous a vu! Que faites-vous?
+18,25|< F1 > Vous passez devant elle pour
+18,26|       atteindre la grande porte.
+18,27|< F2 > Vous faites demi-tour pour
+18,28|       inspecter la petite salle
+18,29|       à l'autre bout du couloir.
+
+=== TT38 cle=55
+18,8|Que Faites-vous ensuite?
+18,10|< F1 > Vous retournez dans la galerie
+18,11|       par le passage secret resté
+18,12|       ouvert.
+18,13|< F2 > Vous allez voir la grande salle.
+
+=== TT39 cle=aa
+18,8|Vous pouvez à présent participer au
+18,9|tirage au sort en envoyant sur carte
+18,10|postale libre le code secret: 'TOTEM'
+18,11|ainsi que vos Nom et Adresse.
+18,12|Envoyez le tout à:
+18,13|        DREAM
+18,14|        Concours HEROS
+18,15|        21, rue Notre Dame de Nazareth
+18,16|        75003 Paris
+18,17|        France
+
+=== T39a cle=55
+18,8|Vous pouvez à présent participer au
+18,9|tirage au sort en envoyant sur carte
+18,10|postale libre le code secret: 'PYRAMIDE'
+18,11|ainsi que vos Nom et Adresse.
+18,12|Envoyez le tout à:
+18,13|        DREAM
+18,14|        Concours HEROS
+18,15|        21, rue Notre Dame de Nazareth
+18,16|        75003 Paris
+18,17|        France
+
+=== TT40 cle=55
+18,8|La serrure de la grille est verrouillée
+18,9|et vous ne pouvez l'ouvrir.
+18,11|< F1 > Vous faites demi-tour.
+
+=== TT41 cle=55
+18,8|Un coffre est ouvert au fond de cette
+18,9|petite salle. Vous y jetez un coup
+18,10|d'oeil. Vous découvrez une clé et
+18,11|une paire de bracelets de bronze
+18,12|en forme d'ailes de chauve-souris.
+18,13|Vous prenez la clé sans hésiter,
+18,14|mais ne savez que faire au sujet
+18,15|des bracelets...
+18,17|< F1 > Vous les enfilez.
+18,18|< F2 > Vous les laissez à leur place.
+
+=== TT42 cle=55
+18,8|Au moment où vous faites ce pas
+18,9|décisif, le souvenir de votre aventure
+18,10|vous revient en mémoire, puis tout
+18,11|devient noir tandis que vous quittez
+18,12|ce monde pour espérez-vous, le vôtre...
+18,13|Bientôt, un paysage différent s'offre
+18,14|à votre regard. Vous vous retrouvez
+18,15|en effet au milieu d'un cercle de
+18,16|monolithes et tout a changé autour
+18,17|de vous: l'air, les odeurs, le chant
+18,18|des oiseaux. Tout vous parait étrange
+18,19|mais vous savez que ce ne peut être
+18,20|que la Terre...
+18,21|Quelques instants plus tard, vous
+18,22|sortez du cercle de pierre et des
+18,23|voix résonnent alors dans votre tête:
+18,24|Ce sont celles des êtres qui vous
+18,25|ont amené dans le monde d'Hodin et
+18,26|qui vous remercient à présent de
+18,27|l'avoir sauvé. Tandis que vous
+18,28|laissez derrière vous le lieu sacré
+18,29|du cercle de pierre, la voix de ces
+18,30|Dieux d'un autre monde retentit
+18,31|une ultime fois dans votre tête:
+18,32|'Qui sait! Nous aurons peut-être
+18,33|besoin à nouveau de vous un jour,
+18,34|et ce jour n'est peut être pas
+18,35|aussi loin que vous le croyez...
+18,37|< F1 > Pour participer au concours
+18,38|       organisé par DREAM.
+
+=== TT43 cle=55
+18,8|Vous êtes au seuil d'une très grande
+18,9|salle. Près du mur de droite,
+18,10|à quelques pas de vous, se dresse
+18,11|une colossale statue parée d'ailes
+18,12|de chauve-souris.
+18,13|Elle semble continuellement vibrer.
+18,14|Et soudain, alors que vous êtes
+18,15|toujours sur le seuil de la salle,
+18,16|voilà qu'elle tourne lentement la tête
+18,17|vers vous. Ses multiples yeux @0brillent@1
+18,18|intensément...
+18,19|Tout au fond de la salle, sur le mur
+18,20|opposé à la statue, vous distinguez
+18,21|une grande double porte. Il ne fait
+18,22|maintenant aucun doute, la statue
+18,23|vous a vu! Que faites-vous?
+18,25|< F1 > Vous passez devant elle pour
+18,26|       atteindre la grande porte.
+18,27|< F2 > Vous faites demi-tour pour
+18,28|       retourner dans la galerie
+18,29|       par le passage secret.
+
+=== TT44 cle=55
+18,8|Vous déposez votre offrande dans
+18,9|les orbites profondes... et la réaction
+18,10|est immédiate! La statue se met à
+18,11|luire et à vibrer. Une fente apparaît
+18,12|en son milieu et toute la statue
+18,13|s'entrouve comme une porte.
+18,15|< F1 > Vous vous glissez rapidement
+18,16|       dans l'étroit passage.
+
+=== TT46 cle=55
+18,8|Vous possédez une gemme rouge et
+18,9|une gemme verte.
+18,11|< F1 > Vous mettez la rouge dans
+18,12|       l'orbite droite et la verte
+18,13|       dans l'orbite gauche.
+18,14|< F2 > Vous mettez la rouge dans
+18,15|       l'orbite gauche et la verte
+18,16|       dans l'orbite droite.
+18,17|< F3 > Vous mettez les deux dans
+18,18|       l'orbite droite.
+18,19|< F4 > Vous mettez les deux dans
+18,20|       l'orbite gauche.
+
+=== TT47 cle=55
+18,8|Vous traversez prudemment le hall
+18,9|et passez le seuil d'une imposante
+18,10|porte en métal. Toujours personne
+18,11|à l'horizon, vous vous avancez dans
+18,12|une immense pièce hexagonale très
+18,13|sombre... Quand vous arrivez au centre
+18,14|de la pièce, des silhouettes humaines
+18,15|vétues de grandes toges avec des
+18,16|capuches vous entourent de toute part...
+18,17|'Comment osez-vous profaner le Temple
+18,18|du Dieu de la Mort, simple mortel?
+18,19|vous dit-à voix basse un des êtres
+18,20|qui se rapproche de vous.
+18,21|Son visage est blanc comme de la craie,
+18,22|il lève alors le poing et abat
+18,23|brusquement le bras. Aussitôt,
+18,24|un jet de flammes jaillit de la voûte,
+18,25|au-dessus de votre tête.
+18,26|Vous avez juste le temps d'esquiver,
+18,27|en faisant un petit saut de coté...
+18,28|Mais le jet de flammes frappe
+18,29|de plein fouet le sol de la pièce
+18,30|qui cède, créant un éboulement...
+18,32|< F1 > Vous basculez dans le vide
+18,33|       en perdant conaissance.
+
+=== TT48 cle=55
+18,8|Vous êtes retourné à l'extrêmité
+18,9|de la galerie. Vous vous trouvez
+18,10|maintenant devant un escalier.
+18,11|Vous l'empruntez, ouvrez la porte et...
+18,12|En un clin d'oeil dix squelettes
+18,13|se jettent maintenant sur vous.
+18,14|Vous tombez sous leurs coups.
+18,16|< F1 > L'aventure est malheureusement
+18,17|       terminée.
