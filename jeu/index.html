@@ -98,13 +98,13 @@ const T = {
  fr: { obj:'Objets', vie:'Vie', or:'Or', choix:'Choix', cmd:'Commandes', zoom:'Zoom', zt:'Texte', zu:'Interface',
   back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vieMax:'Vie au max', map:'Carte (M)', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
   mapT:'CARTE DU MONDE', mapT2:'TEMPLE - plan schématique', mapP:'Autre page', here:'Vous êtes ici', lifemsg:'Vie remise à 32.', cardinal:['N','S','E','O'],
-  lang:'English', full:'Plein écran', start:'Appuyez sur une touche ou cliquez pour commencer',
-  intro:'Introduction %d/4 - une touche ou un clic : page suivante - Échap : sauter l\'introduction',
+  lang:'English', full:'Plein écran', start:'Appuyez sur une touche ou cliquez pour commencer (L : charger)',
+  intro:'Introduction %d/4 - une touche ou un clic : page suivante - L : charger - Échap : sauter l\'introduction',
   fin:'*** FIN DU JEU ***   (B : retour, Q : quitter)', noch:'Ce choix n\'existe pas dans cette scène.',
   backmsg:'Retour arrière (%d écran(s) en réserve).', noback:'Pas d\'écran antérieur.',
   soundon:'Son activé.', soundoff:'Son coupé.', saved:'Partie sauvée (emplacement %d).', loaded:'Partie chargée (emplacement %d).',
   empty:'(vide)', slot:'Emplacement %d', sceneW:'scène %s, Vie %d, Or %d', loadfail:'Emplacement %d vide ou illisible.',
-  close:'Fermer', ch:'TRICHE', tele:'Se téléporter', go:'Aller', vie28:'Vie = 28', setor:'Fixer l\'or', objs:'Objets (cocher = porté)',
+  close:'Fermer', cancel:'Annuler', ch:'TRICHE', tele:'Se téléporter', go:'Aller', vie28:'Vie = 28', setor:'Fixer l\'or', objs:'Objets (cocher = porté)',
   cheatwarn:'Un inventaire "impossible" peut donner des scènes inattendues. B annule la triche.', cheated:'Triche appliquée (B pour l\'annuler).',
   saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
   credit:'HEROS © 1994 Olivier Thil (Amiga, concours DREAM). Version navigateur adaptée (annuler, 4 sauvegardes, carte) ; textes lus dans DataHeros. Adaptation réalisée avec l\'aide d\'une IA.',
@@ -112,13 +112,13 @@ const T = {
  en: { obj:'Items', vie:'Life', or:'Gold', choix:'Choices', cmd:'Commands', zoom:'Zoom', zt:'Text', zu:'Interface',
   back:'Back (B)', save:'Save (S)', load:'Load (L)', vieMax:'Max life', map:'Map (M)', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
   mapT:'WORLD MAP', mapT2:'TEMPLE - schematic plan', mapP:'Other page', here:'You are here', lifemsg:'Life set to 32.', cardinal:['N','S','E','W'],
-  lang:'Français', full:'Fullscreen', start:'Press any key or click to start',
-  intro:'Introduction %d/4 - any key or click: next page - Esc: skip the introduction',
+  lang:'Français', full:'Fullscreen', start:'Press any key or click to start (L: load)',
+  intro:'Introduction %d/4 - any key or click: next page - L: load - Esc: skip the introduction',
   fin:'*** THE END ***   (B: back, Q: quit)', noch:'This choice does not exist in this scene.',
   backmsg:'Stepped back (%d screen(s) left).', noback:'No earlier screen.',
   soundon:'Sound on.', soundoff:'Sound off.', saved:'Game saved (slot %d).', loaded:'Game loaded (slot %d).',
   empty:'(empty)', slot:'Slot %d', sceneW:'scene %s, Life %d, Gold %d', loadfail:'Slot %d is empty or unreadable.',
-  close:'Close', ch:'CHEAT', tele:'Teleport', go:'Go', vie28:'Life = 28', setor:'Set gold', objs:'Items (checked = carried)',
+  close:'Close', cancel:'Cancel', ch:'CHEAT', tele:'Teleport', go:'Go', vie28:'Life = 28', setor:'Set gold', objs:'Items (checked = carried)',
   cheatwarn:'An "impossible" inventory can lead to unexpected scenes. B undoes the cheat.', cheated:'Cheat applied (B to undo it).',
   saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
   credit:'HEROS © 1994 Olivier Thil (Amiga, DREAM contest). Adapted browser version (undo, 4 saves, map); texts read from DataHeros. Adaptation made with the help of an AI.',
@@ -373,7 +373,7 @@ function suiteIntro() {
 function sauterIntro() { $('titre').style.display = 'none'; mode = 'jeu'; introN = 0; hist = [nouvelEtat()]; afficher(); }
 function vider() { $('choix').textContent = ''; }
 function activerCmds(on) {
-  for (const b of document.querySelectorAll('#cmds button')) b.disabled = !on && !['son', 'quit'].includes(b.dataset.c);
+  for (const b of document.querySelectorAll('#cmds button')) b.disabled = !on && !['son', 'quit', 'load'].includes(b.dataset.c);
 }
 function afficher(msg) {
   const st = hist[hist.length - 1], sc = st.sc, nom = SC[sc].nom, v = VIS[sc];
@@ -448,7 +448,7 @@ function dlgTriche() {
   dlg.innerHTML = `<h3>${tr('ch')}</h3><div style="opacity:.8;font-size:.85em;margin-bottom:.5em">${tr('cheatwarn')}</div>
    <div class="row"><label>${tr('tele')} <select id="chSc"></select></label></div>
    <div class="row"><label>${tr('vie')} <input id="chVieN" type="number" min="0" max="32" style="width:4.5em"></label><button id="chVie">${tr('vieMax')}</button><label>${tr('or')} <input id="chOr" type="number" min="0" max="99" style="width:4.5em"></label></div>
-   <div>${tr('objs')}</div><div class="chk" id="chObj"></div><div class="row"><button id="chOk">OK</button><button id="chNo">${tr('close')}</button></div>`;
+   <div>${tr('objs')}</div><div class="chk" id="chObj"></div><div class="row"><button id="chOk">OK</button><button id="chNo">${tr('cancel')}</button></div>`;
   const sel = dlg.querySelector('#chSc'); SC.forEach((s, i) => { const o = document.createElement('option'); o.value = i; o.textContent = LAB[i]; if (i === nv.sc) o.selected = true; sel.appendChild(o); });
   dlg.querySelector('#chOr').value = nv.or; dlg.querySelector('#chVieN').value = nv.vie;
   const co = dlg.querySelector('#chObj');
@@ -470,6 +470,7 @@ document.addEventListener('keydown', ev => {
   if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
   Son.jouer(Son.demande ?? Son.liste ?? D.intro);          // premier geste : débloque l'audio
   const k = ev.key;
+  if ((mode === 'titre' || mode === 'fin' || mode === 'intro') && (k === 'l' || k === 'L')) { ev.preventDefault(); dlgSlots('load'); return; }
   if (mode === 'titre' || mode === 'fin') { if (k === 'Escape' || /^(Shift|Control|Alt|Meta|CapsLock|Tab)$/.test(k)) return; ev.preventDefault(); mode === 'fin' ? montrerTitreDepuisFin() : (introN = 0, suiteIntro()); return; }
   if (mode === 'intro') { if (k === 'Escape') sauterIntro(); else if (!/^(Shift|Control|Alt|Meta|CapsLock|Tab)$/.test(k)) { ev.preventDefault(); suiteIntro(); } return; }
   const fk = k.match(/^F([1-5])$/); let n = null;
