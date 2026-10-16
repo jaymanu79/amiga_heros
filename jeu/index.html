@@ -15,7 +15,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--clair);font-fami
 #split:hover,#split.on{background:#9a7240}
 #stage{position:relative;overflow:hidden;background:#000;margin:0 auto;flex:0 0 auto}
 #decor{position:absolute;inset:0;background-size:100% auto;background-repeat:no-repeat;image-rendering:pixelated}
-#scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#9a7240 #2a1c10}
+#scroll{transition:transform .6s ease-in-out;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#9a7240 #2a1c10}
 #page{position:relative;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated}
 .ln{position:absolute;white-space:pre;letter-spacing:var(--ls,0);font-family:"DejaVu Sans Mono","Cascadia Mono",Consolas,Menlo,"Liberation Mono",monospace;line-height:1;height:var(--lh)}
 .ln b{font-weight:700}
@@ -96,7 +96,7 @@ const MAP = {"z1": [{"k": "village", "l": "Villa", "r": 0, "c": 3}, {"k": "falai
 /* ---------------------------------------------------------------- textes UI */
 const T = {
  fr: { obj:'Objets', vie:'Vie', or:'Or', choix:'Choix', cmd:'Commandes', zoom:'Zoom', zt:'Texte', zu:'Interface',
-  back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vieMax:'Vie au max', map:'Carte (M)', decor:'Voir le décor (D)', decorOn:'Décor affiché (D pour revenir au texte).', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
+  back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vieMax:'Vie au max', map:'Carte (M)', decor:'Enrouler le parchemin (D)', decorOff:'Dérouler le parchemin (D)', decorOn:'Parchemin enroulé : D pour le dérouler.', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
   mapT:'CARTE DU MONDE', mapT2:'TEMPLE - plan schématique', mapP:'Autre page', here:'Vous êtes ici', lifemsg:'Vie remise à 32.', cardinal:['N','S','E','O'],
   lang:'English', full:'Plein écran', start:'Appuyez sur une touche ou cliquez pour commencer (L : charger)',
   intro:'Introduction %d/4 - une touche ou un clic : page suivante - L : charger - Échap : sauter l\'introduction',
@@ -106,11 +106,11 @@ const T = {
   empty:'(vide)', slot:'Emplacement %d', sceneW:'scène %s, Vie %d, Or %d', loadfail:'Emplacement %d vide ou illisible.',
   close:'Fermer', cancel:'Annuler', ch:'TRICHE', tele:'Se téléporter', go:'Aller', vie28:'Vie = 28', setor:'Fixer l\'or', objs:'Objets (cocher = porté)',
   cheatwarn:'Un inventaire "impossible" peut donner des scènes inattendues. B annule la triche.', cheated:'Triche appliquée (B pour l\'annuler).',
-  saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · D décor · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
+  saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · D parchemin · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
   credit:'HEROS © 1994 Olivier Thil (Amiga, concours DREAM). Version navigateur adaptée (annuler, 4 sauvegardes, carte) ; textes lus dans DataHeros. Adaptation réalisée avec l\'aide d\'une IA.',
   bye:'À bientôt ! (touche ou clic pour recommencer)' },
  en: { obj:'Items', vie:'Life', or:'Gold', choix:'Choices', cmd:'Commands', zoom:'Zoom', zt:'Text', zu:'Interface',
-  back:'Back (B)', save:'Save (S)', load:'Load (L)', vieMax:'Max life', map:'Map (M)', decor:'View scenery (D)', decorOn:'Scenery shown (D to go back to the text).', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
+  back:'Back (B)', save:'Save (S)', load:'Load (L)', vieMax:'Max life', map:'Map (M)', decor:'Roll up the scroll (D)', decorOff:'Unroll the scroll (D)', decorOn:'Scroll rolled up: D to unroll it.', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
   mapT:'WORLD MAP', mapT2:'TEMPLE - schematic plan', mapP:'Other page', here:'You are here', lifemsg:'Life set to 32.', cardinal:['N','S','E','W'],
   lang:'Français', full:'Fullscreen', start:'Press any key or click to start (L: load)',
   intro:'Introduction %d/4 - any key or click: next page - L: load - Esc: skip the introduction',
@@ -120,7 +120,7 @@ const T = {
   empty:'(empty)', slot:'Slot %d', sceneW:'scene %s, Life %d, Gold %d', loadfail:'Slot %d is empty or unreadable.',
   close:'Close', cancel:'Cancel', ch:'CHEAT', tele:'Teleport', go:'Go', vie28:'Life = 28', setor:'Set gold', objs:'Items (checked = carried)',
   cheatwarn:'An "impossible" inventory can lead to unexpected scenes. B undoes the cheat.', cheated:'Cheat applied (B to undo it).',
-  saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · D scenery · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
+  saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · D roll scroll · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
   credit:'HEROS © 1994 Olivier Thil (Amiga, DREAM contest). Adapted browser version (undo, 4 saves, map); texts read from DataHeros. Adaptation made with the help of an AI.',
   bye:'See you soon! (key or click to restart)' }
 };
@@ -387,7 +387,7 @@ function activerCmds(on) {
   for (const b of document.querySelectorAll('#cmds button')) b.disabled = !on && !['son', 'quit', 'load'].includes(b.dataset.c);
 }
 function afficher(msg) {
-  decorSeul = false; $('scroll').style.visibility = 'visible';
+  decorSeul = false; $('scroll').style.transform = 'none';
   const st = hist[hist.length - 1], sc = st.sc, nom = SC[sc].nom, v = VIS[sc];
   Son.scene(sc); $('titre').style.display = 'none'; fond(sc);
   const valides = choixValides(st);
@@ -498,7 +498,8 @@ document.addEventListener('keydown', ev => {
 let decorSeul = false;
 function basculerDecor() {
   if (mode !== 'jeu') return;
-  decorSeul = !decorSeul; $('scroll').style.visibility = decorSeul ? 'hidden' : 'visible'; message(decorSeul ? tr('decorOn') : '');
+  decorSeul = !decorSeul; $('scroll').style.transform = decorSeul ? 'translateY(-105%)' : 'none'; message(decorSeul ? tr('decorOn') : '');
+  const b = document.querySelector('#cmds [data-c=decor]'); if (b) b.textContent = tr(decorSeul ? 'decorOff' : 'decor');
 }
 function dlgCarte() {
   if (mode !== 'jeu') return;
