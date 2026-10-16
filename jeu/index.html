@@ -251,6 +251,8 @@ const Son = {
 let mode = 'titre', introN = 0, hist = [nouvelEtat()], groupes = [], sceneSortie = false;
 let cwPx = 8, lhPx = 12, S = 1, zoomT = +store.get('heros_zt', '1'), zoomU = +store.get('heros_zu', '1');
 let ratioFonte = 0.6, hViewport = 320;
+let vue = { x0: 0, w: 608 };   // fenêtre horizontale visible (en pixels virtuels) : resserrée sur le texte sur mobile
+const mobile = () => window.innerWidth <= 760;
 const stage = $('stage'), page = $('page'), scroll = $('scroll');
 
 function mesureFonte() {
@@ -262,10 +264,11 @@ function mettreEchelle() {
   const col = $('colText'); const dispo = col.clientWidth - 2;
   const hDispo = col.clientHeight - $('msg').offsetHeight - 2;
   // 1.0 = le parchemin occupe la largeur de la colonne (sans dépasser la hauteur de fenêtre)
-  const sFit = Math.min(dispo / 608, Math.max(hDispo, 200) / 320 * 1.0);
+  const vw = mobile() ? vue.w : 608, vx = mobile() ? vue.x0 : 0;
+  const sFit = mobile() ? dispo / vw : Math.min(dispo / 608, Math.max(hDispo, 200) / 320 * 1.0);
   S = Math.max(0.3, sFit * zoomT);
   const stH = Math.max(320 * S, Math.min(hDispo, (640 - CROP) * S));
-  stage.style.width = (608 * S) + 'px'; stage.style.height = stH + 'px';
+  stage.style.width = (vw * S) + 'px'; page.style.marginLeft = (-vx * S) + 'px'; stage.style.height = stH + 'px';
   hViewport = stH; cwPx = 8 * S; lhPx = 12 * S;
   stage.style.setProperty('--lh', lhPx + 'px');
   stage.style.setProperty('--cw', cwPx + 'px');
@@ -329,6 +332,11 @@ function dessinerPage(nom, v, valides, panneau) {
     if (courant !== null && g) { g.els.push(el); el.dataset.k = courant; }
     page.appendChild(el); prec = lig;
   }
+  if (lignes.length) {
+    let a = 1e9, z = 0; for (const [col, , segs] of lignes) { const n = segs.reduce((q, t) => q + t[1].length, 0); if (!n) continue; a = Math.min(a, col); z = Math.max(z, col + n); }
+    vue = { x0: Math.max(0, a * 8 - 24), w: Math.max(300, Math.min(608, z * 8 + 24) - Math.max(0, a * 8 - 24)) };
+  } else vue = { x0: 0, w: 608 };
+  if (mobile()) mettreEchelle();
   groupes = groupes.filter(x => valides.includes(x.k));
   for (const gr of groupes) for (const el of gr.els) {
     el.classList.add('g');
