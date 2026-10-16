@@ -89,13 +89,14 @@ select,input[type=number],input[type=text]{font:inherit;background:#2a1c10;color
 const D = window.HEROS, SC = D.logic.scenes, RT = D.logic.routines, LAB = D.lab, VIS = D.vis;
 RT['1bc06'] = [['toujours', 'CODE_FINAL', SC.findIndex(s => s.nom === 'TT39')]];
 const IDX = {}; SC.forEach((s, i) => { if (!(s.nom in IDX)) IDX[s.nom] = i; });
+const CROP = 48;   // pixels de parchemin vide masqués en haut
 const VIE_MAX = 32, VIE_DEPART = 28, NSLOTS = 4;
 const MAP = {"z1": [{"k": "village", "l": "Villa", "r": 0, "c": 3}, {"k": "falaise", "l": "Falai", "r": 1, "c": 3}, {"k": "bergen", "l": "RivNo", "r": 1, "c": 2}, {"k": "berge", "l": "Berge", "r": 2, "c": 2}, {"k": "voleur", "l": "Voleu", "r": 2, "c": 3}, {"k": "plateau", "l": "Scorp", "r": 2, "c": 4}, {"k": "dragon", "l": "Dragn", "r": 2, "c": 5}, {"k": "orques", "l": "Orque", "r": 3, "c": 2}, {"k": "carref", "l": "Carrf", "r": 3, "c": 3}, {"k": "mort", "l": "HMort", "r": 3, "c": 4}, {"k": "marais", "l": "Marai", "r": 4, "c": 2}, {"k": "etang", "l": "Etang", "r": 4, "c": 3}, {"k": "tronc", "l": "Tronc", "r": 4, "c": 4}, {"k": "bassin", "l": "Bassn", "r": 4, "c": 5}, {"k": "pont", "l": "Pont", "r": 4, "c": 1}, {"k": "ile", "l": "Ile", "r": 4, "c": 0}, {"k": "geant", "l": "Geant", "r": 5, "c": 2}, {"k": "sables", "l": "Sable", "r": 5, "c": 1}, {"k": "foret", "l": "ForSd", "r": 5, "c": 3}, {"k": "collines", "l": "Colli", "r": 6, "c": 2}, {"k": "louve", "l": "Louve", "r": 6, "c": 3}, {"k": "bataille", "l": "Batai", "r": 7, "c": 2}, {"k": "pierres", "l": "Pierr", "r": 8, "c": 2}, {"k": "hall", "l": "Hall", "r": 9, "c": 2}, {"k": "temple", "l": "Templ", "r": 10, "c": 2}], "z2": [{"k": "chute", "l": "Chute", "le": "Fall", "r": 2, "c": 0}, {"k": "fresque", "l": "Fresque", "le": "Fresco", "r": 2, "c": 1}, {"k": "eboulis", "l": "Eboulis", "le": "Rubble", "r": 2, "c": 2}, {"k": "escalier", "l": "Escalier", "le": "Stairs", "r": 4, "c": 0}, {"k": "secret", "l": "Secret", "le": "Secret", "r": 4, "c": 1}, {"k": "galerie", "l": "Galerie", "le": "Gallery", "r": 4, "c": 2}], "sc": {"TC1": 0, "TC2": 0, "TC3": 0, "TC4": 0, "TC5": 0, "TC6": 0, "TL1": 0, "TL2": 0, "TL3": 0, "TL4": 0, "TL5": 0, "TL6": 0, "TL7": 0, "TL8": 0, "TL9": 0, "TL10": 0, "TL11": 0, "TL12": 0, "TL13": 0, "TL14": 0, "TL15": 0, "TL16": 0, "TL17": 0, "TL18": 0, "TL19": 0, "TL20": 0, "TL21": 0, "TL22": 0, "TL23": 0, "TL24": 0, "TL25": 0, "TL26": 0, "TL27": 0, "TL28": 0, "TL29": 0, "TL30": 0, "TL34": 0, "TL35": 0, "TL36": 0, "TL37": 0, "TL38": 0, "L28a": 0, "L29a": 0, "L29b": 0, "L29c": 0, "L34a": 0, "TM1": 1, "TM2": 1, "TM3": 1, "TM26": 2, "TM12": 3, "TM13": 3, "TM27": 3, "TM4": 4, "TM5": 4, "TM6": 4, "TM7": 4, "TM8": 4, "TM9": 4, "TM10": 4, "TM11": 4, "TM44": 5, "TM45": 5, "TM46": 5, "TM47": 5, "TM48": 5, "TM49": 5, "TM14": 6, "TM15": 6, "TM16": 6, "TM17": 6, "TM18": 6, "TM19": 6, "TM20": 6, "TM21": 6, "TM22": 6, "TM23": 6, "M21c": 6, "TM29": 7, "TM30": 7, "TM31": 7, "M31a": 7, "M31b": 7, "TM24": 8, "TM37": 9, "TM38": 9, "TM39": 9, "TM40": 9, "TM41": 9, "M105": 10, "M106": 10, "M107": 10, "M108": 10, "M109": 10, "TM25": 11, "TM86": 12, "TM87": 12, "TM88": 12, "TM89": 12, "TM90": 12, "TM91": 12, "TM92": 12, "TM50": 13, "TM51": 13, "TM52": 13, "TM53": 14, "TM54": 14, "TM72": 15, "TM73": 15, "TM74": 15, "TM75": 15, "TM76": 15, "TM77": 15, "TM78": 15, "TM79": 15, "TM80": 15, "TM81": 15, "TM82": 15, "TM83": 15, "TM84": 15, "TM85": 15, "M72b": 15, "M85a": 15, "M85b": 15, "TM55": 16, "TM56": 16, "TM57": 16, "TM58": 16, "TM59": 16, "TM60": 16, "TM61": 16, "TM62": 16, "TM63": 16, "TM64": 16, "TM65": 16, "TM66": 16, "M66a": 16, "TM32": 17, "TM33": 17, "TM34": 17, "TM35": 17, "TM36": 17, "M110": 18, "M111": 18, "TM42": 19, "TM43": 19, "TM93": 20, "TM94": 20, "TM95": 20, "TM96": 20, "TM97": 20, "TM98": 20, "TM99": 20, "M100": 20, "M101": 20, "M102": 20, "M103": 20, "M104": 20, "104a": 20, "104b": 20, "TM67": 21, "TM68": 21, "TM69": 21, "TM70": 21, "TM71": 21, "M112": 22, "M113": 22, "M114": 22, "M115": 23, "M116": 23, "TT1": 25, "TT2": 26, "TT3": 26, "TT4": 26, "TT10": 26, "TT20": 26, "TT21": 26, "TT22": 26, "TT23": 26, "TT24": 26, "TT25": 26, "TT27": 26, "TT29": 26, "TT6": 27, "TT7": 27, "TT13": 27, "TT16": 27, "TT17": 27, "TT18": 27, "T18a": 27, "T18b": 27, "T18c": 27, "TT19": 27, "TT28": 27, "TT30": 27, "TT9": 28, "TT11": 28, "TT48": 28, "TT31": 29, "TT33": 29, "TT38": 29, "TT39": 29, "TT42": 29, "TT43": 29, "TT44": 29, "TT46": 29, "TT26": 30, "TT32": 30, "TT34": 30, "TT36": 30, "TT40": 30, "TT41": 30, "TT47": 30}, "n1": 25};
 
 /* ---------------------------------------------------------------- textes UI */
 const T = {
  fr: { obj:'Objets', vie:'Vie', or:'Or', choix:'Choix', cmd:'Commandes', zoom:'Zoom', zt:'Texte', zu:'Interface',
-  back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vie32:'Vie 32 (V)', map:'Carte (M)', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
+  back:'Retour (B)', save:'Sauver (S)', load:'Charger (L)', vieMax:'Vie au max', map:'Carte (M)', cheat:'Triche (T)', sound:'Son (N)', quit:'Quitter (Q)', home:'← Accueil',
   mapT:'CARTE DU MONDE', mapT2:'TEMPLE - plan schématique', mapP:'Autre page', here:'Vous êtes ici', lifemsg:'Vie remise à 32.', cardinal:['N','S','E','O'],
   lang:'English', full:'Plein écran', start:'Appuyez sur une touche ou cliquez pour commencer',
   intro:'Introduction %d/4 - une touche ou un clic : page suivante - Échap : sauter l\'introduction',
@@ -105,11 +106,11 @@ const T = {
   empty:'(vide)', slot:'Emplacement %d', sceneW:'scène %s, Vie %d, Or %d', loadfail:'Emplacement %d vide ou illisible.',
   close:'Fermer', ch:'TRICHE', tele:'Se téléporter', go:'Aller', vie28:'Vie = 28', setor:'Fixer l\'or', objs:'Objets (cocher = porté)',
   cheatwarn:'Un inventaire "impossible" peut donner des scènes inattendues. B annule la triche.', cheated:'Triche appliquée (B pour l\'annuler).',
-  saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · V vie 32 · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
-  credit:'HEROS © 1994 Olivier Thil (Amiga, concours DREAM). Version navigateur adaptée (annuler, vie 32, 4 sauvegardes, carte) ; textes lus dans DataHeros. Adaptation réalisée avec l\'aide d\'une IA.',
+  saveT:'SAUVER', loadT:'CHARGER', hint:'Clavier : F1-F5 ou 1-5 (ou & é " \' ( ) = choix · B retour · S sauver · L charger · M carte · N son · T triche · Q quitter · flèches/PgUp/PgDn = défilement',
+  credit:'HEROS © 1994 Olivier Thil (Amiga, concours DREAM). Version navigateur adaptée (annuler, 4 sauvegardes, carte) ; textes lus dans DataHeros. Adaptation réalisée avec l\'aide d\'une IA.',
   bye:'À bientôt ! (touche ou clic pour recommencer)' },
  en: { obj:'Items', vie:'Life', or:'Gold', choix:'Choices', cmd:'Commands', zoom:'Zoom', zt:'Text', zu:'Interface',
-  back:'Back (B)', save:'Save (S)', load:'Load (L)', vie32:'Life 32 (V)', map:'Map (M)', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
+  back:'Back (B)', save:'Save (S)', load:'Load (L)', vieMax:'Max life', map:'Map (M)', cheat:'Cheat (T)', sound:'Sound (N)', quit:'Quit (Q)', home:'← Home',
   mapT:'WORLD MAP', mapT2:'TEMPLE - schematic plan', mapP:'Other page', here:'You are here', lifemsg:'Life set to 32.', cardinal:['N','S','E','W'],
   lang:'Français', full:'Fullscreen', start:'Press any key or click to start',
   intro:'Introduction %d/4 - any key or click: next page - Esc: skip the introduction',
@@ -119,8 +120,8 @@ const T = {
   empty:'(empty)', slot:'Slot %d', sceneW:'scene %s, Life %d, Gold %d', loadfail:'Slot %d is empty or unreadable.',
   close:'Close', ch:'CHEAT', tele:'Teleport', go:'Go', vie28:'Life = 28', setor:'Set gold', objs:'Items (checked = carried)',
   cheatwarn:'An "impossible" inventory can lead to unexpected scenes. B undoes the cheat.', cheated:'Cheat applied (B to undo it).',
-  saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · V life 32 · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
-  credit:'HEROS © 1994 Olivier Thil (Amiga, DREAM contest). Adapted browser version (undo, life 32, 4 saves, map); texts read from DataHeros. Adaptation made with the help of an AI.',
+  saveT:'SAVE', loadT:'LOAD', hint:'Keyboard: F1-F5 or 1-5 (or & é " \' ( ) = choices · B back · S save · L load · M map · N sound · T cheat · Q quit · arrows/PgUp/PgDn = scroll',
+  credit:'HEROS © 1994 Olivier Thil (Amiga, DREAM contest). Adapted browser version (undo, 4 saves, map); texts read from DataHeros. Adaptation made with the help of an AI.',
   bye:'See you soon! (key or click to restart)' }
 };
 const OBJ = {
@@ -262,7 +263,7 @@ function mettreEchelle() {
   // 1.0 = le parchemin occupe la largeur de la colonne (sans dépasser la hauteur de fenêtre)
   const sFit = Math.min(dispo / 608, Math.max(hDispo, 200) / 320 * 1.0);
   S = Math.max(0.3, sFit * zoomT);
-  const stH = Math.max(320 * S, Math.min(hDispo, 640 * S));
+  const stH = Math.max(320 * S, Math.min(hDispo, (640 - CROP) * S));
   stage.style.width = (608 * S) + 'px'; stage.style.height = stH + 'px';
   hViewport = stH; cwPx = 8 * S; lhPx = 12 * S;
   stage.style.setProperty('--lh', lhPx + 'px');
@@ -284,10 +285,28 @@ function seg(brut) {          // [[col, lig, [[dec, texte, accent]]]]
     return [col, lig, segs];
   });
 }
+/* alpha des parchemins : sert à décaler vers la gauche les pages dont le texte touche le bord déchiré */
+const ALPHA = [];
+(async () => { for (let p = 0; p < 5; p++) { try { const im = new Image(); im.src = `img/parch${p}.png`; await im.decode();
+  const c = document.createElement('canvas'); c.width = 608; c.height = 640; const x = c.getContext('2d'); x.drawImage(im, 0, 0); ALPHA[p] = x.getImageData(0, 0, 608, 640).data; } catch (e) { ALPHA[p] = null; } } })();
+function decalageCols(brut, p) {
+  const d = ALPHA[p]; if (!d) return 0; const M = 16; let worst = 0;
+  for (const [col, lig, t] of brut) {
+    const n = t.replace(/@\d/g, '').length; if (!t.replace(/@\d/g, '').trim()) continue;
+    const x0 = col * 8, x1 = (col + n) * 8;
+    for (let y = lig * 12 + 2; y < lig * 12 + 10; y += 4) {
+      if (y >= 640 || d[(y * 608 + x0) * 4 + 3] <= 128) continue;
+      let r = x0; while (r < 607 && d[(y * 608 + r) * 4 + 3] > 128) r++;
+      worst = Math.max(worst, x1 - (r - M));
+    }
+  }
+  return Math.min(6, Math.ceil(worst / 8));
+}
 function dessinerPage(nom, v, valides, panneau) {
   page.textContent = ''; groupes = [];
   stage.style.setProperty('--n', v.n);
-  const lignes = seg(TX.brut(nom));
+  const brut0 = TX.brut(nom), dc = decalageCols(brut0, v.p);
+  const lignes = seg(brut0.map(([c, l, t]) => [c - dc, l, t]));
   if (panneau && lignes.length) {
     const bas = (Math.max(...lignes.map(l => l[1])) + 3) * 12;
     const p = document.createElement('div'); p.id = 'panneau';
@@ -320,7 +339,7 @@ function dessinerPage(nom, v, valides, panneau) {
   const lm = lignes.map(l => l[1]); return [Math.min(...lm), Math.max(...lm)];
 }
 function decalageInitial(prem, der) {
-  let off = (prem - 2) * lhPx; off = Math.min(off, (der + 3) * lhPx - hViewport); return Math.max(0, off);
+  const max = Math.max(0, page.offsetHeight - hViewport); return Math.max(0, Math.min((prem - 2) * lhPx, max));
 }
 function resumesChoix(nom) {
   const res = {}; let cur = null;
@@ -428,16 +447,16 @@ function dlgTriche() {
   const nv = { ...hist[hist.length - 1] };
   dlg.innerHTML = `<h3>${tr('ch')}</h3><div style="opacity:.8;font-size:.85em;margin-bottom:.5em">${tr('cheatwarn')}</div>
    <div class="row"><label>${tr('tele')} <select id="chSc"></select></label></div>
-   <div class="row"><button id="chVie">${tr('vie28')}</button><label>${tr('or')} <input id="chOr" type="number" min="0" max="99" style="width:4.5em"></label></div>
+   <div class="row"><label>${tr('vie')} <input id="chVieN" type="number" min="0" max="32" style="width:4.5em"></label><button id="chVie">${tr('vieMax')}</button><label>${tr('or')} <input id="chOr" type="number" min="0" max="99" style="width:4.5em"></label></div>
    <div>${tr('objs')}</div><div class="chk" id="chObj"></div><div class="row"><button id="chOk">OK</button><button id="chNo">${tr('close')}</button></div>`;
   const sel = dlg.querySelector('#chSc'); SC.forEach((s, i) => { const o = document.createElement('option'); o.value = i; o.textContent = LAB[i]; if (i === nv.sc) o.selected = true; sel.appendChild(o); });
-  dlg.querySelector('#chOr').value = nv.or;
+  dlg.querySelector('#chOr').value = nv.or; dlg.querySelector('#chVieN').value = nv.vie;
   const co = dlg.querySelector('#chObj');
   for (let b = 0; b < 16; b++) { const l = document.createElement('label'); const c = document.createElement('input'); c.type = 'checkbox'; c.checked = !!bit(nv.W, b); c.dataset.b = b; l.append(c, ' ' + OBJ[lang][b]); co.appendChild(l); }
-  dlg.querySelector('#chVie').onclick = () => { nv.vie = VIE_DEPART; };
+  dlg.querySelector('#chVie').onclick = () => { dlg.querySelector('#chVieN').value = VIE_MAX; };
   dlg.querySelector('#chNo').onclick = fermerDlg;
   dlg.querySelector('#chOk').onclick = () => {
-    nv.sc = +sel.value; nv.or = Math.max(0, Math.min(99, +dlg.querySelector('#chOr').value || 0));
+    nv.sc = +sel.value; nv.vie = Math.max(0, Math.min(VIE_MAX, +dlg.querySelector('#chVieN').value || 0)); nv.or = Math.max(0, Math.min(99, +dlg.querySelector('#chOr').value || 0));
     let W = 0; co.querySelectorAll('input').forEach(c => { if (c.checked) W |= 1 << c.dataset.b; }); nv.W = W >>> 0;
     fermerDlg(); hist.push(nv); afficher(tr('cheated'));
   };
@@ -457,18 +476,12 @@ document.addEventListener('keydown', ev => {
   if (fk) n = +fk[1]; else if (/^[1-5]$/.test(k)) n = +k; else if (CHIFFRES[k]) n = CHIFFRES[k];
   if (n) { ev.preventDefault(); choisirK(n); return; }
   const K = k.length === 1 ? k.toUpperCase() : k;
-  if (K === 'B') retour(); else if (K === 'V') vie32(); else if (K === 'S') dlgSlots('save'); else if (K === 'L') dlgSlots('load'); else if (K === 'T') dlgTriche();
+  if (K === 'B') retour(); else if (K === 'S') dlgSlots('save'); else if (K === 'L') dlgSlots('load'); else if (K === 'T') dlgTriche();
   else if (K === 'M') dlgCarte(); else if (K === 'N') basculerSon(); else if (K === 'Q') quitter();
   else if (K === 'ArrowDown') { scroll.scrollTop += lhPx * 2; ev.preventDefault(); } else if (K === 'ArrowUp') { scroll.scrollTop -= lhPx * 2; ev.preventDefault(); }
   else if (K === 'PageDown') { scroll.scrollTop += hViewport * .9; ev.preventDefault(); } else if (K === 'PageUp') { scroll.scrollTop -= hViewport * .9; ev.preventDefault(); }
   else if (K === 'Home') { scroll.scrollTop = 0; } else if (K === 'End') { scroll.scrollTop = 1e6; }
 });
-function vie32() {
-  if (mode !== 'jeu') return;
-  const st = hist[hist.length - 1];
-  if (st.vie < VIE_MAX) hist.push({ ...st, vie: VIE_MAX });
-  afficher(tr('lifemsg'));
-}
 function dlgCarte() {
   if (mode !== 'jeu') return;
   const cur = MAP.sc[SC[hist[hist.length - 1].sc].nom], tem = cur >= MAP.n1;
@@ -483,7 +496,7 @@ function dlgCarte() {
     }
     g += '</div>';
     const [N, S, E, O] = tr('cardinal');
-    dlg.innerHTML = `<h3>${tr(page === 1 ? 'mapT' : 'mapT2')}</h3>${g}<pre class="rose">      ${N}\n      :\n ${O} <----:----> ${E}\n      :\n      ${S}</pre>
+    dlg.innerHTML = `<h3>${tr(page === 1 ? 'mapT' : 'mapT2')}</h3>${g}<pre class="rose">        ${N}\n        :\n ${O} <----:----> ${E}\n        :\n        ${S}</pre>
       <div class="row"><span class="mz here" style="padding:.1em .6em">${tr('here')}</span><button id="mpg">${tr('mapP')}</button><button id="mcl">${tr('close')}</button></div>`;
     dlg.querySelector('#mcl').onclick = fermerDlg;
     dlg.querySelector('#mpg').onclick = () => { page = 3 - page; draw(); };
@@ -497,7 +510,7 @@ stage.addEventListener('click', () => { Son.jouer(Son.demande ?? Son.liste ?? D.
 /* ------------------------------------------------------------- interface */
 function construireCmds() {
   const c = $('cmds'); c.textContent = '';
-  const defs = [['back', 'back', retour], ['vie', 'vie32', vie32], ['map', 'map', dlgCarte], ['save', 'save', () => dlgSlots('save')], ['load', 'load', () => dlgSlots('load')], ['cheat', 'cheat', dlgTriche], ['son', 'sound', basculerSon], ['quit', 'quit', quitter]];
+  const defs = [['back', 'back', retour], ['map', 'map', dlgCarte], ['save', 'save', () => dlgSlots('save')], ['load', 'load', () => dlgSlots('load')], ['cheat', 'cheat', dlgTriche], ['son', 'sound', basculerSon], ['quit', 'quit', quitter]];
   for (const [id, key, fn] of defs) { const b = document.createElement('button'); b.dataset.c = id; b.textContent = tr(key); b.onclick = e => { fn(); b.blur(); }; c.appendChild(b); }
 }
 function textesUI() {
