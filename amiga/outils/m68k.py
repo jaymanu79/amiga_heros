@@ -147,6 +147,7 @@ class CPU:
                 if k==1: s.put(e,sz,0); s.Z=1;s.N=s.V=s.C=0
                 else: s.nz(s.get(e,sz),sz); s.V=s.C=0
                 return
+            if o==0x4e71: return
             raise Exception('op4 %04x pc=%x'%(o,s.pc-2))
         if t==5:
             if o>>6&3==3:

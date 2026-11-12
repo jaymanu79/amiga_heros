@@ -169,8 +169,8 @@ def build(image, bufsize=0x20000, debug=False):
     p_hkp=len(e); e+=W(0x41fa,0)                     # lea HK(pc),a0
     e+=W(0x2548,0x0712)                              # move.l a0,$712(a2)   (pointeur du stub)
     p_bss0=len(e); e+=W(0x41fa,0)                    # lea BSS(pc),a0
-    e+=W(0x4250)                                     # clr.w (a0)           (historique vide)
-    e+=W(0x4268,0x0288)                              # clr.w 648(a0)        (NAV, NOWIPE)
+    e+=W(0x303c,hooks.BSS_SIZE//4-1)                 # move.w #n-1,d0 : toute la BSS est remise a zero (la memoire du hunk n'est pas effacee par le chargeur)
+    e+=W(0x4298,0x51c8,0xfffc)                       # clr.l (a0)+ ; dbf d0,-4
     p_lea2=len(e); e+=W(0x41fa,0)                    # lea name(pc),a0
     e+=W(0x2548,0x051e)                              # move.l a0,$51e(a2)
     if debug:   # copie le nom dans le message S1

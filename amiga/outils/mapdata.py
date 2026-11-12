@@ -48,6 +48,9 @@ SCENES2 = {
 SCENES['temple'] = []   # la case Temple de la carte 1 est marquee quand on est dans la carte 2
 
 COL0 = 14; ROW0 = 7   # la ligne 6 (ombre du parchemin) sert de titre
+EN_LABELS = ['Villg','Cliff','NBank','Bank','Thief','Scorp','Dragn','Orcs','Cross','Dead','Marsh','Pond','Trunk','Basin','Brdg',
+             'Isle','Giant','Sands','DkFor','Hills','Wolf','Battl','Stone','Hall','Templ']   # 5 lettres max (memes largeurs que le francais)
+assert len(EN_LABELS)==len(ZONES) and all(len(x)<=5 for x in EN_LABELS)
 def lines(ZONES=ZONES,NR=11,NC=6,LW=5,TITLE=None):
     """[(col, ligne, texte)], et offsets des octets 'chiffre de couleur' dans le flux du bloc."""
     grid = {(r,c):(i,l) for i,(k,l,r,c) in enumerate(ZONES)}
@@ -68,7 +71,8 @@ def lines(ZONES=ZONES,NR=11,NC=6,LW=5,TITLE=None):
         out.append((COL0,ROW0+r,t)); pos+=2+len(t)+1
     return out,slots
 def block_lines(fr=True):
-    ls,_=lines()
+    Z=ZONES if fr else [(k,e,r,c) for (k,_,r,c),e in zip(ZONES,EN_LABELS)]
+    ls,_=lines(Z)
     out=['%d,%d|%s'%l for l in ls]
     out.append('26,6|@1' + ('CARTE DU MONDE' if fr else 'WORLD MAP'))
     # legende : croix flechee en bas a gauche (zone libre de la carte)
