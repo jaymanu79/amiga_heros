@@ -49,10 +49,10 @@ body.l-en span.en,body.l-en a.en{display:inline}
   <p class="sub fr">Aventure textuelle Amiga · Olivier Thil · 1994</p>
   <p class="sub en">Amiga text adventure · Olivier Thil · 1994</p>
   <div class="cta">
-    <a class="btn" id="play" href="jeu/">
+    <a class="btn" id="play" href="jeu/" data-goatcounter-click="heros-jouer-navigateur" data-goatcounter-title="HEROS : jouer dans le navigateur">
       <span class="fr">▶ Jouer dans le navigateur</span><span class="en">▶ Play in your browser</span></a>
-    <a class="btn alt" href="HEROS.adf" download>
-      <span class="fr">💾 Télécharger la disquette (.adf)</span><span class="en">💾 Download the disk (.adf)</span></a>
+    <a class="btn alt" href="#telecharger">
+      <span class="fr">💾 Télécharger (ADF, LHA, SNES)</span><span class="en">💾 Download (ADF, LHA, SNES)</span></a>
   </div>
 </div>
 
@@ -68,7 +68,19 @@ body.l-en span.en,body.l-en a.en{display:inline}
 </div>
 </div>
 
-<h2><span class="fr">Nos modifications</span><span class="en">Our changes</span></h2>
+<h2><span class="fr">L'histoire du jeu</span><span class="en">The story of the game</span></h2>
+<div class="card">
+<div class="fr">
+<p>En 1994, <strong>Olivier Thil</strong> écrit <strong>HEROS</strong> sur Amiga et le diffuse en shareware : le jeu paraît sur la disquette n° 13 de <em>DREAM</em>, dans le cadre d'un <strong>concours</strong>. Celui qui va au bout reçoit un code secret, à envoyer par carte postale à la rédaction pour participer au tirage au sort.</p>
+<p>Plus de trente ans après, le jeu risquait de rester prisonnier de ses disquettes. Nous en avons <strong>extrait les textes, les décors et les musiques</strong>, compris sa logique (chaque écran, chaque test d'objet), puis vérifié que le nouveau moteur suit exactement les mêmes chemins que l'original.</p>
+</div>
+<div class="en">
+<p>In 1994, <strong>Olivier Thil</strong> wrote <strong>HEROS</strong> on the Amiga and released it as shareware: it appeared on disk no. 13 of <em>DREAM</em>, as part of a <strong>contest</strong>. Whoever finishes the game gets a secret code to send on a postcard to the editors for a prize draw.</p>
+<p>More than thirty years later, the game risked staying locked in its floppies. We <strong>extracted its texts, pictures and music</strong>, worked out its logic (every screen, every item check), then verified that the new engine follows exactly the same paths as the original.</p>
+</div>
+</div>
+
+<h2><span class="fr">Ce que nous avons fait pour l'améliorer</span><span class="en">What we did to improve it</span></h2>
 <div class="grid">
 <div class="card fr"><h3>Sur Amiga (ADF)</h3><ul>
 <li>Page d'introduction supplémentaire : avertissement « adaptation réalisée avec une IA » et liste des touches, en couleurs.</li>
@@ -104,18 +116,37 @@ body.l-en span.en,body.l-en a.en{display:inline}
 <li><kbd>N</kbd> sound, <kbd>T</kbd> cheat (teleport, items, “Max life”), <kbd>Q</kbd> quit, zoom, fullscreen.</li>
 <li>Saves are kept in your browser (localStorage). Also works on mobile.</li>
 </ul></div>
+<div class="card fr"><h3>Sur Super Nintendo</h3><ul>
+<li>Le jeu complet en cartouche (ROM 2 Mo), avec ses 39 décors, ses textes en français et en anglais et ses 37 morceaux de musique recomposés pour le processeur son de la console.</li>
+<li>Les 4 boutons de couleur = <kbd>F1</kbd> à <kbd>F4</kbd> ; <kbd>L</kbd> ou <kbd>R</kbd> = <kbd>F5</kbd> ; <kbd>Select</kbd> = retour ; <kbd>Start</kbd> = menu (sauver, charger, vie max, langue).</li>
+<li>4 sauvegardes en SRAM. Moteur vérifié contre la version de référence : même chemin du début à la fin du jeu.</li>
+<li>Testée sur émulateur ; pas encore sur console réelle.</li>
+</ul></div>
+<div class="card en"><h3>On Super Nintendo</h3><ul>
+<li>The whole game as a cartridge (2 MB ROM), with its 39 pictures, French and English texts and 37 music tracks rebuilt for the console's sound chip.</li>
+<li>The 4 coloured buttons = <kbd>F1</kbd>–<kbd>F4</kbd>; <kbd>L</kbd> or <kbd>R</kbd> = <kbd>F5</kbd>; <kbd>Select</kbd> = back; <kbd>Start</kbd> = menu (save, load, max life, language).</li>
+<li>4 SRAM save slots. Engine checked against the reference version: same path from start to finish.</li>
+<li>Tested on an emulator; not yet on a real console.</li>
+</ul></div>
 </div>
 
-<h2><span class="fr">Télécharger la disquette</span><span class="en">Download the disk</span></h2>
-<div class="card">
-<div class="fr">
-<p><a href="HEROS.adf" download><strong>HEROS.adf</strong></a> — image de disquette Amiga (880 Ko, démarre sur le Workbench 1.3), nommée <code>HEROS</code>, avec l'icône de disque dragon. À utiliser avec un émulateur (WinUAE, FS-UAE, Amiberry…) ou à écrire sur une vraie disquette DD (ADF-Copy, Greaseweazle…).</p>
-<p>Au lancement, double-cliquer l'icône <em>héros - français</em> ou <em>héros - english</em> pour choisir la langue. Dans le jeu : <kbd>F1</kbd>–<kbd>F5</kbd> choix, <kbd>B</kbd> retour, <kbd>V</kbd> vie, <kbd>S</kbd>/<kbd>L</kbd> sauver/charger, <kbd>M</kbd> carte.</p>
-</div>
-<div class="en">
-<p><a href="HEROS.adf" download><strong>HEROS.adf</strong></a> — Amiga floppy image (880 KB, boots to Workbench 1.3), named <code>HEROS</code>, with a dragon disk icon. Use it with an emulator (WinUAE, FS-UAE, Amiberry…) or write it to a real DD floppy (ADF-Copy, Greaseweazle…).</p>
-<p>Double-click the <em>héros - français</em> or <em>héros - english</em> icon to pick the language. In-game: <kbd>F1</kbd>–<kbd>F5</kbd> choices, <kbd>B</kbd> back, <kbd>V</kbd> life, <kbd>S</kbd>/<kbd>L</kbd> save/load, <kbd>M</kbd> map.</p>
-</div>
+<h2 id="telecharger"><span class="fr">Télécharger</span><span class="en">Download</span></h2>
+<div class="grid">
+<div class="card"><div class="fr">
+<h3>Disquette Amiga (.adf)</h3>
+<p><a href="HEROS.adf" download data-goatcounter-click="heros-telechargement-adf" data-goatcounter-title="HEROS : téléchargement ADF"><strong>HEROS.adf</strong></a> — image de disquette (880 Ko), démarre sur le Workbench. Pour un émulateur (WinUAE, FS-UAE, Amiberry…) ou à écrire sur une vraie disquette DD (ADF Opus, Greaseweazle…). Double-cliquer <em>héros - français</em> ou <em>héros - english</em>.</p></div>
+<div class="en"><h3>Amiga floppy (.adf)</h3>
+<p><a href="HEROS.adf" download data-goatcounter-click="heros-telechargement-adf" data-goatcounter-title="HEROS : téléchargement ADF"><strong>HEROS.adf</strong></a> — floppy image (880 KB), boots to Workbench. For an emulator (WinUAE, FS-UAE, Amiberry…) or to write to a real DD floppy (ADF Opus, Greaseweazle…). Double-click <em>héros - français</em> or <em>héros - english</em>.</p></div></div>
+<div class="card"><div class="fr">
+<h3>Archive pour disque dur (.lha)</h3>
+<p><a href="HEROS.lha" download data-goatcounter-click="heros-telechargement-lha" data-goatcounter-title="HEROS : téléchargement LHA"><strong>HEROS.lha</strong></a> — le jeu seul (373 Ko) pour l'installer sur disque dur ou carte CF : décompresser avec LHA, puis lancer par les icônes. Les deux bibliothèques nécessaires sont jointes.</p></div>
+<div class="en"><h3>Hard disk archive (.lha)</h3>
+<p><a href="HEROS.lha" download data-goatcounter-click="heros-telechargement-lha" data-goatcounter-title="HEROS : téléchargement LHA"><strong>HEROS.lha</strong></a> — the game alone (373 KB) to install on a hard disk or CF card: unpack with LHA, then start it from the icons. The two required libraries are included.</p></div></div>
+<div class="card"><div class="fr">
+<h3>Super Nintendo (.sfc)</h3>
+<p><a href="snes/heros_snes.sfc" download data-goatcounter-click="heros-telechargement-snes" data-goatcounter-title="HEROS : téléchargement SNES"><strong>heros_snes.sfc</strong></a> — ROM LoROM de 2 Mo, avec SRAM de 8 Ko. Pour un émulateur (bsnes, snes9x…) ou une flashcart (Everdrive, SD2SNES). <a href="snes/README.md">Détails</a>.</p></div>
+<div class="en"><h3>Super Nintendo (.sfc)</h3>
+<p><a href="snes/heros_snes.sfc" download data-goatcounter-click="heros-telechargement-snes" data-goatcounter-title="HEROS : téléchargement SNES"><strong>heros_snes.sfc</strong></a> — 2 MB LoROM image with 8 KB SRAM. For an emulator (bsnes, snes9x…) or a flash cart (Everdrive, SD2SNES). <a href="snes/README.md">Details</a>.</p></div></div>
 </div>
 
 <h2><span class="fr">Code et version Python</span><span class="en">Code &amp; Python version</span></h2>
@@ -129,12 +160,13 @@ body.l-en span.en,body.l-en a.en{display:inline}
 <p class="en">HEROS © 1994 Olivier Thil (shareware, DREAM contest). Adaptations (English, Amiga patch, browser and Python versions): jaymanu, with Claude (Anthropic). Non-commercial preservation project; if you are the author and want anything removed or changed, please open an issue on the repository.</p>
 </footer>
 </div>
+<script data-goatcounter="https://jaymanu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script>
 (function(){
   var UK='<svg viewBox="0 0 28 19"><rect width="28" height="19" fill="#012169"/><path d="M0 0L28 19M28 0L0 19" stroke="#fff" stroke-width="3.4"/><path d="M0 0L28 19M28 0L0 19" stroke="#c8102e" stroke-width="1.4"/><path d="M14 0V19M0 9.5H28" stroke="#fff" stroke-width="6"/><path d="M14 0V19M0 9.5H28" stroke="#c8102e" stroke-width="3.4"/></svg>', FR='<svg viewBox="0 0 28 19"><rect width="9.4" height="19" fill="#0055a4"/><rect x="9.3" width="9.4" height="19" fill="#fff"/><rect x="18.6" width="9.4" height="19" fill="#ef4135"/></svg>';
   var q=new URLSearchParams(location.search).get('lang'), saved=null;
   try{saved=localStorage.getItem('heros_lang')}catch(e){}
-  var lang=q||saved||((navigator.language||'fr').slice(0,2)==='fr'?'fr':'en');
+  var lang=q||saved||'fr';
   function set(l){
     lang=l==='en'?'en':'fr';
     document.body.classList.toggle('l-en',lang==='en');

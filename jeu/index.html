@@ -80,6 +80,7 @@ select,input[type=number],input[type=text]{font:inherit;background:#2a1c10;color
 </div>
 
 <dialog id="dlg"></dialog>
+<script data-goatcounter="https://jaymanu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script src="data.js"></script>
 <script>
 "use strict";
@@ -248,6 +249,12 @@ const Son = {
 };
 
 /* ------------------------------------------------------------------ jeu */
+/* compteur anonyme (GoatCounter) : une fois par partie, aux grandes etapes */
+const track = (path, title) => { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path, title, event: true }); } catch (e) {} };
+const JALONS = { TC1: ['debut', 'Début de partie'], TM1: ['falaise', 'Falaise (après les auberges)'], TT1: ['temple', 'Entrée du temple'], TT39: ['fin', 'Fin du jeu (code secret)'] };
+const jalonsVus = new Set();
+function jalon(nom) { const j = JALONS[nom]; if (!j || jalonsVus.has(j[0])) return; jalonsVus.add(j[0]); track('heros-partie-' + j[0], 'HEROS : ' + j[1]); }
+function nouvellePartie() { jalonsVus.clear(); jalon('TC1'); }
 let mode = 'titre', introN = 0, hist = [nouvelEtat()], groupes = [], sceneSortie = false;
 let cwPx = 8, lhPx = 12, S = 1, zoomT = +store.get('heros_zt', '1'), zoomU = +store.get('heros_zu', '1');
 let ratioFonte = 0.6, hViewport = 320;
@@ -374,14 +381,14 @@ function montrerTitre() {
 }
 function suiteIntro() {
   $('titre').style.display = 'none'; introN++;
-  if (introN > 4) { introN = 0; mode = 'jeu'; hist = [nouvelEtat()]; afficher(); return; }
+  if (introN > 4) { introN = 0; mode = 'jeu'; hist = [nouvelEtat()]; nouvellePartie(); afficher(); return; }
   mode = 'intro'; const sc = IDX.TC1; fond(sc);
   page.style.backgroundImage = 'none';
   const [p, d] = dessinerPage('TIN' + introN, VIS[sc], [], true);
   scroll.scrollTop = decalageInitial(p, d);
   message(fmt(tr('intro'), introN)); vider(); majHUD(null); activerCmds(false);
 }
-function sauterIntro() { $('titre').style.display = 'none'; mode = 'jeu'; introN = 0; hist = [nouvelEtat()]; afficher(); }
+function sauterIntro() { $('titre').style.display = 'none'; mode = 'jeu'; introN = 0; hist = [nouvelEtat()]; nouvellePartie(); afficher(); }
 function vider() { $('choix').textContent = ''; }
 function activerCmds(on) {
   for (const b of document.querySelectorAll('#cmds button')) b.disabled = !on && !['son', 'quit', 'load'].includes(b.dataset.c);
@@ -407,7 +414,7 @@ function choisirK(k) {
   if (!choixValides(st).includes(k)) { message(tr('noch')); return; }
   const nv = { ...st };
   if (choisir(nv, k) === 'quitter') { quitter(); return; }
-  hist.push(nv); afficher();
+  hist.push(nv); jalon(SC[nv.sc].nom); afficher();
 }
 function quitter() { Son.arreter(); mode = 'fin'; introN = 0; hist = [nouvelEtat()]; montrerTitre(); message(tr('bye')); }
 function retour() {
@@ -563,7 +570,7 @@ $('colText').addEventListener('wheel', e => { if (e.ctrlKey) { e.preventDefault(
 
 /* ---------------------------------------------------------------- départ */
 mesureFonte();
-chargerLangue(((new URLSearchParams(location.search).get('lang')) || store.get('heros_lang', (navigator.language || 'fr').startsWith('fr') ? 'fr' : 'en')) === 'en' ? 'en' : 'fr');
+chargerLangue(((new URLSearchParams(location.search).get('lang')) || store.get('heros_lang', 'fr')) === 'en' ? 'en' : 'fr');
 appliquerZoomUI(); construireCmds(); textesUI(); mettreEchelle();
 new ResizeObserver(mettreEchelle).observe($('colText'));
 montrerTitre();

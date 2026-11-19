@@ -10,6 +10,8 @@
 | Chemin | Contenu |
 |---|---|
 | `index.html`, `jeu/` | Site GitHub Pages : page d'accueil (contexte, drapeau FR/EN, téléchargement) et jeu jouable dans le navigateur (`jeu/`). |
+| `HEROS.lha` | Le jeu seul pour disque dur / carte CF (`amiga/outils/mklha.py` le fabrique). |
+| `snes/` | Version Super Nintendo complète : ROM `heros_snes.sfc`, sources 65816, tests. |
 | `HEROS.adf` | Disquette Amiga (880 Ko, A500 / Kickstart 1.3) avec le jeu adapté, en français et en anglais. |
 | `amiga/` | Fichiers de la disquette (`HerosExe` patché, `DataHeros-fr/-en`, icônes) et outils pour la reconstruire (`outils/`). |
 | `python/` | Version Python (console `heros_jeu.py`, interface Tk `heros_gui.py`) et extracteurs de textes, images et sons. |
@@ -22,6 +24,8 @@
 - Vie plafonnée à 32 ; changements d'écran plus rapides (Amiga).
 - Version anglaise complète ; choix de la langue par icône (Amiga) ou drapeau (navigateur).
 - Le jeu Amiga reste sur sa disquette protégée : seul `HerosSave-N` est écrit.
+
+Les téléchargements (ADF, LHA, SNES) et les étapes de partie dans le navigateur (début, falaise, temple, fin) sont comptés anonymement avec GoatCounter (compte `jaymanu`, le même que Relief Action).
 
 Le détail est sur la page d'accueil et dans `amiga/LISEZMOI.txt`.
 
